@@ -8,7 +8,7 @@ Projeto de adaptação do CABSFinger (Delphi) para Web
 A aplicação utiliza Javascript, JQuery 1.11.3, Bootstrap 4.1, todos esses recursos devem estar permitidos no navegador cliente.
 
 ## Versionamento
-Utilizado Git para versionamento inicial. Atualmente aplicado Github e versionamento pontuado.
+2.6.1 - Utilizado Git para versionamento inicial. Atualmente aplicado Github e versionamento pontuado.
 
 ## Desenvolvido e Adaptado
 Márcio Casarin (https://github.com/mcasarin)
