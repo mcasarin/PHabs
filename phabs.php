@@ -16,22 +16,37 @@ $nomeoperador = $_SESSION["nome"];
 </head>
 <body>
 <div class="container">
-	<nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="http://www.edificiochurchill.com.br" target="_blank"> <img src="img/churchill-minor.png" class="img-rounded" alt="Winston Churchill" width="60" height="60" hspace="10"> </a>
-    	<div class="row" style="width: 80%">
-			<a href="phabs.php" class="btn btn-outline-primary" style="margin-left:10px;margin-right:10px;"> Início </a>
-			<a href="cadastrovisitantes.php" target="local" class="btn btn-outline-primary" style="margin-left:10px;margin-right:10px;"> Cadastro </a>
-			<a href="baixavisitantes.php" target="local" class="btn btn-outline-primary" style="margin-left:10px;margin-right:10px;"> Baixa </a>
-			<a href="consultavisitantes.php" target="local" class="btn btn-outline-primary" style="margin-left:10px;margin-right:10px;"> Consulta </a>
-			<a href="empresas/consultacadastro.php" target="local" class="btn btn-outline-primary" style="margin-left:10px;margin-right:10px;"> Localizza </a>
+    	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a href="phabs.php" class="nav-link"> Início </a>
+				</li>
+				<li class="nav-item dropdown">
+					<a href="visitantes/index.php" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Visitantes</a>
+					<div class="dropdown-menu" arial-labelledby="navbarDropdown">
+						<a href="cadastrovisitantes.php" target="local" class="dropdown-item"> Cadastro </a>
+						<a href="baixavisitantes.php" target="local" class="dropdown-item"> Baixa </a>
+						<a href="consultavisitantes.php" target="local" class="dropdown-item"> Consulta </a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a href="empresas/consultacadastro.php" target="local" class="nav-link"> Localizza </a>
+				</li>
 			<?php
 			if($_SESSION["tipo"] == '0'){//administrativo
 			?>
-				<a href="empresas/index.php" target="local" class="btn btn-outline-primary" style="margin-left:10px;margin-right:10px;"> Empresas </a>
-				<a href="reader/cartoes.php" target="local" class="btn btn-outline-primary" style="margin-left:10px;margin-right:10px;"> Cartões de usuários </a>
+				<li class="nav-item">
+					<a href="empresas/index.php" target="local" class="nav-link"> Empresas </a>
+				</li>
+				<li class="nav-item">
+					<a href="reader/cartoes.php" target="local" class="nav-link"> Cartões de usuários </a>
+				</li>
 			<?php
 			}//end if administrativo
 			?>
+			</ul>
     	</div>
         <div style="display: inline-block; text-align: right; width: 20%">
         	<a href="include/logout.php" class="btn btn-outline-info" style="margin-left: 20px;margin-right: 10px;">
