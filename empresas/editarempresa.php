@@ -113,9 +113,9 @@ if(isset($_GET["formdirect"])){
 		<tr><td>Conjunto (Número): <input type="text" name="conjunto" id="conjunto" size="10" value="<?php echo $conjunto;?>"></td><td>Andar: <input type="text" name="andar" id="andar" size="10" value="<?php echo $andar;?>"></td></tr>
 		<tr><td colspan="2">Atualiza no site (churchil.com.br): <?php
 				if($bloco == 'naoSite'){
-					echo " NÃO <input type=\"checkbox\" name=\"atualizasite\" id=\"atualizasite\" value=\"naoSite\" checked> SIM <input type=\"checkbox\" name=\"atualizasite\" id=\"atualizasite\" value=\"\"></td>";
+					echo " <b>NÃO</b> <input type=\"radio\" name=\"atualizasite\" id=\"atualizasite\" value=\"naoSite\" checked>  |  SIM <input type=\"radio\" name=\"atualizasite\" id=\"atualizasite\" value=\"\"></td>";
 				} else {
-					echo " NÃO <input type=\"checkbox\" name=\"atualizasite\" id=\"atualizasite\" value=\"naoSite\"> SIM <input type=\"checkbox\" name=\"atualizasite\" id=\"atualizasite\" value=\"\" checked></td>";
+					echo " <b>NÃO</b> <input type=\"radio\" name=\"atualizasite\" id=\"atualizasite\" value=\"naoSite\">  |  SIM <input type=\"radio\" name=\"atualizasite\" id=\"atualizasite\" value=\"\" checked></td>";
 				}
 				?></tr>
 		<tr><td>Diferencia Vagas: <?php
@@ -140,7 +140,7 @@ if(isset($_GET["formdirect"])){
 			echo "<tr><td colspan='2'>Vaga Condomino: <input type='text' name='vgcond' id='vgcond' size='5' value='".$vgcond."'> Quantidade: <input type='text' name='qtdcond' id='qtdcond' size='5' value='".$qtdcond."'> Vaga Visitante: <input type='text' name='vgvis' id='vgvis' size='5' value='".$vgvis."'> Quantidade: <input type='text' name='qtdvis' id='qtdvis' size='5' value='0'></td></tr>";
 		}
 		?>
-		<tr><td colspan="2" style="text-align:center;"><input class="btn btn-success btn-lg" type="submit" name="enviar" id="enviar" value=" Enviar " /></td></tr>
+		<tr><td style="text-align:center;"><input class="btn btn-success btn-lg" type="submit" name="enviar" id="enviar" value=" Enviar " /></td><td><a href="index.php" style="text-align:right;" class="btn btn-warning btn-lg" type="submit" name="cancel" id="cancel"> Cancelar </a></td></tr>
 	</form>
 </table>
 </div> <!-- fim div table -->

@@ -23,28 +23,34 @@ $nomeoperador = $_SESSION["nome"];
 				<li class="nav-item active">
 					<a href="phabs.php" class="nav-link"> Início </a>
 				</li>
-				<li class="nav-item dropdown">
-					<a href="visitantes/index.php" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Visitantes</a>
+				<li class="nav-item dropdown"> <!-- Dropdown Visitantes -->
+					<a href="visitantes/index.php" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Visitantes </a>
 					<div class="dropdown-menu" arial-labelledby="navbarDropdown">
 						<a href="cadastrovisitantes.php" target="local" class="dropdown-item"> Cadastro </a>
 						<a href="baixavisitantes.php" target="local" class="dropdown-item"> Baixa </a>
 						<a href="consultavisitantes.php" target="local" class="dropdown-item"> Consulta </a>
 					</div>
-				</li>
+				</li> <!-- END Dropdown Visitantes -->
 				<li class="nav-item">
 					<a href="empresas/consultacadastro.php" target="local" class="nav-link"> Localizza </a>
 				</li>
 			<?php
-			if($_SESSION["tipo"] == '0'){//administrativo
+			if($_SESSION["tipo"] == '0'){//operadores administrativos
 			?>
+			<li class="nav-item dropdown"> <!-- Dropdown Empresas -->
 				<li class="nav-item">
-					<a href="empresas/index.php" target="local" class="nav-link"> Empresas </a>
+					<a href="empresas/index.php" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Empresas </a>
+					<div class="dropdown-menu" arial-labelledby="navbarDropdown">
+						<a href="empresas/consultacadastro.php" target="local" class="dropdown-item"> Consulta </a>
+						<a href="empresas/updateempresas.php" target="local" class="dropdown-item"> Adiciona </a>
+					</div>
 				</li>
+			</li> <!-- END Dropdown Empresas-->
 				<li class="nav-item">
 					<a href="reader/cartoes.php" target="local" class="nav-link"> Cartões de usuários </a>
 				</li>
 			<?php
-			}//end if administrativo
+			}//end if operadores administrativo
 			?>
 			</ul>
     	</div>

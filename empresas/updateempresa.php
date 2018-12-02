@@ -30,7 +30,7 @@ $vgcond = $_POST["vgcond"];
 $qtdcond = $_POST["qtdcond"];
 $vgvis = $_POST["vgvis"];
 $qtdvis = $_POST["qtdvis"];
-$formdirect = $_POST["formdirect"];
+$formdirect = $_GET["formdirect"];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -65,6 +65,10 @@ switch ($formdirect) {
                 <p><strong>Falha para atualizar os usuário da empresa!</strong><br>Tente novamente...</p>
                 </div>";
             }
+            //atualiza site
+            $sqlupdatesite = "INSERT INTO empresa_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresa','$empresaedit','$ramoatividade','$atualizasite','atualiza')";
+            $sqlupdatesiteexe = $conn->query($sqlupdatesite);
+
         } else {
             echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Algo deu errado na atualização!</strong><br>Tente novamente...</p>
@@ -80,12 +84,15 @@ switch ($formdirect) {
             echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Empresa inserida com sucesso!</strong></p>
             </div>";
+            //atualiza site
+            $sqlupdatesite = "INSERT INTO empresa_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresaedit','$empresaedit','$ramoatividade','$atualizasite','insere')";
+            $sqlupdatesiteexe = $conn->query($sqlupdatesite);
         } else {
             echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Algo deu errado na inserção!</strong><br>Tente novamente...</p>
             </div>";
         }
-
+        
         $conn->close;
         break;
     default:

@@ -1,6 +1,6 @@
 <?php
 require ('connect.php');
-header('Content-Type: text/html; charset=iso-8859-1');
+header('Content-Type: text/html; charset=utf-8');
 //envio post
 $login = $_POST[htmlspecialchars('login')];
 $senha = $_POST[htmlspecialchars('senha')];
@@ -8,7 +8,7 @@ $senha = $_POST[htmlspecialchars('senha')];
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -21,8 +21,10 @@ $senha = $_POST[htmlspecialchars('senha')];
 $terminalbr = $_SERVER["REMOTE_ADDR"];
 $terminalarr = explode(".", $terminalbr);
 $terminal = $terminalarr[3];
-
+echo $login."<br>";
+echo $senha."<br>";
 $sql = "SELECT Login, Senha, Nome, SenhaBloq, Tipo FROM operadores WHERE Login = '".$login."' AND Senha = '".md5($senha)."'";
+echo $sql;
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
