@@ -95,6 +95,23 @@ switch ($formdirect) {
         
         $conn->close;
         break;
+    case 'delete':
+        $sqldeleteempresa = "DELETE FROM empresas WHERE Empresa = '$empresaedit'";
+        $sqldeleteempresaexe = $conn->query($sqldeleteempresa);
+        if($sqldeleteempresaexe){
+            echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
+            <p><strong>Empresa APAGADA com sucesso!</strong></p>
+            </div>";
+            //atualiza site
+            $sqlupdatesite = "INSERT INTO empresa_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresaedit','$empresaedit','$ramoatividade','$atualizasite','apaga')";
+            $sqlupdatesiteexe = $conn->query($sqlupdatesite);
+        } else {
+            echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
+            <p><strong>Algo deu errado na exclusão!</strong><br>Tente novamente...</p>
+            </div>";
+        }
+        $conn->close;
+        break;
     default:
         echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Algo deu errado!</strong><br>Informe ao mantenedor do sistema</p>

@@ -82,12 +82,13 @@ if(isset($_GET["formdirect"])){
 	} elseif($formdirect == 'insert') {
 		echo "<th colspan=\"8\"><h2>Insere Empresa/Conjunto</h2></th>";
 		echo "<input type=\"hidden\" name=\"formdirect\" id=\"formdirect\" value=\"insert\">";
+	} elseif($formdirect == 'apaga') {
+		echo "<th colspan=\"8\"><h2>Exclusão Empresa/Conjunto</h2></th>";
+		echo "<input type=\"hidden\" name=\"formdirect\" id=\"formdirect\" value=\"delete\">";
 	}
 	?>
     </tr></thead>
 		
-			
-			
 		<tr><td colspan="2">Conjunto/Empresa: <input type="text" name="empresaedit" id="empresaedit" size="60" value="<?php echo $empresa;?>"></td></tr>
 		<tr><td>CNPJ: <input type="text" name="cnpj" id="cnpj" size="30" value="<?php echo $cnpj;?>"></td>
 		<td>Ramo de atividade: <select name="ramoatividade" id="ramoatividade">
@@ -140,7 +141,19 @@ if(isset($_GET["formdirect"])){
 			echo "<tr><td colspan='2'>Vaga Condomino: <input type='text' name='vgcond' id='vgcond' size='5' value='".$vgcond."'> Quantidade: <input type='text' name='qtdcond' id='qtdcond' size='5' value='".$qtdcond."'> Vaga Visitante: <input type='text' name='vgvis' id='vgvis' size='5' value='".$vgvis."'> Quantidade: <input type='text' name='qtdvis' id='qtdvis' size='5' value='0'></td></tr>";
 		}
 		?>
-		<tr><td style="text-align:center;"><input class="btn btn-success btn-lg" type="submit" name="enviar" id="enviar" value=" Enviar " /></td><td><a href="index.php" style="text-align:right;" class="btn btn-warning btn-lg" type="submit" name="cancel" id="cancel"> Cancelar </a></td></tr>
+		<tr><td style="text-align:center;">
+		<?php
+		if($formdirect == 'delete'){
+			?>
+				<input class="btn btn-success btn-lg" type="submit" name="enviar" id="enviar" value="! EXCLUIR !" />
+			<?php
+		} else {
+			?>
+				<input class="btn btn-success btn-lg" type="submit" name="enviar" id="enviar" value=" Enviar " />
+			<?php
+		} //end if?>
+		</td>
+		<td><a href="index.php" style="text-align:right;" class="btn btn-warning btn-lg" type="submit" name="cancel" id="cancel"> Cancelar </a></td></tr>
 	</form>
 </table>
 </div> <!-- fim div table -->
