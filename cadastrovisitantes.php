@@ -28,7 +28,7 @@ if(isset($_POST['rg'])) {
 	</div> <!-- class row -->
 	<div class="row">
 			<div class="col-xs-1 col-md-1">&nbsp;</div>
-			<form action="include/buscavisitante.php" id="busca" method="POST" class="form-horizontal">
+			<form action="include/buscavisitante.php" id="busca" method="POST" class="form-horizontal" autocomplete="off">
 			<div class="col-xs-6 col-md-3 col-centered"><label>Documento (RG): </label> <input type="text" id="rg" name="rg" placeholder=" preferencialmente RG  " value="<?php echo $rg;?>" autofocus required onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"> <!-- Função para colocar o focus no final do texto retornado -->
 			<button type="submit" class="btn btn-default"> Busca </button>
 			</div>

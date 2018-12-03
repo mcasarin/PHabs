@@ -24,8 +24,8 @@ $nomeoperador = $_SESSION["nome"];
 					<a href="phabs.php" class="nav-link"> Início </a>
 				</li>
 				<li class="nav-item dropdown"> <!-- Dropdown Visitantes -->
-					<a href="visitantes/index.php" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown-visitantes" data-target="dropdown-visitantes" aria-haspopup="true" aria-expanded="false"> Visitantes </a>
-					<div class="dropdown-menu" arial-labelledby="navbarDropdown" id="dropdown-visitantes">
+					<a href="visitantes/index.php" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Visitantes </a>
+					<div class="dropdown-menu" arial-labelledby="navbarDropdown">
 						<a href="cadastrovisitantes.php" target="local" class="dropdown-item"> Cadastro </a>
 						<a href="baixavisitantes.php" target="local" class="dropdown-item"> Baixa </a>
 						<a href="consultavisitantes.php" target="local" class="dropdown-item"> Consulta </a>
@@ -39,10 +39,10 @@ $nomeoperador = $_SESSION["nome"];
 			?>
 			<li class="nav-item dropdown"> <!-- Dropdown Empresas -->
 				<li class="nav-item">
-					<a href="empresas/index.php" class="nav-link dropdown-toggle" id="navbarDropdownEmpresas" role="button" data-toggle="dropdown-empresas" data-target="dropdown-empresas" aria-haspopup="true" aria-expanded="false"> Empresas </a>
-					<div class="dropdown-menu" arial-labelledby="navbarDropdownEmpresas" id="dropdown-empresas">
+					<a href="empresas/index.php" class="nav-link dropdown-toggle" id="navbarDropdownEmpresas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Empresas </a>
+					<div class="dropdown-menu" arial-labelledby="navbarDropdownEmpresas">
 						<a href="empresas/consultacadastro.php" target="local" class="dropdown-item"> Consulta </a>
-						<a href="empresas/editarempresa.php?insert" target="local" class="dropdown-item"> Adiciona </a>
+						<a href="empresas/updateempresa.php?insert" target="local" class="dropdown-item"> Adiciona </a>
 					</div>
 				</li>
 			</li> <!-- END Dropdown Empresas-->
