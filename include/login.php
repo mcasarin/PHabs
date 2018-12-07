@@ -1,5 +1,5 @@
 <?php
-require ('connect.php');
+include 'connect.php';
 header('Content-Type: text/html; charset=utf-8');
 //envio post
 $login = $_POST[htmlspecialchars('login')];
@@ -21,10 +21,10 @@ $senha = $_POST[htmlspecialchars('senha')];
 $terminalbr = $_SERVER["REMOTE_ADDR"];
 $terminalarr = explode(".", $terminalbr);
 $terminal = $terminalarr[3];
-echo $login."<br>";
-echo $senha."<br>";
+//echo $login."<br>";
+//echo $senha."<br>";
 $sql = "SELECT Login, Senha, Nome, SenhaBloq, Tipo FROM operadores WHERE Login = '".$login."' AND Senha = '".md5($senha)."'";
-echo $sql;
+//echo $sql;
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {

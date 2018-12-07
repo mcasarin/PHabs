@@ -12,6 +12,14 @@ $nomeoperador = $_SESSION["nome"];
 <link rel="stylesheet" href="css/bootstrap.css">
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<style>
+	#MenuSup {
+		/*width: 100%;*/
+		margin-bottom: 5px;
+		margin-left:5px;
+		margin-right:5px;
+	}
+	</style>
 <title>PHabs</title>
 </head>
 <body>
@@ -19,36 +27,42 @@ $nomeoperador = $_SESSION["nome"];
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="http://www.edificiochurchill.com.br" target="_blank"> <img src="img/churchill-minor.png" class="img-rounded" alt="Winston Churchill" width="60" height="60" hspace="10"> </a>
     	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
+			<ul class="nav nav-fill nav-justified">
 				<li class="nav-item active">
-					<a href="phabs.php" class="nav-link"> Início </a>
+					<a href="phabs.php" id="MenuSup" class="btn btn-outline-primary"> Início </a>
 				</li>
-				<li class="nav-item dropdown"> <!-- Dropdown Visitantes -->
-					<a href="visitantes/index.php" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Visitantes </a>
-					<div class="dropdown-menu" arial-labelledby="navbarDropdown">
+				<div class="btn-group"> <!-- Dropdown Visitantes -->
+					<button type="button" id="MenuSup" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					 Visitantes </button>
+					<div class="dropdown-menu">
 						<a href="cadastrovisitantes.php" target="local" class="dropdown-item"> Cadastro </a>
 						<a href="baixavisitantes.php" target="local" class="dropdown-item"> Baixa </a>
 						<a href="consultavisitantes.php" target="local" class="dropdown-item"> Consulta </a>
 					</div>
-				</li> <!-- END Dropdown Visitantes -->
+				</div> <!-- END Dropdown Visitantes -->
 				<li class="nav-item">
-					<a href="empresas/consultacadastro.php" target="local" class="nav-link"> Localizza </a>
+					<a href="empresas/consultacadastro.php" id="MenuSup" target="local" class="btn btn-outline-primary"> Localizza </a>
 				</li>
 			<?php
 			if($_SESSION["tipo"] == '0'){//operadores administrativos
 			?>
-			<li class="nav-item dropdown"> <!-- Dropdown Empresas -->
-				<li class="nav-item">
-					<a href="empresas/index.php" class="nav-link dropdown-toggle" id="navbarDropdownEmpresas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Empresas </a>
-					<div class="dropdown-menu" arial-labelledby="navbarDropdownEmpresas">
+			<div class="btn-group"> <!-- Dropdown Empresas -->
+					<button type="button" id="MenuSup" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					 Empresas </button>
+					<div class="dropdown-menu">
 						<a href="empresas/consultacadastro.php" target="local" class="dropdown-item"> Consulta </a>
 						<a href="empresas/updateempresa.php?insert" target="local" class="dropdown-item"> Adiciona </a>
 					</div>
-				</li>
-			</li> <!-- END Dropdown Empresas-->
-				<li class="nav-item">
-					<a href="reader/cartoes.php" target="local" class="nav-link"> Cartões de usuários </a>
-				</li>
+			</div> <!-- END Dropdown Empresas-->
+			<div class="btn-group"> <!-- Dropdown Cartões -->
+				<button type="button" id="MenuSup" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Cartões de usuários </button>
+					<div class="dropdown-menu">
+						<a href="reader/index.php" target="local" class="dropdown-item"> Leitura de cartões </a>
+						<a href="reader/cartoesreservados.php" target="local" class="dropdown-item"> Cartões reservados </a>
+						<a href="reader/cartoeslivres.php" target="local" class="dropdown-item"> Cartões livres </a>
+					</div>
+			</div><!-- END Dropdown Cartões -->
 			<?php
 			}//end if operadores administrativo
 			?>
