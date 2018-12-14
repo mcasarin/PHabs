@@ -10,7 +10,8 @@ if(isset($_POST['submit'])){
     fclose($criarconfig);
     chmod("config.php",0777);
         if(file_exists("config.php")){
-            chmod_R('../webcamImage/',0644,0777);
+            mkdir('../webcamImage/',0777,true);
+            chmod('../webcamImage/',0777);
             header('Location: ../index.php');
         }
 }
