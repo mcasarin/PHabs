@@ -31,6 +31,7 @@ $qtdcond = $_POST["qtdcond"];
 $vgvis = $_POST["vgvis"];
 $qtdvis = $_POST["qtdvis"];
 $formdirect = $_GET["formdirect"];
+$formdirect = $_POST["formdirect"];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,7 +72,7 @@ switch ($formdirect) {
 
         } else {
             echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
-            <p><strong>Algo deu errado na atualização!</strong><br>Tente novamente...</p>
+            <p><strong>Algo deu errado na atualização!</strong><br>Tente novamente...<br>Code(U001)</p>
             </div>";
         }
 
@@ -89,7 +90,7 @@ switch ($formdirect) {
             $sqlupdatesiteexe = $conn->query($sqlupdatesite);
         } else {
             echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
-            <p><strong>Algo deu errado na inserção!</strong><br>Tente novamente...</p>
+            <p><strong>Algo deu errado na inserção!</strong><br>Tente novamente...<br>Code(I001)</p>
             </div>";
         }
         
@@ -107,14 +108,14 @@ switch ($formdirect) {
             $sqlupdatesiteexe = $conn->query($sqlupdatesite);
         } else {
             echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
-            <p><strong>Algo deu errado na exclusão!</strong><br>Tente novamente...</p>
+            <p><strong>Algo deu errado na exclusão!</strong><br>Tente novamente...<br>Code(D001)</p>
             </div>";
         }
         $conn->close;
         break;
     default:
         echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
-            <p><strong>Algo deu errado!</strong><br>Informe ao mantenedor do sistema</p>
+            <p><strong>Algo deu errado!</strong><br>Informe ao mantenedor do sistema<br>Code(Def001)</p>
             </div>";
         break;
 }
