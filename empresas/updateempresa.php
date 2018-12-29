@@ -67,9 +67,10 @@ switch ($formdirect) {
                 </div>";
             }
             //atualiza site
-            $sqlupdatesite = "INSERT INTO empresa_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresa','$empresaedit','$ramoatividade','$atualizasite','atualiza')";
-            $sqlupdatesiteexe = $conn->query($sqlupdatesite);
-
+            if($empresa != $empresaedit){ //valida se nome foi alterado
+                $sqlupdatesite = "INSERT INTO empresa_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresa','$empresaedit','$ramoatividade','$atualizasite','atualiza')";
+                $sqlupdatesiteexe = $conn->query($sqlupdatesite);
+            }
         } else {
             echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Algo deu errado na atualização!</strong><br>Tente novamente...<br>Code(U001)</p>
