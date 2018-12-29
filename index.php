@@ -28,7 +28,16 @@
       </section>  
       </div>
       <div class="col-md-4"></div>
-  </div>    
+  </div>
+    <div class="row">
+      <footer class="page-footer font-small blue pt-4">
+      <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">&copy; 2018-2019
+          <a href="https://etwas.com.br/"> Etwas Informática </a>
+        </div>
+      <!-- Copyright -->
+      </footer>
+    </div>
 </div>
 <body>
 </html>
