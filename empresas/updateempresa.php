@@ -61,15 +61,13 @@ switch ($formdirect) {
                 echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
                 <p><strong>Usuários atualizados com sucesso!</strong></p>
                 </div>";
+                //atualiza site
+                $sqlupdatesite = "INSERT INTO empresa_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresa','$empresaedit','$ramoatividade','$atualizasite','atualiza')";
+                $sqlupdatesiteexe = $conn->query($sqlupdatesite);
             } else {
                 echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
                 <p><strong>Falha para atualizar os usuário da empresa!</strong><br>Tente novamente...</p>
                 </div>";
-            }
-            //atualiza site
-            if($empresa != $empresaedit){ //valida se nome foi alterado
-                $sqlupdatesite = "INSERT INTO empresa_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresa','$empresaedit','$ramoatividade','$atualizasite','atualiza')";
-                $sqlupdatesiteexe = $conn->query($sqlupdatesite);
             }
         } else {
             echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
