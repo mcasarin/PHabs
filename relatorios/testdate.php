@@ -1,5 +1,17 @@
 <?php
-//inicio arquivo
+include '../include/function.php';
+include '../include/connect.php';
+
+//Declarando variaveis
+$nome = '';
+$empresa = '';
+$matricula = '';
+$cartao = '';
+$coletor = '';
+$descricaocol = '';
+$data = '';
+$hora = '';
+$acesso = '';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,14 +44,32 @@ $('.datas').datepicker();
 <?php
     // Função para looping nas datas selecionadas
     // fonte: https://www.if-not-true-then-false.com/2009/php-loop-through-dates-from-date-to-date-with-strtotime-function/
-    $datainicio = '20180119';
-    $datafinal = '20190220';
+    $datainicio = '01032018';
+    $datafinal = '20022019';
 	date_default_timezone_set('UTC');
 	while (strtotime($datainicio) <= strtotime($datafinal)) {
-                echo "$datainicio<br>";
-                $datainicio = date ("Ymd", strtotime("+1 day", strtotime($datainicio)));
-	}
+                echo $datainicio."<br>";
+                $sql = "SELECT Nome,Empresa,Matricula,Cartao,NColetor,Descricao,Data,Hora,Acesso FROM d".$datainicio." WHERE Matricula='4104';";
+                echo $sql;
+                $sqlexe = $conn->query($sql);
+                while($linha = $sqlexe->fetch_array(MYSQLI_ASSOC)){
+                    $nome = $linha["Nome"];
+                    $empresa = $linha["Empresa"];
+                    $matricula = $linha["Matricula"];
+                    $cartao = $linha["Cartao"];
+                    $coletor = $linha["NColetor"];
+                    $descricaocol = $linha["Descricao"];
+                    $data = $linha["Data"];
+                    $hora = $linha["Hora"];
+                    $acesso = $linha["Acesso"];
+                }
+                $datainicio = date ("dmY", strtotime("+1 day", strtotime($datainicio)));
+	}  
 
+echo "<table>
+        <th><td>Nome</td><td>Empresa</td><td>Matricula</td><td>Cartão</td><td>Coletor</td><td>Descrição</td><td>Data</td><td>Hora</td><td>Acesso</td></th>
+        <tr><td>$nome</td><td>$empresa</td><td>$matricula</td><td>$cartao</td><td>$coletor</td><td>$descricaocol</td><td>$data</td><td>$hora</td><td>$acesso</td></tr>
+    </table>";
 ?>
 </body>
 </html>
