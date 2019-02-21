@@ -35,7 +35,7 @@ switch($tipo) {
 			$sqlbuscarg = "SELECT RG,Nome,Empresa,Cadastro,ListaNegra,Visitas,VisEmpresa FROM visitantes WHERE RG LIKE '".$valor."%' ORDER BY RG ASC LIMIT 20";
 			$sqlbuscargexe = $conn->query($sqlbuscarg);
 			if($sqlbuscargexe->num_rows > 0) {
-				while($rowa = $sqlbuscargexe->fetch_array(MYSQLI_ASSOC))
+				while($rowa = $sqlbuscargexe->fetch_array(MYSQLI_ASSOC)){
 					$rg = $rowa['RG'];
 					$nomevis = $rowa['Nome'];
 					$empresaobs = $rowa['Empresa'];
@@ -55,7 +55,7 @@ switch($tipo) {
 					<div class="table-responsive">
 					<table class="table">
 						<thead align="center">
-						<th>RG</th><th>Nome</th><th>Empresa/OBS</th><th>Cadastro</th><th>Restrição</th><th>Visitas</th><th>Última empresa visitada</th>
+						<th>RG</th><th>Nome</th><th>Empresa/OBS</th><th>Cadastro</th><th>Restriï¿½ï¿½o</th><th>Visitas</th><th>ï¿½ltima empresa visitada</th>
 						</thead>
 						<tbody>
 					<?php
@@ -63,7 +63,7 @@ switch($tipo) {
 					echo "</tbody></table></div>";
 				$conn->close;
 			} else {
-				echo "Não foi encontrado nenhum dado!<br>";
+				echo "Nï¿½o foi encontrado nenhum dado!<br>";
 				?>
 				<form action="../consultavisitantes.php" method="post">
 					<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
@@ -78,12 +78,13 @@ switch($tipo) {
 		break;
 	
 	case 'Usuario':
-			echo "busca por usuário";
+			echo "busca por usuï¿½rio";
 		break;
 		
 	default:
-			echo "Você precisa selecionar o tipo de busca.<br>";
+			echo "Vocï¿½ precisa selecionar o tipo de busca.<br>";*/
+		} //end while
+	} //end if
 	} //end switch
 } // end request post
-
 ?>
