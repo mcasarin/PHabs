@@ -2,6 +2,11 @@
 include 'function.php';
 include 'connect.php';
 sessao();
+/*
+* Resultado de busca por visitante (RG) no cadastro
+* Atualizado Lista Negra mostrando motivo na tela de cadastro
+*
+*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -49,7 +54,7 @@ $empresavis = "";
 	}
 	$conn->close;
 	
-$sql="SELECT RG,Nome,Foto1,Cadastro,ListaNegra,Empresa FROM visitantes WHERE RG = '".$rg."'";
+$sql="SELECT RG,Nome,Foto1,Cadastro,ListaNegra,Motivo,Empresa FROM visitantes WHERE RG = '".$rg."'";
 $result = $conn->query($sql);
 if($result->num_rows > 0){ // Se encontrado cadastro/registro
 	$row = mysqli_fetch_array($result);
@@ -64,7 +69,9 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 	<p class="text-danger">Abaixo o cadastro encontrado.</p>
 	<?php
 	if($row['ListaNegra'] == "SIM") {
-		echo "<div style='background-color:red; align:center; text-align:center'><h3>Cadastro com restrição de acesso!</h3></div>";	
+		echo "<div style='background-color:red; align:center; text-align:center'><h3>Cadastro com restrição de acesso!</h3>
+		<p style='background-color:#ff9933'>Motivo: ".$row['Motivo']."</p>
+		</div>";	
 	}
 	?>
 	</div> <!-- Fecha caixa esquerda -->

@@ -41,7 +41,7 @@ switch($tipo) {
 					<div class="table-responsive">
 					<table class="table">
 						<thead align="center">
-						<th>RG</th><th>Nome</th><th>Empresa/OBS</th><th>Cadastro</th><th>Restri��o</th><th>Motivo</th><th>Visitas</th><th>�ltima empresa visitada</th>
+						<th>RG</th><th>Nome</th><th>Empresa/OBS</th><th>Cadastro</th><th>Restrição</th><th>Motivo</th><th>Visitas</th><th>�ltima empresa visitada</th>
 						</thead>
 						<tbody>
 					<?php
@@ -67,7 +67,7 @@ switch($tipo) {
 				echo "</tbody></table></div>";
 				$conn->close;
 			} else {
-				echo "N�o foi encontrado nenhum dado!<br>";
+				echo "Não foi encontrado nenhum dado!<br>";
 				?>
 				<form action="../consultavisitantes.php" method="post">
 					<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
@@ -86,7 +86,7 @@ switch($tipo) {
 					<div class="table-responsive">
 					<table class="table">
 						<thead align="center">
-						<th>Nome</th><th>RG</th><th>Empresa/OBS</th><th>Cadastro</th><th>Restri��o</th><th>Motivo</th><th>Visitas</th><th>�ltima empresa visitada</th>
+						<th>Nome</th><th>RG</th><th>Empresa/OBS</th><th>Cadastro</th><th>Restrição</th><th>Motivo</th><th>Visitas</th><th>Última empresa visitada</th>
 						</thead>
 						<tbody>
 					<?php
@@ -110,7 +110,7 @@ switch($tipo) {
 				echo "</tbody></table></div>";
 				$conn->close;
 			} else {
-				echo "N�o foi encontrado nenhum dado!<br>";
+				echo "Não foi encontrado nenhum dado!<br>";
 				?>
 				<form action="../consultavisitantes.php" method="post">
 					<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
@@ -139,7 +139,7 @@ switch($tipo) {
 			echo "</tbody></table></div>";
 				$conn->close;
 			} else {
-				echo "N�o foi encontrado nenhum dado!<br>";
+				echo "Não foi encontrado nenhum dado!<br>";
 				?>
 				<form action="../consultavisitantes.php" method="post">
 					<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
@@ -150,7 +150,7 @@ switch($tipo) {
 		break;
 		
 	default:
-			echo "Voc� precisa selecionar o tipo de busca.<br>";
+			echo "Você precisa selecionar o tipo de busca.<br>";
 	} //end switch
 } // end request post
 
