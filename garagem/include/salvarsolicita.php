@@ -55,7 +55,7 @@ $message = '
 <p>Foi enviado uma nova solicitação de tag!</p>
 <p>O(a) sr(a). <b>'. $nomesolicita .'</b>,</p>
 <p>Do conjunto <b>'. $empresa .'</b>, solicita tag para o veículo <b>'. $carro .'</b> de placa <b>'. $placa .'</b> .</p>
-<p>Verifique o <a href="192.168.0.16/checar.htm">relatório</a> e providencie.</p>
+<p>Verifique o relatório e providencie.</p>
 <p>Att</p>
 <br>
 <p>Administrador</p>
@@ -65,7 +65,7 @@ $message = '
 $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 
-// outras informa�oes de cabe�alho
+// outras informaçoes de cabeçalho
 $headers .= 'From: Administrador <suporte@edificiochurchill.com.br>' . "\r\n";
 // Mail it
 mail($to, $subject, $message, $headers);       
