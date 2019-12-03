@@ -25,15 +25,15 @@ sessao();
                     // Define as regras
                     rules:{
                         nomesolicita:{
-                            // ser� obrigatorio (required) e ter� tamanho minimo (minLength)
+                            // será obrigatorio (required) e terá tamanho minimo (minLength)
                             required: true, minlength: 4
                         },
                         carro:{
-                            // cpf ser� obrigatorio (required) e ter� tamanho minimo (minLength)
+                            // carro será obrigatorio (required) e terá tamanho minimo (minLength)
                             required: true, minlength: 3
                         },
 						placa:{
-                            // numero do manuscrito ser� obrigatorio (required) e ter� tamanho minimo (minLength)
+                            // placa será obrigatorio (required) e terá tamanho minimo (minLength)
                             required: true, minlength: 6
                         }
                     },

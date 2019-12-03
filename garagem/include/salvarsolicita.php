@@ -39,8 +39,7 @@ $result = $conn->query($sqlinsert);
 if($result) {
                 echo "<div class='p-3 mb-2 bg-success text-white'>Registro efetuado com sucesso<br />";
                 echo "Informe ao solicitante que aguarde até 3 dias úteis.</div>";
-					 $to  = 'suporte@etwas.com.br' . ', '; // naum esquecer da virgula
-					 $to .= 'marcio@edificiochurchill.com.br';
+					 $to  = 'suporte@etwas.com.br';
 
 // assunto
 $subject = 'Formulario de solicitação de tag';
@@ -61,14 +60,10 @@ $message = '
 <p>Administrador</p>
 </body>
 </html>';
-// isso eh necessario para enviar o conteudo em html
-$headers  = 'MIME-Version: 1.0' . "\r\n";
-$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 
-// outras informaçoes de cabeçalho
-$headers .= 'From: Administrador <suporte@edificiochurchill.com.br>' . "\r\n";
-// Mail it
-mail($to, $subject, $message, $headers);       
+$headers = 'suporte@edificiochurchill.com.br';
+
+mail($to,$subject,$message,$headers);
 
 } else { 
     printf("Errormessage: %s\n", $conn->error);       
