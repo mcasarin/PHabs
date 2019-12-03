@@ -21,7 +21,7 @@ if(isset($_POST["query"]))
 {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
- $query = "SELECT Empresa,CNPJ,IE,contato,Telefone,email,obs FROM empresas WHERE Empresa like '%".$search."%' OR Conjunto like '%".$search."%' OR obs like '%".$search."%'";
+ $query = "SELECT Empresa,CNPJ,IE,contato,Telefone,email,obs,ID FROM empresas WHERE Empresa like '%".$search."%' OR Conjunto like '%".$search."%' OR obs like '%".$search."%'";
 }
 /*else
 {
@@ -40,7 +40,7 @@ if(mysqli_num_rows($result) > 0) {
  while($row = mysqli_fetch_array($result)){
   $output .= '<tr>';
     if($_SESSION["tipo"] == '0'){
-      $output .='<td><a class="btn btn-outline-info btn-sm" href="editarempresa.php?empresa='.$row["Empresa"].'&formdirect=update"> Editar </a></td>';
+      $output .='<td><a class="btn btn-outline-info btn-sm" href="editarempresa.php?ID='.$row["ID"].'&formdirect=update"> Editar </a></td>';
     }
     $output .='<td>'.$row[Empresa].'</td><td>'.$row[CNPJ].'</td><td>'.$row[IE].'</td><td>'.$row[contato].'</td><td>'.$row[Telefone].'</td><td>'.$row[email].'</td><td>'.$row[obs].'</td></tr></form>';
  }

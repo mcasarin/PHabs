@@ -23,7 +23,7 @@ sessao();
     <?php
 			if($_SESSION["tipo"] == '0'){//administrativo
 		?>
-		<form action="consultacadastro.php" target="local">
+		<form action="consultaempresa.php" target="local">
 			<button class="btn btn-outline-primary btn-lg" style="width: 100%; margin-bottom: 10px; margin-left:5px;margin-right:5px;"> Consulta </button>
 		</form>
 

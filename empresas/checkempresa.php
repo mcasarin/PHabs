@@ -32,7 +32,7 @@ $local = $_POST['local'];
 			<?php
 			switch($opt) {
 				case 'conj':
-					$sqlempresa = "SELECT Empresa,CNPJ,IE,contato,Telefone,email,obs FROM empresas WHERE empresa BETWEEN '00' AND '9999' ORDER BY Empresa + 0 ASC;";
+					$sqlempresa = "SELECT Empresa,CNPJ,IE,contato,Telefone,email,obs,ID FROM empresas WHERE empresa BETWEEN '00' AND '9999' ORDER BY Empresa + 0 ASC;";
 					$sqlempresaexe = $conn->query($sqlempresa);
 						while ($row = $sqlempresaexe->fetch_assoc()) {
 						$empresa = $row["Empresa"];
@@ -42,16 +42,17 @@ $local = $_POST['local'];
                         $telefone = $row["Telefone"];
                         $email = $row["email"];
 						$obs = $row["obs"];
+						$ID = $row["ID"];
 						echo "<tr>";
 							if($_SESSION["tipo"] == '0'){ //opção caso chamada seja edição
-							echo "<td><a class='btn btn-outline-info btn-sm' href='editarempresa.php?empresa=$empresa&formdirect=update'> Editar </a></td>";
+							echo "<td><a class='btn btn-outline-info btn-sm' href='editarempresa.php?ID=$ID&formdirect=update'> Editar </a></td>";
 							}
 							echo "<td>$empresa</td><td>$cnpj</td><td>$ie</td><td>$contato</td><td>$telefone</td><td>$email</td><td>$obs</td></tr>";
 						}//while end
 						$conn->close;
 						exit();
 				case 'nomeconj':
-                    $sqlempresa = "SELECT Empresa,CNPJ,IE,contato,Telefone,email,obs FROM empresas WHERE Empresa NOT IN (select Empresa from empresas where Empresa like 'AUSENTE%') ORDER BY Empresa + 0 ASC;";
+                    $sqlempresa = "SELECT Empresa,CNPJ,IE,contato,Telefone,email,obs,ID FROM empresas WHERE Empresa NOT IN (select Empresa from empresas where Empresa like 'AUSENTE%') ORDER BY Empresa + 0 ASC;";
                     $sqlempresaexe = $conn->query($sqlempresa);
                     if($sqlempresaexe->num_rows > 0){
                         while ($row = $sqlempresaexe->fetch_array(MYSQLI_ASSOC)){
@@ -62,9 +63,10 @@ $local = $_POST['local'];
                         $telefone = $row["Telefone"];
                         $email = $row["email"];
                         $obs = $row["obs"];
+						$ID = $row["ID"];
 						echo "<tr>";
 							if($_SESSION["tipo"] == '0'){
-								echo "<td><a class='btn btn-outline-info btn-sm' href='editarempresa.php?empresa=$empresa&formdirect=update'> Editar </a></td>";
+								echo "<td><a class='btn btn-outline-info btn-sm' href='editarempresa.php?ID=$ID&formdirect=update'> Editar </a></td>";
 							}
 							echo "<td>$empresa</td><td>$cnpj</td><td>$ie</td><td>$contato</td><td>$telefone</td><td>$email</td><td>$obs</td></tr>";
                         }//while end
@@ -72,7 +74,7 @@ $local = $_POST['local'];
                         $conn->close;
                         exit();
 				case 'sonome':
-				    $sqlempresa = "SELECT Empresa,CNPJ,IE,contato,Telefone,email,obs FROM empresas WHERE empresa BETWEEN 'A' AND 'Z' ORDER BY Empresa + 0 ASC;";
+				    $sqlempresa = "SELECT Empresa,CNPJ,IE,contato,Telefone,email,obs,ID FROM empresas WHERE empresa BETWEEN 'A' AND 'Z' ORDER BY Empresa + 0 ASC;";
 					$sqlempresaexe = $conn->query($sqlempresa);
 					if($sqlempresaexe->num_rows > 0){
 						while ($row = $sqlempresaexe->fetch_array(MYSQLI_ASSOC)){
@@ -83,9 +85,10 @@ $local = $_POST['local'];
                         $telefone = $row["Telefone"];
                         $email = $row["email"];
                         $obs = $row["obs"];
+						$ID = $row["ID"];
 						echo "<tr>";
 							if($_SESSION["tipo"] == '0'){
-								echo "<td><a class='btn btn-outline-info btn-sm' href='editarempresa.php?empresa=$empresa&formdirect=update'> Editar </a></td>";
+								echo "<td><a class='btn btn-outline-info btn-sm' href='editarempresa.php?ID=$ID&formdirect=update'> Editar </a></td>";
 							}
 							echo "<td>$empresa</td><td>$cnpj</td><td>$ie</td><td>$contato</td><td>$telefone</td><td>$email</td><td>$obs</td></tr>";
 						}//while end

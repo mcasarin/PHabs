@@ -18,12 +18,12 @@ $vgcond = '';
 $qtdcond = '';
 $vgvis = '';
 $qtdvis = '';
+$ID = '';
 
+if(isset($_GET["ID"])){
+	$ID = $_GET["ID"];
 
-if(isset($_GET["empresa"])){
-	$empresa = $_GET["empresa"];
-
-		$sqledicao = "SELECT * FROM empresas WHERE empresa = '$empresa';";
+		$sqledicao = "SELECT * FROM empresas WHERE ID = '$ID';";
 		$sqledicaoexe = $conn->query($sqledicao);
 
 		//echo $empresa."<br>";
@@ -46,6 +46,7 @@ if(isset($_GET["empresa"])){
 			$qtdcond = $row["QTDCond"];
 			$vgvis = $row["VagaVis"];
 			$qtdvis = $row["QTDVis"];
+			$ID = $row["ID"];
 		} //end while
 }
 
@@ -77,7 +78,7 @@ if(isset($_GET["formdirect"])){
 	<?php
 	if($formdirect == 'update'){
 		echo "<th colspan=\"8\"><h2>Editar Empresa/Conjunto</h2></th>";
-		echo "<input type=\"hidden\" name=\"empresa\" id=\"empresa\" value='$empresa'>";
+		echo "<input type=\"hidden\" name=\"ID\" id=\"ID\" value='$ID'>";
 		echo "<input type=\"hidden\" name=\"formdirect\" id=\"formdirect\" value=\"update\">";
 	} elseif($formdirect == 'insert') {
 		echo "<th colspan=\"8\"><h2>Insere Empresa/Conjunto</h2></th>";

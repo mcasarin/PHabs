@@ -2,7 +2,8 @@
 include '../include/function.php';
 include '../include/connect.php';
 sessao();
-
+$ID = $_GET["ID"];
+$ID = $_POST["ID"];
 $empresa = $_POST["empresa"];
 $empresaedit = $_POST["empresaedit"];
 $cnpj = $_POST["cnpj"];
@@ -49,7 +50,7 @@ $formdirect = $_POST["formdirect"];
 <?php
 switch ($formdirect) {
     case 'update':
-        $sqlupdateempresa = "UPDATE empresas SET Empresa='$empresaedit',CNPJ='$cnpj',IE='$ramoatividade',contato='$contato',Telefone='$telefone',email='$email',obs='$obs',Conjunto='$conjunto',Andar='$andar',Bloco='$atualizasite',ControlVaga='$controlvaga',VagaCond='$vgcond',QTDCond='$qtdcond',VagaVis='$vgvis',QTDVis='$qtdvis',BloqEstac='$bloqestac' WHERE empresa = '$empresa'";
+        $sqlupdateempresa = "UPDATE empresas SET Empresa='$empresaedit',CNPJ='$cnpj',IE='$ramoatividade',contato='$contato',Telefone='$telefone',email='$email',obs='$obs',Conjunto='$conjunto',Andar='$andar',Bloco='$atualizasite',ControlVaga='$controlvaga',VagaCond='$vgcond',QTDCond='$qtdcond',VagaVis='$vgvis',QTDVis='$qtdvis',BloqEstac='$bloqestac' WHERE ID = '$ID'";
         $sqlupdateempresaexe = $conn->query($sqlupdateempresa);
         if($sqlupdateempresaexe){
             echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
@@ -62,8 +63,17 @@ switch ($formdirect) {
                 <p><strong>Usuários atualizados com sucesso!</strong></p>
                 </div>";
                 //atualiza site
-                $sqlupdatesite = "INSERT INTO empresa_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresa','$empresaedit','$ramoatividade','$atualizasite','atualiza')";
+                $sqlupdatesite = "INSERT INTO empresas_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao,ID) VALUES (NULL,'$empresa','$empresaedit','$ramoatividade','$atualizasite','atualiza','$ID')";
                 $sqlupdatesiteexe = $conn->query($sqlupdatesite);
+				if($sqlupdatesiteexe){
+					echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
+					<p><strong>Enviado para atualização do site!</strong></p>
+					</div>";
+				} else {
+					echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
+					<p><strong>Falha para envio de dados para o site!</strong><br>Tente novamente...</p>
+					</div>";
+				}
             } else {
                 echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
                 <p><strong>Falha para atualizar os usuário da empresa!</strong><br>Tente novamente...</p>
@@ -85,7 +95,9 @@ switch ($formdirect) {
             <p><strong>Empresa inserida com sucesso!</strong></p>
             </div>";
             //atualiza site
-            $sqlupdatesite = "INSERT INTO empresa_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresaedit','$empresaedit','$ramoatividade','$atualizasite','insere')";
+			$recuperaid = "select max(ID) from empresas";
+			$IDnew = $conn->query($recuperaid);
+            $sqlupdatesite = "INSERT INTO empresas_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresaedit','$empresaedit','$ramoatividade','$atualizasite','insere','$IDnew')";
             $sqlupdatesiteexe = $conn->query($sqlupdatesite);
         } else {
             echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
@@ -96,14 +108,14 @@ switch ($formdirect) {
         $conn->close;
         break;
     case 'delete':
-        $sqldeleteempresa = "DELETE FROM empresas WHERE Empresa = '$empresaedit'";
+        $sqldeleteempresa = "DELETE FROM empresas WHERE ID = '$ID'";
         $sqldeleteempresaexe = $conn->query($sqldeleteempresa);
         if($sqldeleteempresaexe){
             echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Empresa APAGADA com sucesso!</strong></p>
             </div>";
             //atualiza site
-            $sqlupdatesite = "INSERT INTO empresa_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresaedit','$empresaedit','$ramoatividade','$atualizasite','apaga')";
+            $sqlupdatesite = "INSERT INTO empresas_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresaedit','$empresaedit','$ramoatividade','$atualizasite','apaga','$ID')";
             $sqlupdatesiteexe = $conn->query($sqlupdatesite);
         } else {
             echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
