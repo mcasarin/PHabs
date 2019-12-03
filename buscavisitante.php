@@ -38,12 +38,12 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 	<div class="text-info bg-success" style="line-height: 75px" align="center">DOCUMENTO ENCONTRADO!</div>
 	<form action="../cadastrovisitantes.php" method="post" name="return" id="return">
 	<input type="hidden" name="rg" id="rg" value="<?php echo $rg;?>" />
-		<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button" tabindex="8"> Tentar outro documento?<br>Faltou o d�gito? </button>
+		<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button" tabindex="8"> Tentar outro documento?<br>Faltou o dígito? </button>
 	</form>
 	<p class="text-danger">Abaixo o cadastro encontrado.</p>
 	<?php
 	if($row['ListaNegra'] == "SIM") {
-		echo "<div style='background-color:red; align:center; text-align:center'><h3>Cadastro com restri��o de acesso!</h3></div>";	
+		echo "<div style='background-color:red; align:center; text-align:center'><h3>Cadastro com restrição de acesso!</h3></div>";	
 	}
 	?>
 	</div> <!-- Fecha caixa esquerda -->
@@ -57,13 +57,13 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 				</tr>
 				<tr class="info" align="center">
 				<td><div class="col-md-1"><p align="center"> <input type="button" class="btn btn-default form-control" value=" Foto " onClick="captureimage()"> </p></div></td>
-				<td><div class="col-md-1"><p class="bg-success" align="center"> Visualiza��o </p></div></td>
+				<td><div class="col-md-1"><p class="bg-success" align="center"> Visualização </p></div></td>
 				</tr>
 			</table>
 			</div>
 	</div>
 		<table class="table table-bordered table-hover">
-		<tr><td>Cart�o: <input name="cartao" id="cartao" placeholder="Busca cart�o para cadastro" tabindex="1" autocomplete="off" required autofocus></td>
+		<tr><td>Cartão: <input name="cartao" id="cartao" placeholder="Busca cart�o para cadastro" tabindex="1" autocomplete="off" required autofocus></td>
 		<td align="right">Cadastro: <?php 
 							$d = strtotime($row['Cadastro']);
 							echo date('d-m-Y',$d); ?></td></tr>
