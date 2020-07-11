@@ -19,7 +19,10 @@ sessao();
 <script src="../js/bootstrap.min.js"></script>
 <script src="../webcamjs-master/webcam.js"></script>
 <title>Cadastro de Visitantes</title>
+<<<<<<< HEAD
 
+=======
+>>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 </head>
 <body>
 
@@ -92,9 +95,13 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 			</div>
 	</div>
 		<table class="table table-bordered table-hover">
+<<<<<<< HEAD
 		<tr><td><div class="cartao">Cartão: <input type="text" name="cartao" id="cartao" placeholder="Busca cartão..." tabindex="1" autocomplete="off" required autofocus>
 		<div class="botcad" name="botcad" id="botcad"></div>
 				</div></td>
+=======
+		<tr><td>Cartão: <input name="cartao" id="cartao" placeholder="Busca cartão para cadastro" tabindex="1" autocomplete="off" required autofocus></td>
+>>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 		<td align="right">Cadastro: <?php 
 							$d = strtotime($row['Cadastro']);
 							echo date('d-m-Y',$d); ?></td></tr>
@@ -146,6 +153,7 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 		?>
 		<tr><td>Autorização: <input type="text" name="autoriza" style="text-transform: uppercase;" tabindex="2"></td><td>Empresa/OBS: <input type="text" name="obs" style="text-transform: uppercase;" tabindex="3" value="<?php echo $empresavis; ?>"></td></tr>
 		<input type="hidden" name="visita" value="1">
+<<<<<<< HEAD
 		<script type="text/javascript">
 			//Chamada Camera
 					Webcam.set({
@@ -199,12 +207,76 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 			};
 			//fim função ENTER envia
 		</script>
+=======
+		<tr><td colspan="2"><div id="botcad"></div></td></tr>
+>>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 		</form>
 		</div>
 		</div>
 		</table>
+<<<<<<< HEAD
 	<?php
 } else { // SE NÃO encontrar cadastro
+=======
+		<script>
+//Chamada camera
+		Webcam.set({
+			width: 200,
+			height: 120,
+			image_format: 'jpeg',
+			jpeg_quality: 100
+		});
+			Webcam.attach( '#webcam' );
+			function captureimage() {
+				// take snapshot and get image data
+				Webcam.snap( function(data_uri) {
+					// display results in page
+					Webcam.upload( data_uri, 'savephotolocal.php', function(code, text) {
+						document.getElementById('resultsfoto').innerHTML =
+						'<img src="'+text+'" width="220px" height="140px" /><input type="hidden" value="'+text+'" name="foto" />';
+					} );
+				} );
+			}
+			
+//função Busca cartão live
+$(document).ready(function(){
+
+load_data();
+
+ function load_data(query)
+ {
+  $.ajax({
+   url:"ajax.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#botcad').html(data);
+   }
+  });
+ }
+ $('#cartao').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+
+document.getElementById('cartao').onkeydown = function(e){
+   if(e.keyCode == 13){
+     envio();
+   }
+};
+</script>
+	<?php
+} else { // Se não encontrar cadastro
+>>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 	?>
 	<div class="row">
 	<div class="col-xs-4 col-md-3">
@@ -240,7 +312,11 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 			<tr><td colspan="2">Empresa: 
 			<?php
 			// montagem da combobox empresa
+<<<<<<< HEAD
 		        echo "<select name='empresa' id='empresa' tabindex='2' tabindex='2' required>";
+=======
+		        echo "<select name='empresa' id='empresa' tabindex='2' required>";
+>>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 		        echo "<option value=''>-- Selecione --</option>";
 			    // populando o combobox
 			    $sql3 = "SELECT DISTINCT empresa FROM empresas WHERE empresa BETWEEN '00' AND '9999' ORDER BY empresa + 0 ASC;"; //+0 para ordenar campo
@@ -257,6 +333,7 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 		        	echo "<option value='$row[empresa]'>$row[empresa]</option>";
 				}
 				echo "</select>";
+<<<<<<< HEAD
 		        	// fim da combo
 		        	$conn->close;
         	?>
@@ -266,6 +343,16 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 		<div class="botcad" name="botcad" id="botcad"></div>
 				</div></td></tr>
 				<input type="hidden" name="visita" value="0">
+=======
+		        	// fim da combo<br>
+		        	$conn->close;
+        	?>
+        	</td></tr>
+			<tr><td>Autorização: <input type="text" name="autoriza" style="text-transform: uppercase;" tabindex="3"> </td><td> Empresa/OBS: <input type="text" name="obs" style="text-transform: uppercase;" size="30" tabindex="4"></td></tr>
+			<tr><td colspan="2">Cartão: <input name="cartao" id="cartao" placeholder="Busca cartão para cadastro" tabindex="5" autocomplete="off" required ></td></tr>
+				<input type="hidden" name="visita" value="0">
+			<tr><td colspan="2"><div id="botcad"></div></td></tr>
+>>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 			<tr><td colspan="2"><div id="msgerr"></div></td></tr>
 			</form>
 			</div> <!-- table responsive -->
@@ -273,6 +360,7 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 			</div> <!-- row -->
 			</table>
 		
+<<<<<<< HEAD
 	<script type="text/javascript">
 			//Chamada Camera
 					Webcam.set({
@@ -326,6 +414,70 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 			};
 			//fim função ENTER envia
 		</script>
+=======
+<script>
+//Chamada camera
+Webcam.set({
+	width: 200,
+	height: 120,
+	image_format: 'jpeg',
+	jpeg_quality: 100
+	});
+	Webcam.attach( '#webcam' );
+	function captureimage() {
+	// take snapshot and get image data
+	Webcam.snap( function(data_uri) {
+	// display results in page
+	Webcam.upload( data_uri, 'savephotolocal.php', function(code, text) {
+	document.getElementById('resultsfoto').innerHTML =  
+	'<img src="'+text+'" width="220px" height="140px" /><input type="hidden" value="'+text+'" name="foto" />';
+	} );    
+	} );
+	}
+
+//Busca cartão
+$(document).ready(function(){
+
+load_data();
+
+ function load_data(query)
+ {
+  $.ajax({
+   url:"ajax.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#botcad').html(data);
+   }
+  });
+ }
+ $('#cartao').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+
+document.getElementById('cartao').onkeydown = function(e){
+   if(e.keyCode == 13){
+     envio();
+   }
+};
+document.getElementById('capturafoto').onkeydown = function(e){
+   if(e.keyCode == 13){
+     envio();
+   }
+};
+
+</script>
+>>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 	<?php 
 	} //end else
 } //end request

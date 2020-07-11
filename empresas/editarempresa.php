@@ -163,4 +163,8 @@ if(isset($_GET["formdirect"])){
 </body>
 <?php
 //fim do arquivo
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
