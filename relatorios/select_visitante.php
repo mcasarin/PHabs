@@ -5,29 +5,28 @@ sessao();
 
 //declarar variaveis
 $formdirect = "";
-$usuarios = "";
-$matricula = "";
-$nome = "";
 $rg = "";
+$nome = "";
 $empresa = "";
-$dataincl = "";
-$bloq = "";
-$obs = "";
-$ID = "";
+$listanegra = "";
+$motivo = "";
+$cadastro = "";
+$visitas = "";
+$foto = "";
+$visempresa = "";
+
+
 if(isset($_GET["formdirect"])){
 	$formdirect = $_GET["formdirect"];
 } else {
 	$formdirect = $_POST["formdirect"];
 }
-	if(isset($_GET["matricula"])){
-		$matricula = $_GET["matricula"];
-	} else {
-		$matricula = $_POST["matricula"];
-	}
-	if(isset($_POST["usuarios"])){
-		$usuarios = $_POST["usuarios"];
-	}
-	
+if(isset($_GET["rg"])){
+	$rg = $_GET["rg"];
+} else {
+	$rg = $_POST["rg"];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -41,60 +40,31 @@ if(isset($_GET["formdirect"])){
 <script src="../js/bootstrap.js"></script>
 <script src="../js/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js"></script>
 <script src="../js/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.pt-BR.min.js"></script>
-<title>Relatório de Usuários</title>
+<title>Relatório de Visitante</title>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="table-responsive">
                 
-<form action="rel_user.php" method="post">
+<form action="rel_visitante.php" method="post">
         <?php
-            // Limpando tabela relatório
-            $sqllimparel = "truncate table relusuario;";
-            $sqllimparelexe = $conn->query($sqllimparel);
-		if($formdirect == "reluserunit"){
+
+		if($formdirect == "relvisunit"){
             // Seleciona usuário
-            $sqlusuarioselecionado = "SELECT Nome,RG,Matricula,Empresa,DataIncl,Bloq,OBS,ID from usuarios where matricula='$matricula';";
-            $sqlusuarioselecionadoexe = $conn->query($sqlusuarioselecionado);
-            if($sqlusuarioselecionadoexe){
-                while($row = $sqlusuarioselecionadoexe->fetch_array(MYSQLI_ASSOC)){
-                    $matricula = $row["Matricula"];
-                    $nome = $row["Nome"];
+            $sqlvisselecionado = "SELECT RG,Nome,Empresa,ListaNegra,Motivo,Cadastro,Visitas,Foto1,VisEmpresa from visitantes where RG='$rg';";
+            $sqlvisselecionadoexe = $conn->query($sqlvisselecionado);
+            if($sqlvisselecionadoexe){
+                while($row = $sqlvisselecionadoexe->fetch_array(MYSQLI_ASSOC)){
                     $rg = $row["RG"];
+                    $nome = $row["Nome"];
                     $empresa = $row["Empresa"];
-                    $dataincl = $row["DataIncl"];
-                    $bloq = $row["Bloq"];
-                    $obs = $row["OBS"];
-                    $ID = $row["ID"];
-				}
-			}
-		} elseif ($formdirect == "reluserempresa") {
-			// Seleciona usuários
-			$usuariosfim = count($usuarios);
-			for($x = 0;$x <= $usuariosfim;$x++){
-				$sqlusuarioselecionado = "SELECT Nome,RG,Matricula,Empresa,DataIncl,Bloq,OBS,ID from usuarios where matricula='$usuarios[$x]';";
-				echo $sqlusuarioselecionado."<br />";
-				$sqlusuarioselecionadoexe = $conn->query($sqlusuarioselecionado);
-				if($sqlusuarioselecionadoexe){
-					while($row = $sqlusuarioselecionadoexe->fetch_array(MYSQLI_ASSOC)){
-						$matricula = $row["Matricula"];
-						$nome = $row["Nome"];
-						$rg = $row["RG"];
-						$empresa = $row["Empresa"];
-						$dataincl = $row["DataIncl"];
-						$bloq = $row["Bloq"];
-						$obs = $row["OBS"];
-						$ID = $row["ID"];
-							echo $matricula;
-							echo $nome;
-							echo $rg;
-							echo $empresa;
-							echo $dataincl;
-							echo $bloq;
-							echo $obs;
-							echo $ID;
-					}		
+                    $listanegra = $row["ListaNegra"];
+                    $motivo = $row["motivo"];
+                    $cadastro = $row["Cadastro"];
+                    $visitas = $row["Visitas"];
+					$foto = $row["Foto1"];
+					$visempresa = $row["VisEmpresa"];
 				}
 			}
 		}
@@ -102,30 +72,42 @@ if(isset($_GET["formdirect"])){
             <table class="table table-hover table-md">
                 <thead>
                     <tr>
-                        <td colspan="2"><b>Usuário selecionado:</b></td>
+                        <td colspan="2"><b>Visitante selecionado:</b></td>
                     </tr>
                 </thead>
                     <tbody>
+						<tr>
+							<td>&nbsp;</td><td>Foto:<?php echo '<img name=\"fotoantiga\" src="data:image/jpg;base64,'.base64_encode($foto).'" width=\"200px\" height=\"120px\" />';?></td>
+						</tr>
                         <tr>
                             <td colspan="2">Nome: <?php echo $nome;?></td>
                         </tr>
                         <tr>
-                            <td>Matrícula: <?php echo $matricula;?></td><td>RG: <?php echo $rg;?></td>
-                            <input type="hidden" value="<?php echo $matricula;?>" name="matricula" id="matricula">
+                            <td>RG: <?php echo $rg;?></td><td>Total de visitas: <?php echo $visitas;?></td>
+                            <input type="hidden" value="<?php echo $rg;?>" name="rg" id="rg">
                         </tr>
                         <tr>
                             <td colspan="2">Empresa: <?php echo $empresa;?></td>
                         </tr>
+						<tr>
+							<td colspan="2">Última empresa visitada: <?php echo $visempresa;?></td>
+						</tr>
                         <tr>
-                            <td>Cadastro: <?php echo $dataincl;?></td><td>Bloqueado: 
+                            <td>Cadastro: <?php echo $cadastro;?></td><td>Lista Negra: 
                                 <?php
-                                if($bloq == '1'){
+                                if($listanegra == '1'){
                                     echo "SIM";
                                 } else {
                                     echo "NÃO"; 
                                 }
                                 ?></td>
                         </tr>
+						<?php
+						if($motivo > 0){
+							echo "<tr><td colspan=\"2\">$motivo";
+							echo "</td>/tr>";
+						}
+						?>
         <thead><tr><td colspan="2">
                 <b>Selecione a data e hora de início e final</b>
                 <!-- Fonte do calendário e Demo
@@ -210,14 +192,12 @@ if(isset($_GET["formdirect"])){
                     </select>
                 </div> <!-- end hora -->
             </td></tr>
-            <tr>
-                <td colspan="2">Observações no cadastro do usuário: <?php echo $obs;?></td>
-            </tr>
         <tr>
             <td colspan="2">
                 <div class="progress">
                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="load" style="width:0%">0%</div>
-                        </div><br>
+                        </div>
+						<input type="hidden" name="formdirect" id="formdirect" value="relvisunit">
                 <button type="submit" class="btn btn-primary btn-lg" id="loading" autocomplete="off"> Gerar relatório </button>
                 <script type="text/javascript">
                     $('#loading').click(function() {

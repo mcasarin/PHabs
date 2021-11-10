@@ -2,14 +2,23 @@
 include '../include/function.php';
 include '../include/connect.php';
 sessao();
-			
-$empresa = $_GET['empresa'];
+
+/*
+* Documento de referência: https://www.w3schools.com/php/php_ajax_database.asp
+* Arquivo de select dos usuarios: sql_user.php
+*
+*/
+
+//Declarando variaveis
+$empresa = "";
+$empresasonum = "";
+
 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.css">
@@ -18,37 +27,50 @@ $empresa = $_GET['empresa'];
 <script src="../js/bootstrap.js"></script>
 <script src="../js/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js"></script>
 <script src="../js/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.pt-BR.min.js"></script>
-<title>Relatório de usuários por empresa</title>
+<title>Selecionar visitante por empresa</title>
 </head>
+<html>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="table-responsive">
-		<table class="table table-hover table-md">
-<?php
-
-	if(isset($empresa)){
-		//echo $empresa."<br />";
-		$sql = "SELECT nome,id,matricula FROM usuarios WHERE empresa like '".$empresa." -%' order by matricula +0 ASC;";
-		//echo $sql."<br />";
-		$resultsql = $conn->query($sql);
-		echo "<form action=\"rel_empresa.php\" method=\"POST\">";
-		echo "<thead class=\"thead-dark\"><b>Selecione o(s) usuários(s)</b></thead>";
-		echo "<select name=\"usuarios[]\" id=\"usuarios\" class=\"form-control\" multiple size=\"15\" required>";
-		if($resultsql->num_rows > 0) {
-			while ($row = $resultsql->fetch_array(MYSQLI_ASSOC)){
-				echo "<option value=\"$row[matricula]\"> $row[matricula] - $row[nome] </option>";
-			}//end while
-			echo "</select>";
+<div class="row">
+<div class="table-responsive">
+<table class="table table-hover table-md">
+	<thead class="thead-dark"><b>Selecione a empresa:</b></thead>
+		<form action="rel_visempresa.php" id="rel_empresa" method="post">
+		<tbody>
+			<tr><td>Empresa: 
+		        <select name="empresa" id="empresa" class="form-control" required>";
+		        <option value="off">Selecionar a empresa</option>";	
+				<?php
+				    // montagem da combobox empresa
+                    // populando o combobox
+                    $sql_empresa = "SELECT DISTINCT empresa FROM empresas WHERE empresa ORDER BY empresa +0 ASC;"; //+0 para ordenar campo
+                    
+                    // confirmando sucesso
+                    $result_empresa = $conn->query($sql_empresa);
+                    
+                    // agrupando resultados
+                    if($result_empresa->num_rows > 0) {
+					// combobox
+                        while ($row1 = $result_empresa->fetch_array(MYSQLI_ASSOC)){
+							$empresa = $row1['empresa'];
+							$empresasonum = explode(" - ",$empresa);
+							$empresasonum = $empresasonum[0];
+							// while para agrupar todos os itens
+                            echo "<option value=\"$empresasonum\">$empresa</option>";
+						}//end while
+                    }
+			// fim da combo empresa
 ?>
-		
-		<thead><tr><td colspan="2">
-                <b>Selecione a data e hora de início e final</b>
+				</select></td></tr>
+			<thead>
+                <tr><td colspan="2"><b>Selecione a data e hora de início e final</b>
                 <!-- Fonte do calendário e Demo
                     https://www.jqueryscript.net/time-clock/Configurable-Date-Picker-Plugin-For-Bootstrap.html
                     https://www.jqueryscript.net/demo/Configurable-Date-Picker-Plugin-For-Bootstrap/
                 -->
-            </tr></td></thead>
+				</td></tr>
+            </thead>
             <tr>
                 <td>
                 <div class="input-group input-daterange" id="datepicker">
@@ -128,13 +150,13 @@ $empresa = $_GET['empresa'];
                 </div> <!-- end hora -->
             </td></tr>
 			<!-- variavel de controle do tipo de relatório -->
-			<input type="hidden" name="formdirect" id="formdirect" value="reluserempresa">
+			<input type="hidden" name="formdirect" id="formdirect" value="relvisempresa">
 			<tr>
             <td colspan="2">
 			<!-- Barra de progresso -->
 					<div class="progress">
 						<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="load" style="width:0%">0%</div>
-                    </div><br>
+                    </div>
                 <button type="submit" class="btn btn-primary btn-lg" id="loading" autocomplete="off"> Gerar relatório </button>
                 <script type="text/javascript">
                     $('#loading').click(function() {
@@ -159,21 +181,21 @@ $empresa = $_GET['empresa'];
                                 clearInterval(timerId);
                                 $('#pay').attr('disabled', false);
                                 $('#load').removeClass('progress-bar-striped active');
-                                $('#load').html('Aguarde!');
+                                $('#load').html('Aguarde! Processando...');
                             }
                             }, 200);
                             });
                 </script>
-			</td></tr>
-		</table>
-	</form>
-<?php
-		} //end if resultsql
-	} //fim isset
-$conn->close();
-?>
-        </div> <!-- table-responsive -->
-    </div> <!-- row -->
-</div> <!-- container -->
+		</td></tr>
+		</tbody>
+</table>
+</div><!-- table-responsive -->
+</div><!-- row -->
+</div><!-- container -->
+
 </body>
 </html>
+<?php
+$conn->close;
+//end file
+?>

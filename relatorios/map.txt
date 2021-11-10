@@ -1,0 +1,20 @@
+index.php (home = relatorios)
+	|_[Usuários unitário]		-> usuarios/consultausuarios.php
+								|_ usuarios/checkusuarios.php
+									|_ select_user.php
+										|_ rel_user.php
+											-> exportarpdf.php
+											-> exportarxls.php
+											
+	|_[Usuários por empresa]	-> select_empresa.php
+								|_ sql_user.php
+									|_ rel_empresa.php
+										-> exportarpdf_ue.php
+										-> exportarxls_ue.php
+										
+	|_[Visitante unitário]		-> HOME/consultavisitante.php
+								|_ include/checkvisitante.php
+									|_ select_visitante.php
+										|_ rel_visitante.php
+											-> exportarpdf_v.php
+											-> exportarxls_v.php

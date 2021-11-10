@@ -2,6 +2,18 @@
 include '../include/function.php';
 include '../include/connect.php';
 sessao();
+
+/*
+* Documento de referência: https://www.w3schools.com/php/php_ajax_database.asp
+* Arquivo de select dos usuarios: sql_user.php
+*
+*/
+
+//Declarando variaveis
+$empresa = "";
+$empresasonum = "";
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,10 +21,12 @@ sessao();
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.12.4.js"></script>
-<script src="../js/jquery-ui-1.12.1.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../js/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker3.css">
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js"></script>
+<script src="../js/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 <title>Selecionar usuário por empresa</title>
 </head>
 <html>
@@ -21,32 +35,37 @@ sessao();
 <div class="row">
 <div class="table-responsive">
 <table class="table table-hover table-md">
-	<thead class="thead-dark">Selecione a empresa para depois selecionar usuário(s)</thead>
-	<tr><td>Empresa: <?php
-			// inicio da combo empresa
-		        echo "<select name=\"empresa\" id=\"empresa\" onchange="$('#dropdown_usuario').load('sql_user.php?empresa='+this.value);" required>";
-		        echo "<option value=\"off\">Selecionar</option>";	
-                    // montagem da combobox empresa
+	<thead class="thead-dark"><b>Selecione a empresa</b></thead>
+		<form action="sql_user.php" id="rel_empresa" method="get">
+	<tr><td>Empresa: 
+		        <select name="empresa" id="empresa" class="form-control" required>";
+		        <option value="off">Selecionar a empresa</option>";	
+				<?php
+				    // montagem da combobox empresa
                     // populando o combobox
-                    $sql_empresa = "SELECT DISTINCT empresa FROM empresas WHERE empresa ORDER BY empresa;"; //+0 para ordenar campo
+                    $sql_empresa = "SELECT DISTINCT empresa FROM empresas WHERE empresa ORDER BY empresa +0 ASC;"; //+0 para ordenar campo
                     
                     // confirmando sucesso
                     $result_empresa = $conn->query($sql_empresa);
                     
                     // agrupando resultados
                     if($result_empresa->num_rows > 0) {
-                    // combobox
-
-                        while ($row1 = $result_empresa->fetch_array(MYSQLI_ASSOC))
-                            // while para agrupar todos os itens
-                            echo "<option value=\"$row1[empresa]\">$row1[empresa]</option>";
+					// combobox
+                        while ($row1 = $result_empresa->fetch_array(MYSQLI_ASSOC)){
+							$empresa = $row1['empresa'];
+							$empresasonum = explode(" - ",$empresa);
+							$empresasonum = $empresasonum[0];
+							// while para agrupar todos os itens
+                            echo "<option value=\"$empresasonum\">$empresa</option>";
+						}//end while
                     }
-                    echo "</select>";
+                    echo "</select></td></tr>";
 			// fim da combo empresa
 			//inicio da combo usuario pos select
-				echo "<div id=\"dropdown2_container\" style=\"display:none\"> 
-				
-				</div>";
+				echo "<tr><td><div class=\"td\">
+				<div> 
+				<button type=\"submit\" class=\"btn btn-primary btn-lg\" id=\"loading\" autocomplete=\"off\"> Selecionar empresa </button>
+				</div></div>";
 			// fim da combo usuario pos select
 		$conn->close;
 		?>
