@@ -1,17 +1,6 @@
 ﻿<?php
 include 'connect.php';
-?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.11.3.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-</head>
-<?php
+
 //header('Content-Type: text/html; charset=iso-8859-1');
 /*
  *  Arquivo de funções diversas (PHP e Javascript)
@@ -28,6 +17,18 @@ function sessao(){
 		exit;
 	}
 } //fim sessao
+
+//função de timeout de sessão
+function isLoginSessionExpired() {
+	$login_session_duration = 10; 
+	$current_time = time(); 
+	if(isset($_SESSION['loggedin_time']) and isset($_SESSION["nome"])){  
+		if(((time() - $_SESSION['loggedin_time']) > $login_session_duration)){
+			header('Location: index.php'); // testando redirect em caso de sessão expirada 
+		} 
+	}
+	return false;
+}
 
 //function para mudar a imagem para base64 (blob)
 function changeImagetoBase64($image){
@@ -63,6 +64,7 @@ function limpaLetras($str) {
 	$strlimpa = $strlimpa[0];
 	return $strlimpa;
 }
+
 ?>
 <script type="text/javascript">
 /*

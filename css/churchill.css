@@ -1,0 +1,109 @@
+html body {
+	background-color: #FFF;
+}
+form input select {
+	font-size: 10px;
+}
+#TituloDestaque {
+	text-align: left;
+}
+#MenuSup {
+	margin-top: 2px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 6px;
+	font-size:18px
+	}
+#MenuLateral {
+	width: 100%;
+	margin-bottom:5px;
+	margin-left:5px;
+	margin-right:5px;
+	font-size:18px
+}
+#MenuSuspenso {
+	font-size:15px
+}
+#BtnOperador{
+	margin-left: 20px;
+	margin-right: 10px;
+	font-size:15px
+}
+.copy {
+	border-top: 1px solid #5f5f5f;
+    font-size: 14px;
+    color: #b3b3b3;
+    margin-top: 25px;
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+a:link,a:visited { 
+	color:black;
+	text-decoration:none;
+	font-weight:normal;
+}
+a:hover{
+	color:block;
+}
+
+.area{
+
+	margin: 2px auto;
+	box-shadow: 0 10px 100px #ccc;
+	padding: 5px;
+	box-sizing: border-box;
+	max-width: 200px;
+}
+
+.area video{
+	width: 200px;
+	height: 120px;
+	background-color: whitesmoke;
+}
+
+.area textarea{
+	width: 100%;
+	margin-top: 10px;
+	height: 80px;
+	box-sizing: border-box;
+}
+
+.area button{
+	-webkit-appearance: none;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	text-align: center;
+	background-color: #068c84;
+	color: white;
+	text-transform: uppercase;
+	border: 1px solid white;
+	box-shadow: 0 1px 5px #666;
+}
+
+.area button:focus{
+	outline: none;
+	background-color: #0989b0;
+}
+
+.area img{
+	max-width: 200px;
+	height: 120px;
+}
+
+.area .caminho-imagem{
+	padding: 5px 10px;
+	border-radius: 3px;
+	background-color: #068c84;
+	text-align: center;
+}
+
+.area .caminho-imagem a{
+	color: white;
+	text-decoration: none;
+}
+
+.area .caminho-imagem a:hover{
+	color: yellow;
+}

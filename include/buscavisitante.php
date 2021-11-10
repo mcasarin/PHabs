@@ -4,9 +4,15 @@ include 'connect.php';
 sessao();
 /*
 * Resultado de busca por visitante (RG) no cadastro
-* Atualizado Lista Negra mostrando motivo na tela de cadastro
-*
+* Atualização Lista Restritiva mostrando motivo na tela de cadastro
+* Atualização Mostra caixa de atenção de que a última empresa visitada encontra-se ausente
 */
+
+// Declarando variáveis
+$rg = "";
+$cadastro = "";
+$validaAusenteA = "";
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,15 +20,14 @@ sessao();
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.11.3.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../webcamjs-master/webcam.js"></script>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/churchill.css">
+	<script src="../js/jquery-1.12.4.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../webcamjs-master/webcam.js"></script>
 <title>Cadastro de Visitantes</title>
-<<<<<<< HEAD
 
-=======
->>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 </head>
 <body>
 
@@ -63,6 +68,7 @@ $result = $conn->query($sql);
 if($result->num_rows > 0){ // Se encontrado cadastro/registro
 	$row = mysqli_fetch_array($result);
 	$empresavis = $row['Empresa'];
+	$cadastro = $row['Cadastro'];
 	?>
 	<div class="col-xs-4 col-md-3">
 	<div class="text-info bg-success" style="line-height: 75px" align="center">DOCUMENTO ENCONTRADO!</div>
@@ -94,22 +100,45 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 			</table>
 			</div>
 	</div>
-		<table class="table table-bordered table-hover">
-<<<<<<< HEAD
-		<tr><td><div class="cartao">Cartão: <input type="text" name="cartao" id="cartao" placeholder="Busca cartão..." tabindex="1" autocomplete="off" required autofocus>
+		<table class="table table-bordered table-hover table-sm">
+		<tr><td colspan="2"><div class="cartao">Cartão: <input type="text" name="cartao" id="cartao" placeholder="Busca cartão..." tabindex="1" autocomplete="off" required autofocus="autofocus">
 		<div class="botcad" name="botcad" id="botcad"></div>
-				</div></td>
-=======
-		<tr><td>Cartão: <input name="cartao" id="cartao" placeholder="Busca cartão para cadastro" tabindex="1" autocomplete="off" required autofocus></td>
->>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
-		<td align="right">Cadastro: <?php 
-							$d = strtotime($row['Cadastro']);
-							echo date('d-m-Y',$d); ?></td></tr>
+				</div></td></tr>
 		<tr><td>Nome: <input type="text" name="nome" value="<?php echo $row['Nome']; ?>" size="40" required></td><td>Documento: <input type="text" name="rg" value="<?php echo $row['RG']; ?>" size="15" readonly></td></tr>
 		
 		<tr><td colspan="2">Última Empresa visitada: 
-<?php 
-		
+<?php
+				$sqlvisA= "SELECT Empresa FROM movvis WHERE RG='".$rg."' ORDER BY DataAcesso DESC LIMIT 1;"; //ajuste no SQL para pegar última empresa
+				$resultvisA = $conn->query($sqlvisA);
+				if($resultvisA->num_rows > 0) {
+					while ($rowvisA = $resultvisA->fetch_array(MYSQLI_ASSOC)){
+						// Valida Empresa da ultima visita (ausente/vago)
+						$sqlrastreio = "SELECT empresa FROM empresas WHERE empresa = '".$rowvisA['Empresa']."';";
+						$resultrastreio = $conn->query($sqlrastreio);
+							if($resultrastreio->num_rows == 0){
+								echo "<script type='text/javascript'>
+										$(window).load(function() {
+											$('#popAusente').modal('show');
+										});
+										</script>
+								<div class='modal' id='popAusente' tabindex='-1' role='dialog'>
+								  <div class='modal-dialog' role='document'>
+									<div class='modal-content'>
+									  <div class='modal-header'>
+										<h5 class='modal-title alert-danger'>Atualize a empresa visitada!!!</h5>
+									  </div>
+									  <div class='modal-body'>
+										<p>Última empresa visitada está ausente ou o conjunto vago.<br>Atualize o conjunto!</p>
+									  </div>
+									  <div class='modal-footer'>
+										<button type='button' class='btn btn-secondary' data-dismiss='modal'>Fechar</button>
+									  </div>
+									</div>
+								  </div>
+								</div>";
+							}
+					}
+				}
 		// populando o combobox
 			    $sqlvis1 = "SELECT Empresa FROM movvis WHERE RG='".$rg."' ORDER BY DataAcesso DESC LIMIT 1;"; //ajuste no SQL para pegar última empresa
 			
@@ -118,16 +147,20 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 			
 			   // agrupando resultados
 				if($resultvis1->num_rows > 0) {
+					
 		        // combobox
 		        echo "<select name='empresa' id='empresa' tabindex='2' required>";
 		        
 		        while ($rowvis = $resultvis1->fetch_array(MYSQLI_ASSOC))
 		        	// while para agrupar todos os itens
 		        	echo "<option value='$rowvis[Empresa]'>$rowvis[Empresa]</option>";
+					echo $rowvis['Empresa'];
+					
 				} else { // caso falhar coleta da última visita compõe html/select
 					echo "<select name='empresa' id='empresa' tabindex='2' required>";
 					echo "<option value=''>-- Selecione --</option>";
 				}
+				
 				$conn->close;
 				
 		// montagem da combobox empresa
@@ -149,13 +182,15 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 		}
 		echo "</select></td></tr>";
 		// fim da combo
-		        	$conn->close;
+		
+		$conn->close;
 		?>
 		<tr><td>Autorização: <input type="text" name="autoriza" style="text-transform: uppercase;" tabindex="2"></td><td>Empresa/OBS: <input type="text" name="obs" style="text-transform: uppercase;" tabindex="3" value="<?php echo $empresavis; ?>"></td></tr>
+		<tr><td align="right" colspan="2">Cadastro: <?php 
+							echo date('d/m/Y',strtotime($cadastro)); ?></td><tr>
 		<input type="hidden" name="visita" value="1">
-<<<<<<< HEAD
 		<script type="text/javascript">
-			//Chamada Camera
+			// Chamada Camera
 					Webcam.set({
 						width: 200,
 						height: 120,
@@ -173,9 +208,11 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 								} );
 							} );
 						}
-			//fim Chamada Camera
-			
-			//função Busca cartão live
+			// fim Chamada Camera
+			// função focus
+			document.getElementById('cartao').focus();
+			//end
+			// função Busca cartão live
 			$(document).ready(function(){
 				$('.cartao input[type="text"]').on("keyup input", function(){
 					/* Get input value on change */
@@ -197,9 +234,9 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 					$(this).parent(".botcad").empty();
 				});
 			});
-			//fim busca cartão live
+			// fim busca cartão live
 			
-			//função ENTER envia
+			// função ENTER envia
 			document.getElementById('cartao').onkeydown = function(e){
 			   if(e.keyCode == 13){
 				 envio();
@@ -207,82 +244,18 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 			};
 			//fim função ENTER envia
 		</script>
-=======
-		<tr><td colspan="2"><div id="botcad"></div></td></tr>
->>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 		</form>
 		</div>
 		</div>
 		</table>
-<<<<<<< HEAD
 	<?php
 } else { // SE NÃO encontrar cadastro
-=======
-		<script>
-//Chamada camera
-		Webcam.set({
-			width: 200,
-			height: 120,
-			image_format: 'jpeg',
-			jpeg_quality: 100
-		});
-			Webcam.attach( '#webcam' );
-			function captureimage() {
-				// take snapshot and get image data
-				Webcam.snap( function(data_uri) {
-					// display results in page
-					Webcam.upload( data_uri, 'savephotolocal.php', function(code, text) {
-						document.getElementById('resultsfoto').innerHTML =
-						'<img src="'+text+'" width="220px" height="140px" /><input type="hidden" value="'+text+'" name="foto" />';
-					} );
-				} );
-			}
-			
-//função Busca cartão live
-$(document).ready(function(){
-
-load_data();
-
- function load_data(query)
- {
-  $.ajax({
-   url:"ajax.php",
-   method:"POST",
-   data:{query:query},
-   success:function(data)
-   {
-    $('#botcad').html(data);
-   }
-  });
- }
- $('#cartao').keyup(function(){
-  var search = $(this).val();
-  if(search != '')
-  {
-   load_data(search);
-  }
-  else
-  {
-   load_data();
-  }
- });
-});
-
-document.getElementById('cartao').onkeydown = function(e){
-   if(e.keyCode == 13){
-     envio();
-   }
-};
-</script>
-	<?php
-} else { // Se não encontrar cadastro
->>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 	?>
 	<div class="row">
 	<div class="col-xs-4 col-md-3">
 	<div class="text-info bg-danger" style="line-height: 75px" align="center">DOCUMENTO NÃO ENCONTRADO!</div>
 	<form action="../cadastrovisitantes.php" method="post" name="return" id="return">
-		<input type="hidden" name="rg" id="rg" value="<?php echo $rg;?>" />
+		<input type="hidden" name="rg" id="rg" value="<?php echo $rg;?>">
 		<button class="btn btn-sm btn-warning btn-block" type="submit" name="return" role="button" tabindex="8"> Tentar novamente?<br>Faltou o dígito? </button>
 	</form>
 	<p class="text-danger">Para cadastrá-lo no sistema, preencha abaixo.</p>
@@ -307,16 +280,12 @@ document.getElementById('cartao').onkeydown = function(e){
 			<div class="col-xs-12 col-md-8" id="dados">
 			<div class="table-responsive">
 			<table class="table table-bordered table-hover">
-			<tr><td colspan="2">RG: <input type="text" name="rg" id="rg" value="<?php echo $rg;?>" size="15" required /></td></tr>
+			<tr><td colspan="2">RG: <input type="text" name="rg" id="rg" value="<?php echo $rg;?>" size="15" required></td></tr>
 			<tr><td colspan="2">Nome: <input type="text" name="nome" id="nome" style="text-transform: uppercase;" size="40" tabindex="1" autofocus required></td></tr>
 			<tr><td colspan="2">Empresa: 
 			<?php
 			// montagem da combobox empresa
-<<<<<<< HEAD
-		        echo "<select name='empresa' id='empresa' tabindex='2' tabindex='2' required>";
-=======
 		        echo "<select name='empresa' id='empresa' tabindex='2' required>";
->>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 		        echo "<option value=''>-- Selecione --</option>";
 			    // populando o combobox
 			    $sql3 = "SELECT DISTINCT empresa FROM empresas WHERE empresa BETWEEN '00' AND '9999' ORDER BY empresa + 0 ASC;"; //+0 para ordenar campo
@@ -333,26 +302,15 @@ document.getElementById('cartao').onkeydown = function(e){
 		        	echo "<option value='$row[empresa]'>$row[empresa]</option>";
 				}
 				echo "</select>";
-<<<<<<< HEAD
 		        	// fim da combo
 		        	$conn->close;
         	?>
         	</td></tr>
-			<tr><td>Autorização: <input type="text" name="autoriza" style="text-transform: uppercase;"> </td><td> Empresa/OBS: <input type="text" name="obs" style="text-transform: uppercase;" size="30"></td></tr>
-			<tr>><td><div class="cartao">Cartão: <input tabindex="3" type="text" name="cartao" id="cartao" placeholder="Busca cartão..." autocomplete="off" required autofocus>
+			<tr><td>Autorização: <input type="text" name="autoriza" style="text-transform: uppercase;"> </td><td> Empresa/OBS: <input tabindex="3" type="text" name="obs" style="text-transform: uppercase;" size="30"></td></tr>
+			<tr><td colspan="2"><div class="cartao">Cartão: <input tabindex="4" type="text" name="cartao" id="cartao" placeholder="Busca cartão..." autocomplete="off" required autofocus>
 		<div class="botcad" name="botcad" id="botcad"></div>
 				</div></td></tr>
 				<input type="hidden" name="visita" value="0">
-=======
-		        	// fim da combo<br>
-		        	$conn->close;
-        	?>
-        	</td></tr>
-			<tr><td>Autorização: <input type="text" name="autoriza" style="text-transform: uppercase;" tabindex="3"> </td><td> Empresa/OBS: <input type="text" name="obs" style="text-transform: uppercase;" size="30" tabindex="4"></td></tr>
-			<tr><td colspan="2">Cartão: <input name="cartao" id="cartao" placeholder="Busca cartão para cadastro" tabindex="5" autocomplete="off" required ></td></tr>
-				<input type="hidden" name="visita" value="0">
-			<tr><td colspan="2"><div id="botcad"></div></td></tr>
->>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 			<tr><td colspan="2"><div id="msgerr"></div></td></tr>
 			</form>
 			</div> <!-- table responsive -->
@@ -360,7 +318,6 @@ document.getElementById('cartao').onkeydown = function(e){
 			</div> <!-- row -->
 			</table>
 		
-<<<<<<< HEAD
 	<script type="text/javascript">
 			//Chamada Camera
 					Webcam.set({
@@ -381,7 +338,9 @@ document.getElementById('cartao').onkeydown = function(e){
 							} );
 						}
 			//fim Chamada Camera
-			
+			// função focus
+			document.getElementById('nome').focus();
+			//end
 			//função Busca cartão live
 			$(document).ready(function(){
 				$('.cartao input[type="text"]').on("keyup input", function(){
@@ -414,70 +373,6 @@ document.getElementById('cartao').onkeydown = function(e){
 			};
 			//fim função ENTER envia
 		</script>
-=======
-<script>
-//Chamada camera
-Webcam.set({
-	width: 200,
-	height: 120,
-	image_format: 'jpeg',
-	jpeg_quality: 100
-	});
-	Webcam.attach( '#webcam' );
-	function captureimage() {
-	// take snapshot and get image data
-	Webcam.snap( function(data_uri) {
-	// display results in page
-	Webcam.upload( data_uri, 'savephotolocal.php', function(code, text) {
-	document.getElementById('resultsfoto').innerHTML =  
-	'<img src="'+text+'" width="220px" height="140px" /><input type="hidden" value="'+text+'" name="foto" />';
-	} );    
-	} );
-	}
-
-//Busca cartão
-$(document).ready(function(){
-
-load_data();
-
- function load_data(query)
- {
-  $.ajax({
-   url:"ajax.php",
-   method:"POST",
-   data:{query:query},
-   success:function(data)
-   {
-    $('#botcad').html(data);
-   }
-  });
- }
- $('#cartao').keyup(function(){
-  var search = $(this).val();
-  if(search != '')
-  {
-   load_data(search);
-  }
-  else
-  {
-   load_data();
-  }
- });
-});
-
-document.getElementById('cartao').onkeydown = function(e){
-   if(e.keyCode == 13){
-     envio();
-   }
-};
-document.getElementById('capturafoto').onkeydown = function(e){
-   if(e.keyCode == 13){
-     envio();
-   }
-};
-
-</script>
->>>>>>> daf2cd98c9680322351e26e75b575be1ae1b475f
 	<?php 
 	} //end else
 } //end request

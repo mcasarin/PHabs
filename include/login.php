@@ -12,7 +12,8 @@ $senha = $_POST[htmlspecialchars('senha')];
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/jquery-1.12.4.js"></script>
+<script src="../js/jquery-ui-1.12.1.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <title>Ops...</title>
 </head>

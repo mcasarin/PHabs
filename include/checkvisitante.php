@@ -6,11 +6,12 @@ sessao();
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/jquery-1.12.4.js"></script>
+<script src="../js/jquery-ui-1.12.1.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 </head>
 <?php
@@ -18,6 +19,7 @@ sessao();
 *  Consulta de visitantes
 */
 if($_SERVER['REQUEST_METHOD'] == "POST") {
+$formdirect = $_POST['formdirect'];
 
 $tipo = $_POST['tipo'];
 $valor = $_POST['valor'];
@@ -41,7 +43,7 @@ switch($tipo) {
 					<div class="table-responsive">
 					<table class="table">
 						<thead align="center">
-						<th>RG</th><th>Nome</th><th>Empresa/OBS</th><th>Cadastro</th><th>Restrição</th><th>Motivo</th><th>Visitas</th><th>�ltima empresa visitada</th>
+						<th>RG</th><th>Nome</th><th>Empresa/OBS</th><th>Cadastro</th><th>Restrição</th><th>Motivo</th><th>Visitas</th><th>Última empresa visitada</th>
 						</thead>
 						<tbody>
 					<?php
@@ -55,11 +57,17 @@ switch($tipo) {
 					$visitas = $rowa['Visitas'];
 					$visempresa = $rowa['VisEmpresa'];
 					
-					echo "<tr><td>$rg</td><td>$nomevis</td><td>$empresaobs</td><td>$cadastro</td><td>";
-					if($listanegra == 'SIM') {
-						echo "<p style='text-align:center;background-color:red;'>".$listanegra."</p>";
+					
+					if($formdirect == 'relvisunit'){
+						echo "<tr><td><a href='../relatorios/select_visitante.php?formdirect=relvisunit&rg=".urlencode($rg)."'>$rg</a></td>";
 					} else {
-						echo "<p style='text-align:center;background-color:green;'>".$listanegra."</p>";				
+						echo "<tr><td>$rg</td>";
+					}
+					echo "<td>$nomevis</td><td>$empresaobs</td><td>$cadastro</td><td>";
+					if($listanegra == 'SIM') {
+						echo "<p class='btn btn-danger'><a href='block-vis.php?formdirect=unblock&rg=".urlencode($rg)."'>".$listanegra."</a></p>";
+					} else {
+						echo "<p class='btn btn-success'><a href='block-vis.php?formdirect=block&rg=".urlencode($rg)."'>".$listanegra."</a></p>";				
 					}
 					echo "</td><td>$motivo</td><td>$visitas</td><td>$visempresa</td></tr>";		
 					
@@ -69,7 +77,8 @@ switch($tipo) {
 			} else {
 				echo "Não foi encontrado nenhum dado!<br>";
 				?>
-				<form action="../consultavisitantes.php" method="post">
+				<form action="../consultavisitantes.php" method="get">
+				<input type="hidden" name="formdirect" id="formdirect" value="<?php echo $formdirect; ?>">
 					<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
 				</form>
 				<?php
@@ -99,11 +108,17 @@ switch($tipo) {
 						$motivo = $rowb['Motivo'];
 						$visitas = $rowb['Visitas'];
 						$visempresa = $rowb['VisEmpresa'];
-					echo "<tr><td>$nomevis</td><td>$rg</td><td>$empresaobs</td><td>$cadastro</td><td>";
-					if($listanegra == 'SIM') {
-						echo "<p style='text-align:center;background-color:red;'>".$listanegra."</p>";
+					echo "<tr><td>$nomevis</td>";
+					if($formdirect == 'relvisunit'){
+						echo "<td><a href='../relatorios/select_visitante.php?formdirect=reluserunit&rg=".urlencode($rg)."'>$rg</a></td>";
 					} else {
-						echo "<p style='text-align:center;background-color:green;'>".$listanegra."</p>";				
+						echo "<td>$rg</td>";
+					}
+					echo "<td>$empresaobs</td><td>$cadastro</td><td>";
+					if($listanegra == 'SIM') {
+						echo "<p class='btn btn-danger'><a href='block-vis.php?formdirect=unblock&rg=".urlencode($rg)."'>".$listanegra."</a></p>";
+					} else {
+						echo "<p class='btn btn-success'><a href='block-vis.php?formdirect=block&rg=".urlencode($rg)."'>".$listanegra."</a></p>";				
 					}
 					echo "</td><td>$motivo</td><td>$visitas</td><td>$visempresa</td></tr>";		
 				} // end while
@@ -112,7 +127,8 @@ switch($tipo) {
 			} else {
 				echo "Não foi encontrado nenhum dado!<br>";
 				?>
-				<form action="../consultavisitantes.php" method="post">
+				<form action="../consultavisitantes.php" method="get">
+				<input type="hidden" name="formdirect" id="formdirect" value="<?php echo $formdirect; ?>">
 					<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
 				</form>
 				<?php
@@ -120,7 +136,7 @@ switch($tipo) {
 			}
 		break;
 	
-	case 'Usuario':
+	/*case 'Usuario':
 			$sqlbuscauser = "SELECT Nome,Empresa FROM usuarios WHERE empresa BETWEEN '00' AND '9999' AND Nome LIKE '".$valor."%' AND Bloq = '0' ORDER BY Nome ASC LIMIT 20";
 			$sqlbuscauserexe = $conn->query($sqlbuscauser);
 			if($sqlbuscauserexe->num_rows > 0) {
@@ -141,14 +157,15 @@ switch($tipo) {
 			} else {
 				echo "Não foi encontrado nenhum dado!<br>";
 				?>
-				<form action="../consultavisitantes.php" method="post">
+				<form action="../consultavisitantes.php" method="get">
+				<input type="hidden" name="formdirect" id="formdirect" value="<?php echo $formdirect; ?>">
 					<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
 				</form>
 				<?php
 				exit();
 			}
 		break;
-		
+		*/
 	default:
 			echo "Você precisa selecionar o tipo de busca.<br>";
 	} //end switch

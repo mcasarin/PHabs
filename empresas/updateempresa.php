@@ -40,11 +40,13 @@ $formdirect = $_POST["formdirect"];
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.css">
-<script src="../js/jquery-1.11.3.min.js"></script>
-<script src="../js/bootstrap.js"></script>
-
-<title>Editar Empresas</title>
+	<link rel="stylesheet" href="../css/churchill.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script src="../js/jquery-1.12.4.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<title> PHabs </title>
 </head>
 <body>
 <?php
@@ -70,17 +72,17 @@ switch ($formdirect) {
 					<p><strong>Enviado para atualização do site!</strong></p>
 					</div>";
 				} else {
-					echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
+					echo "<div class=\"alert alert-danger fade in\" role=\"alert\" style=\"width:250px\">
 					<p><strong>Falha para envio de dados para o site!</strong><br>Tente novamente...</p>
 					</div>";
 				}
             } else {
-                echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
+                echo "<div class=\"alert alert-danger fade in\" role=\"alert\" style=\"width:250px\">
                 <p><strong>Falha para atualizar os usuário da empresa!</strong><br>Tente novamente...</p>
                 </div>";
             }
         } else {
-            echo "<div class=\"alert alert-warning fade in\" role=\"alert\" style=\"width:250px\">
+            echo "<div class=\"alert alert-danger fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Algo deu errado na atualização!</strong><br>Tente novamente...<br>Code(U001)</p>
             </div>";
         }
@@ -89,18 +91,31 @@ switch ($formdirect) {
         break;
     case 'insert':
         $sqlinsertempresa = "INSERT INTO empresas(Empresa, CNPJ, IE, contato, Telefone, email, obs, Conjunto, Andar, Bloco, ControlVaga, VagaCond, QTDCond, VagaVis, QTDVis, BloqEstac) VALUES ('$empresaedit', '$cnpj', '$ramoatividade', '$contato', '$telefone', '$email', '$obs', '$conjunto', '$andar', '$atualizasite', '$controlvaga', '$vgcond', '$qtdcond', '$vgvis', '$qtdvis', '$bloqestac')";
+		
         $sqlinsertempresaexe = $conn->query($sqlinsertempresa);
         if($sqlinsertempresaexe){
             echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Empresa inserida com sucesso!</strong></p>
             </div>";
+			
             //atualiza site
-			$recuperaid = "select max(ID) from empresas";
-			$IDnew = $conn->query($recuperaid);
-            $sqlupdatesite = "INSERT INTO empresas_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresaedit','$empresaedit','$ramoatividade','$atualizasite','insere','$IDnew')";
-            $sqlupdatesiteexe = $conn->query($sqlupdatesite);
+			if($atualizasite == 'sim'){
+				
+				$recuperaid = "select max(ID) as ID from empresas";
+				$recuperaid = $conn->query($recuperaid);
+				$row = $recuperaid->fetch_assoc();
+				$IDnew = $row['ID'];
+				$sqlupdatesite = "INSERT INTO empresas_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao,ID) VALUES (NULL,'$empresaedit','$empresaedit','$ramoatividade','$atualizasite','insere','$IDnew')";
+				
+				$sqlupdatesiteexe = $conn->query($sqlupdatesite);
+				if($sqlupdatesiteexe){
+					echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
+					<p><strong>Empresa será atualizada no site!</strong></p>
+					</div>";
+				}
+			}
         } else {
-            echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
+            echo "<div class=\"alert alert-danger fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Algo deu errado na inserção!</strong><br>Tente novamente...<br>Code(I001)</p>
             </div>";
         }
@@ -118,14 +133,14 @@ switch ($formdirect) {
             $sqlupdatesite = "INSERT INTO empresas_updatesite(id_empresas_updatesite,empresa,atual,IE,Bloco,acao) VALUES (NULL,'$empresaedit','$empresaedit','$ramoatividade','$atualizasite','apaga','$ID')";
             $sqlupdatesiteexe = $conn->query($sqlupdatesite);
         } else {
-            echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
+            echo "<div class=\"alert alert-danger fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Algo deu errado na exclusão!</strong><br>Tente novamente...<br>Code(D001)</p>
             </div>";
         }
         $conn->close;
         break;
     default:
-        echo "<div class=\"alert alert-success fade in\" role=\"alert\" style=\"width:250px\">
+        echo "<div class=\"alert alert-danger fade in\" role=\"alert\" style=\"width:250px\">
             <p><strong>Algo deu errado!</strong><br>Informe ao mantenedor do sistema<br>Code(Def001)</p>
             </div>";
         break;

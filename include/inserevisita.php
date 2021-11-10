@@ -14,7 +14,8 @@ sessao();
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/jquery-1.12.4.js"></script>
+<script src="../js/jquery-ui-1.12.1.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 </head>
 <?php
@@ -79,51 +80,49 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		echo "Cartão inválido ou ocupado!<br>";
 		?>
 		<form action="../cadastrovisitantes.php" method="post">
-		<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
+		<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? Erro card</button>
 		</form>
 		<?php
 		exit();
 	}
 	$conn->close;
 	
-	//coleta usuario visitado
+	// coleta usuario visitado
 	$usuario = "";
 	$empresasonum = explode(" - ",$empresa);
 	$empresasonum = $empresasonum[0];
-	echo $empresasonum."<br>";
+	// echo $empresasonum."<br>";
 	$sqlusuario = "SELECT DISTINCT Nome FROM usuarios WHERE empresa LIKE '".$empresasonum." -%' ORDER BY Nome ASC LIMIT 1"; // usuario da empresa visitada alterado para pegar o primeiro em ordem alfabetica
-	echo $sqlusuario."<br>";
+	// echo $sqlusuario."<br>";
 	$sqlusuarioexe = $conn->query($sqlusuario);
 	if ($sqlusuarioexe->num_rows > 0){
 		while ($row2 = $sqlusuarioexe->fetch_array(MYSQLI_ASSOC))
 			$usuario = $row2['Nome'];
 	} else {
-		echo "Usuario invalido <br>";
-		?>
-		<form action="../cadastrovisitantes.php" method="post">
-		<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
-		</form>
-		<?php
-		exit();
+		$usuario = "Empresa sem usuario cadastrado";
 	}
 	$conn->close;
 	
 	//coleta departamento do usuario visitado
 	$dpto = "";
-	$sqldpto = "SELECT DISTINCT Departamento FROM usuarios WHERE empresa like '".$empresasonum."%' AND Nome = '$usuario'"; // departamento do usuario visitado
-	$sqldptoexe = $conn->query($sqldpto);
-	if($sqldptoexe->num_rows > 0){
-		while ($row3 = $sqldptoexe->fetch_array(MYSQLI_ASSOC))
-			$dpto = $row3['Departamento'];
-	} else {
-		echo "Departamento invalido <br>";
+		if($usuario = "Empresa sem usuario cadastrado"){
+			$dpto = 'ADM';
+		} else {
+			$sqldpto = "SELECT DISTINCT Departamento FROM usuarios WHERE empresa like '".$empresasonum."%' LIMIT 1"; // departamento do usuario visitado
+			$sqldptoexe = $conn->query($sqldpto);
+				if($sqldptoexe->num_rows > 0){
+					while ($row3 = $sqldptoexe->fetch_array(MYSQLI_ASSOC))
+						$dpto = $row3['Departamento'];
+				} else {
+					echo "Departamento invalido <br>";
 		?>
 		<form action="../cadastrovisitantes.php" method="post">
 		<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
 		</form>
 		<?php
 		exit();
-	}
+		}
+	} // dpto
 	$conn->close;
 	
 	//atualiza empresa em caso de alteração recente
@@ -180,13 +179,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		$sqlinsertvisopen = "INSERT INTO visopen (Doc,Matricula,Cartao,Status,Nome,Usuario,Empresausuario,Empresavis,Depusuario,Template1,Template2,Campo1,Campo2,Autorizado,ID) VALUES ('$rg','$cartao','$serialcartao','',UPPER('$nome'),'$usuario','$empresa',UPPER('$obs'),UPPER('$dpto'),'','','Cadastro','','$autoriza','$idatual')";
 		$sqlinsertvisopenexe = $conn->query($sqlinsertvisopen);
 		if ($sqlinsertvisopenexe){
-			//echo "Inserido em VISOPEN<br>";
-			//cadastra MOVVIS
+			// echo "Inserido em VISOPEN<br>";
+			// cadastra MOVVIS
 			$sqlinsertmovvis = "INSERT INTO movvis (Visitante,Usuario,Empresa,Matricula,RG,Terminal,Login,EmpresaVis,Acesso,Coletor,DepUsuario,DataAcesso,HoraAcesso,DColetor,Autorizado,Leitor) VALUES (UPPER('$nome'),'$usuario','$empresa','$cartao','$rg','$terminal','$login',UPPER('$obs'),'Cadastro','',UPPER('$dpto'),'$cadastro','$hora','','$autoriza','')";
 			$sqlinsertmovvisexe = $conn->query($sqlinsertmovvis);
 			if ($sqlinsertmovvisexe){
-				//echo "Inserido em MOVVIS<br>";
-				//cadastra VISITANTES
+				// echo "Inserido em MOVVIS<br>";
+				// cadastra VISITANTES
 				$sqlinsertvis = "INSERT INTO visitantes (RG,Nome,Empresa,Telefone,Veiculo,Placa_Veiculo,Cor_Veiculo,ListaNegra,Motivo,Cadastro,Visitas,Template1,Template2,Foto1,Foto2,Foto3,VisEmpresa,VisUsuario) VALUES ('$rg',UPPER('$nome'),UPPER('$obs'),'','','','','NÃO','','$cadastro','1','','','".addslashes(file_get_contents($foto))."','','','$empresa','$usuario')";
 				$sqlinsertvisexe = $conn->query($sqlinsertvis);
 				if ($sqlinsertvisexe){

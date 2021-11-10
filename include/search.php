@@ -40,7 +40,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Webslesson Tutorial</title>
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-	<script src="../js/jquery-1.11.3.min.js"></script>
+   <script src="../js/jquery-1.12.4.js"></script>
+   <script src="../js/jquery-ui-1.12.1.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
  </head>
  <body>

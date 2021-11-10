@@ -46,6 +46,19 @@ function chmod_R($path, $filemode, $dirmode) {
 }
 ?>
 <html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/bootstrap.css">
+<script src="../js/jquery-1.12.4.js"></script>
+<script src="../js/jquery-ui-1.12.1.js"></script>
+<script src="../js/bootstrap.js"></script>
+
+<title> Formulário de Configuração Servidor Banco de Dados </title>
+</head>
     <body>
 <form action="" method="POST">
     <p>Digite o endereço do servidor: <input type="text" name="servidor" autofocus></p>

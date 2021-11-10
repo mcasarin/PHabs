@@ -38,9 +38,9 @@ while($l = $re->fetch_array(MYSQLI_ASSOC)) {
         <thead class="thead-dark">
           <th colspan="3" style="align:center;">Edição para inserção de tag</th>
         </thead>
-          <tr><td>TAG: <input size="6" maxlength="5" type="text" id="tag" name="tag" value="<?php echo $tag; ?>" autofocus required /></td>
-          <td>Serial: <input size="6" maxlength="5" type="text" id="fc" name="fc" required /></td>
-          <td>Wiegand: <input size="6" maxlength="5" type="text" id="wie" name="wie" required /></td></tr>
+          <tr><td>TAG: <input size="6" maxlength="7" type="text" id="tag" name="tag" value="<?php echo $tag; ?>" autofocus required /></td>
+          <td>FC: <input size="6" maxlength="5" type="text" id="fc" name="fc" required /></td>
+          <td>Código: <input size="6" maxlength="5" type="text" id="wie" name="wie" required /></td></tr>
           <tr><td colspan="3">Nome do solicitante: <input size="50" type="text" id="nomesolicita" name="nomesolicita" value="<?php echo $nomesolicita; ?>" readonly /></td></tr>
           <tr><td colspan="3">Conjunto: <input size="60" type="text" id="empresa" name="empresa" value="<?php echo $empresa; ?>" readonly /></td></tr>
           <tr><td colspan="3">Carro: <input size="40" type="text" id="carro" name="carro" value="<?php echo $carro; ?>" readonly /></td></tr>

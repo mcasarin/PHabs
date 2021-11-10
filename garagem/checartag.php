@@ -2,7 +2,7 @@
 include '../include/function.php';
 include '../include/connect.php';
 sessao();
-$sqlchecatag = "SELECT * FROM solicita ORDER BY tag DESC";
+$sqlchecatag = "SELECT * FROM solicita ORDER BY datasolicita DESC";
 $re = $conn->query($sqlchecatag);
 ?>
 <html>
@@ -16,7 +16,8 @@ $re = $conn->query($sqlchecatag);
 <title>Checar TAG</title>
 </head>
 <body>
-<div class="col-md-2 container col-centered bg-"><a class="btn btn-success btn-block" role="button" href="garagem.php"> <<< Voltar <<< </a></div>
+<div class="col-md-2 container col-centered"><a class="btn btn-success" role="button" href="garagem.php"> <<< Voltar <<< </a></div>
+
 <div class="table-responsive">
 <table class="table table-hover table-sm">
 	<thead class="thead-dark"><tr>
@@ -28,6 +29,7 @@ $re = $conn->query($sqlchecatag);
 	   <th>TAG</th>
 	   <th>Data da Solicitação</th>
     </tr></thead>
+	<tbody>
 <?php
 while($l = $re->fetch_array(MYSQLI_ASSOC)) {
 	$id = $l["id_sol"];
@@ -46,9 +48,9 @@ echo "
 	<tr>
 		<td>";
 		if($tag == 'N/D'){
-			echo "<a class=\"btn btn-info\" href=\"include/editarsolicita.php?id=$id\"> [Editar] </a>";
+			echo "<a class=\"btn btn-warning\" href=\"include/editarsolicita.php?id=$id\"> [Editar] </a>";
 		} else {
-			echo "<span class=\"bg-success\">ok!</span>";
+			echo "<a class=\"btn btn-success\" href=\"include/editarsolicita.php?id=$id\"> [Editar] </a>";
 		}
 		echo "</td>
 		<td> $nomesolicita </td>
@@ -59,10 +61,10 @@ echo "
 		<td> $data </td>
 	</tr>\n";
 	}
-	
 
 $conn->close();
 ?>
+</tbody>
 </table>
 </div>
 </body>

@@ -2,6 +2,12 @@
 include '../include/function.php';
 sessao();
 
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+	$formdirect = $_POST['formdirect'];
+} else {
+	$formdirect = $_GET['formdirect'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,9 +15,10 @@ sessao();
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/jquery-1.12.4.js"></script>
+<script src="../js/jquery-ui-1.12.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 <title> Consulta de Usuário </title>
 </head>
@@ -32,6 +39,8 @@ sessao();
 				<option value="Nome"> Nome </option>
 			</select></div>
 			</td></tr>
+
+			<input type="hidden" name="formdirect" id="formdirect" value="<?php echo $formdirect; ?>">
 			</form>
 		</tbody>
 		</table>
@@ -46,4 +55,5 @@ sessao();
 </body>
 </html>
 <?php
+
 ?>
