@@ -9,7 +9,8 @@
     <title> PHabs </title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/sing.css">
-<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui-1.12.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body class="text-center">
@@ -33,7 +34,7 @@
       <footer class="page-footer font-small blue pt-4">
       <!-- Copyright -->
         <br>
-        <div class="footer-copyright text-center py-3">&copy; 2018-2019
+        <div class="footer-copyright text-center py-3">&copy; 2018-2021
           <a href="https://etwas.com.br/"> Etwas Informática </a>
         </div>
       <!-- Copyright -->

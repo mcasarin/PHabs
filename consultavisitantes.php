@@ -2,15 +2,19 @@
 include 'include/function.php';
 sessao();
 
+if($_SERVER['REQUEST_METHOD'] == "GET") {
+$formdirect = $_GET['formdirect'];
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui-1.12.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 <title>Consulta de Visitantes </title>
@@ -29,9 +33,10 @@ sessao();
 				<option>-- Selecione o tipo de busca --</option>
 				<option value="Documento"> Documento </option>
 				<option value="Nome"> Nome </option>
-				<option value="Usuario"> Usuário </option>		
+				<!-- <option value="Usuario"> Usuário </option> -->
 			</select></div>
 			</td></tr>
+			<input type="hidden" name="formdirect" id="formdirect" value="<?php echo $formdirect;?>">
 			</form>
 		</tbody>
 		</table>
@@ -46,4 +51,5 @@ sessao();
 </body>
 </html>
 <?php
+} // end IF
 ?>

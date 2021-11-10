@@ -14,11 +14,13 @@ if(isset($_POST['rg'])) {
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<title>Cadastro de Visitantes </title>
-</head>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/churchill.css">
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/jquery-ui-1.12.1.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<title>Cadastro de Visitantes </title>
+	</head>
 <body OnLoad='document.getElementById("rg").focus();'>
 
 	<div class="row">
@@ -30,7 +32,7 @@ if(isset($_POST['rg'])) {
 			<div class="col-xs-1 col-md-1">&nbsp;</div>
 			<form action="include/buscavisitante.php" id="busca" method="POST" class="form-horizontal" autocomplete="off">
 			<div class="col-xs-6 col-md-3 col-centered"><label>Documento (RG): </label> <input type="text" id="rg" name="rg" placeholder=" preferencialmente RG  " value="<?php echo $rg;?>" autofocus required onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"> <!-- Função para colocar o focus no final do texto retornado -->
-			<button type="submit" class="btn btn-default"> Busca </button>
+			<button id="btnSubmit" type="submit" class="btn btn-default"> Busca </button>
 			</div>
 			</form>
 	</div>
@@ -40,5 +42,19 @@ if(isset($_POST['rg'])) {
 	</div>
 </body>
 </html>
+<script>
+var input = document.getElementById("rg");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("btnSubmit").click();
+  }
+});
+</script>
 <?php
 ?>

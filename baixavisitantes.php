@@ -11,7 +11,8 @@ sessao();
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
-<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui-1.12.1.js"></script>
 <script src="js/bootstrap.js"></script>
 
 <title>Baixa de Visitantes </title>
@@ -44,7 +45,7 @@ sessao();
 		<div class="container-fluid" name="resultadobusca" id="resultadobusca"></div>
 		</div>
 		<div class="container-fluid">
-		<iframe class="iframe" name="baixadisplay" width="700" height="800" style="dysplay:none;border:0;position:absolute;overflow:hidden">
+		<iframe class="iframe" name="baixadisplay" width="700" height="800" style="border:0;position:absolute;overflow:hidden">
 		</iframe>
 		</div>
 	</div> <!-- fim container -->
@@ -80,6 +81,7 @@ load_data();
 });
 </script>
 </body>
+</html>
 <?php
 //fim do arquivo
 ?>
