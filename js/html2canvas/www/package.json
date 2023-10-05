@@ -5,7 +5,7 @@
   "private": true,
   "author": "Niklas von Hertzen",
   "dependencies": {
-    "cpy-cli": "^2.0.0",
+    "cpy-cli": "^5.0.0",
     "gatsby": "^5.12.5",
     "gatsby-link": "^2.0.16",
     "gatsby-plugin-catch-links": "^2.0.13",
