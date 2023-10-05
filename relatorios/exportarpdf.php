@@ -72,9 +72,12 @@ $prop = array('HeaderColor'=>array(255,150,100),
             'color1'=>array(255,255,255),
             'color2'=>array(220,220,220),
             'padding'=>1);
-$pdf->Table($conn,'SELECT Nome,Empresa,Matricula,Cartao,ID,Coletor,Data,Hora,Acesso from '.$tabelatemp.' ORDER BY Matricula,Data,Hora ASC',$prop);
+// $pdf->Table($conn,'SELECT Nome,Empresa,Matricula,Cartao,ID,Coletor,DATE_FORMAT(Data,"%d/%m/%Y") as Data,Hora,Acesso from '.$tabelatemp.' ORDER BY Matricula,Data,Hora ASC',$prop);
+$pdf->Table($conn,'SELECT Nome,Empresa,Matricula,Cartao,ID,Coletor,DATE_FORMAT(Data,"%d/%m/%Y") as Dia,Hora,Acesso from '.$tabelatemp.' ORDER BY Matricula,Data,Hora ASC',$prop);
 $pdf->AliasNbPages();
-$pdf->Output();
+ob_clean();
+// force download D
+$pdf->Output('D','relatorio_usuarios.pdf');
 	} //end create temptable
 $conn->close();
 }//end if POST

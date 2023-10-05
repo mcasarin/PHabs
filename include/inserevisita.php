@@ -4,7 +4,9 @@ include 'connect.php';
 sessao();
 /*
 *		Insere visita do PHabs no BD
-*		Versão 2.6 Data 17nov18
+*		Versão 2.6
+*		Data criação 17Nov18
+* 		Data atualização 15dez21
 */
 ?>
 <!DOCTYPE html>
@@ -25,8 +27,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	$visita = $_POST['visita'];
 	//echo $visita."<br>";
-	$foto = $_POST['foto'];
-	changeImagetoBase64($foto);
+	if(isset($_POST['foto'])){
+		$foto = $_POST['foto'];
+		changeImagetoBase64($foto);
+	}
 	//echo $foto."<br>";
 	$rg = $_POST['rg'];
 	$rg = ltrim($rg);
@@ -67,9 +71,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		<?php
 		exit();
 	}
-	$conn->close;
+	// $conn->close();
 	
-	//coleta numero serial do cartao
+	// coleta numero serial do cartao
 	$serialcartao = "";
 	$sqlserial = "SELECT cartao FROM cartoes WHERE sequencia = '$cartao' AND Uso = 'NAO' AND Tipo = 'V'"; // numero serial do cartao
 	$serial = $conn->query($sqlserial);
@@ -85,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		<?php
 		exit();
 	}
-	$conn->close;
+	// $conn->close();
 	
 	// coleta usuario visitado
 	$usuario = "";
@@ -101,9 +105,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	} else {
 		$usuario = "Empresa sem usuario cadastrado";
 	}
-	$conn->close;
+	// $conn->close();
 	
-	//coleta departamento do usuario visitado
+	// coleta departamento do usuario visitado
 	$dpto = "";
 		if($usuario = "Empresa sem usuario cadastrado"){
 			$dpto = 'ADM';
@@ -123,7 +127,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		exit();
 		}
 	} // dpto
-	$conn->close;
+	// $conn->close();
 	
 	//atualiza empresa em caso de alteração recente
 	$sqlempresaatual = "SELECT empresa FROM empresas WHERE empresa like '".$empresasonum." -%'";
@@ -132,7 +136,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		while ($rowempresa = $sqlempresaatualexe->fetch_array(MYSQLI_ASSOC))
 			$empresa = $rowempresa['empresa'];
 	}
-	$conn->close;
+	// $conn->close();
 	
 	//coleta id do último cadastro em VISOPEN e cria sequencia
 	$idatual = "";
@@ -151,7 +155,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		<?php
 		exit();
 	}
-	$conn->close;
+	// $conn->close;
 	
 	//coleta id do último cadastro em REDE1 e cria sequencia
 	$idratual = "";
@@ -170,7 +174,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		<?php
 		exit();
 	}
-	$conn->close;
+	// $conn->close;
 	
 	// Checa se houve visita anterior
 	switch($visita) {
@@ -215,7 +219,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 							header("Location: ../cadastrovisitantes.php");
 						} else {
 							echo "Falha insert rede1.<br>";
-							printf("Errormessage: %s\n", $conn->error);
+							printf("Error message: %s\n", $conn->error);
 							?>
 							<form action="../cadastrovisitantes.php" method="post">
 							<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
@@ -225,7 +229,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 						}// fim cadastra cartão rede1
 					} else {
 						echo "Falha update cartões para visitante novo.<br>";
-						printf("Errormessage: %s\n", $conn->error);
+						printf("Error message: %s\n", $conn->error);
 						?>
 						<form action="../cadastrovisitantes.php" method="post">
 						<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
@@ -233,10 +237,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php
 						exit();
 					} //fim atualiza cartões
-					$conn->close;
+					// $conn->close;
 				} else {
 					echo "Falha insert VISITANTES<br>";
-					printf("Errormessage: %s\n", $conn->error);
+					printf("Error message: %s\n", $conn->error);
 					?>
 					<form action="../cadastrovisitantes.php" method="post">
 					<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
@@ -244,10 +248,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 					<?php
 					exit();
 				}
-				$conn->close;
+				// $conn->close;
 			} else {
 				echo "Falha insert MOVVIS<br>";
-				printf("Errormessage: %s\n", $conn->error);
+				printf("Error message: %s\n", $conn->error);
 				?>
 				<form action="../cadastrovisitantes.php" method="post">
 				<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button"> Tentar novamente? </button>
@@ -255,7 +259,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 				<?php
 				exit();
 			}
-			$conn->close;
+			// $conn->close;
 		} else {
 			echo "Falha insert VISOPEN<br>";
 			printf("Errormessage: %s\n", $conn->error);
@@ -266,13 +270,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			<?php
 			exit();
 		}
-		$conn->close;
+		// $conn->close;
 		break;
 	// Se houve visita anterior, cadastra com atualização
 	case 1:
 		echo "Documento: ".$rg."<br>";
-		echo $foto." = FOTO<br>";
-		//coleta numero de visitas do rg
+		// echo $foto." = FOTO<br>";
+		// coleta numero de visitas do rg
 		$numvisita = "";
 		$sqlnumvisita = "SELECT Visitas FROM visitantes WHERE RG='$rg'";
 		$sqlnumvisitaexe = $conn->query($sqlnumvisita);
@@ -281,14 +285,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 				$numvisita = $row5['Visitas'];
 		}
 		++$numvisita;
-		$conn->close;
+		// $conn->close;
 		
 		//cadastra VISOPEN
 		$sqlinsertvisopen = "INSERT INTO visopen (Doc,Matricula,Cartao,Status,Nome,Usuario,Empresausuario,Empresavis,Depusuario,Template1,Template2,Campo1,Campo2,Autorizado,ID) VALUES ('$rg','$cartao','$serialcartao','',UPPER('$nome'),'$usuario','$empresa',UPPER('$obs'),'$dpto','','','Cadastro','',UPPER('$autoriza'),'$idatual')";
 		$sqlinsertvisopenexe = $conn->query($sqlinsertvisopen);
 		if ($sqlinsertvisopenexe){
 			//echo "Inserido no VISOPEN<br>";
-				if ($foto){
+				if (isset($foto)){
 					$sqlupdatevis = "UPDATE visitantes SET Nome=UPPER('$nome'),Visitas='$numvisita',Foto1='".addslashes(file_get_contents($foto))."',VisEmpresa='$empresa',VisUsuario='$dpto' WHERE RG='$rg'";
 					$sqlupdatevisexe = $conn->query($sqlupdatevis);
 					if ($sqlupdatevisexe){
@@ -327,7 +331,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 							exit();
 						}
 				}
-				$conn->close;
+				// $conn->close;
 				//cadastra MOVVIS
 				$sqlinsertmovvis = "INSERT INTO movvis (Visitante,Usuario,Empresa,Matricula,RG,Terminal,Login,EmpresaVis,Acesso,Coletor,DepUsuario,DataAcesso,HoraAcesso,DColetor,Autorizado,Leitor) VALUES (UPPER('$nome'),'$usuario','$empresa','$cartao','$rg','$terminal','$login',UPPER('$obs'),'Cadastro','',UPPER('$dpto'),'$cadastro','$hora','','$autoriza','')";
 				$sqlinsertmovvisexe = $conn->query($sqlinsertmovvis);
@@ -358,7 +362,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 								</form>
 								<?php
 							}// fim cadastra cartão rede1
-							$conn->close;
+							// $conn->close;
 					} else {
 						echo "Falha update cartões para visitante novo.<br>";
 						printf("Errormessage: %s\n", $conn->error);
@@ -369,7 +373,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php
 						exit();
 					} //fim atualiza cartões
-					$conn->close;
+					// $conn->close;
 				} else {
 					echo "Falha insert MOVVIS visitante reincidente.<br>";
 					printf("Errormessage: %s\n", $conn->error);
@@ -380,7 +384,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 					<?php
 					exit();
 				}
-				$conn->close;
+				// $conn->close;
 		} else {
 			echo "Falha insert VISOPEN visitante reincidente.<br>";
 			printf("Errormessage: %s\n", $conn->error);
@@ -391,14 +395,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			<?php
 			exit();
 		}
-		$conn->close;
+		// $conn->close;
 		break;
 		default:
 			echo "Falha geral na inserção de visitante, verifique. ERR swdefault";
 	} //end switch*/
 } //fim POST
+$conn->close();
 ?>
 </html>
 <?php 
-//fim
+// EOF
 ?>

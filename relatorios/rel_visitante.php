@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.12.4.js"></script>
-<script src="../js/jquery-ui-1.12.1.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-3.6.4.min.js"></script>
+<script src="../js/bootstrap.js"></script>
 <style>
 html {
 	font-style:arial;
@@ -50,17 +49,6 @@ $formdirect = "";
 $datatrini = "";
 $datatrfim = "";
 
-//botao voltar
-$voltar = "<form action=\"index.php\" method=\"post\">
-<button class=\"btn btn-sm btn-warning btn-block\" type=\"submit\" name=\"start\" role=\"button\"> Voltar ao início </button>
-</form>";
-//botao tentar novamente
-$tentarnovamente = "<form action=\"select_visitante.php\" method=\"get\">
-<input type=\"hidden\" value=\"$rg\" name=\"rg\" id=\"rg\">
-<input type=\"hidden\" value=\"relvisunit\" name=\"formdirect\" id=\"formdirect\">
-<button class=\"btn btn-sm btn-success btn-block\" type=\"submit\" name=\"reload\" role=\"button\"> Tentar novamente? </button>
-</form>";
-
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     $rg = $_POST['rg'];
@@ -69,6 +57,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $horainicio = $_POST['horainicio'];
     $horafim = $_POST['horafim'];
 	$formdirect = $_POST['formdirect'];
+
+	//botao voltar
+	$voltar = "<form action=\"index.php\" method=\"post\">
+	<button class=\"btn btn-sm btn-warning btn-block\" type=\"submit\" name=\"start\" role=\"button\"> Voltar ao início </button>
+	</form>";
+	//botao tentar novamente
+	$tentarnovamente = "<form action=\"select_visitante.php\" method=\"get\">
+	<input type=\"hidden\" value=\"$rg\" name=\"rg\" id=\"rg\">
+	<input type=\"hidden\" value=\"relvisunit\" name=\"formdirect\" id=\"formdirect\">
+	<button class=\"btn btn-sm btn-success btn-block\" type=\"submit\" name=\"reload\" role=\"button\"> Tentar novamente? </button>
+	</form>";
     
     date_default_timezone_set('UTC');
 	$datatrini = date('Y-m-d',strtotime(str_replace("/","-",$datainicio)));
@@ -80,16 +79,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 	if($sqlcreatetempexe){
 		//echo "Tabela temporária criada!<br>";
 		echo "<div class=\"row\"><div class=\"col-sm-4\"><form action=\"exportarpdf_v.php\" method=\"post\" target=\"_blank\">
-			<input type=\"hidden\" name=\"rg\" id=\"rg\" value=$rg>
-			<input type=\"hidden\" name=\"datatrini\" id=\"datatrini\" value=$datatrini>
-			<input type=\"hidden\" name=\"datatrfim\" id=\"datatrfim\" value=$datatrfim>
-			<input type=\"hidden\" name=\"horainicio\" id=\"horainicio\" value=$horainicio>
-			<input type=\"hidden\" name=\"horafim\" id=\"horafim\" value=$horafim>
-			<input type=\"hidden\" name=\"formdirect\" id=\"formdirect\" value=$formdirect>
+			<input type=\"hidden\" name=\"rg\" id=\"rg\" value='$rg'>
+			<input type=\"hidden\" name=\"datatrini\" id=\"datatrini\" value='$datatrini'>
+			<input type=\"hidden\" name=\"datatrfim\" id=\"datatrfim\" value='$datatrfim'>
+			<input type=\"hidden\" name=\"horainicio\" id=\"horainicio\" value='$horainicio'>
+			<input type=\"hidden\" name=\"horafim\" id=\"horafim\" value='$horafim'>
+			<input type=\"hidden\" name=\"formdirect\" id=\"formdirect\" value='$formdirect'>
 			<button>Exportar PDF</button></form>
 			</div>
 			<div class=\"col-sm-4\"><form action=\"exportarxls_v.php\" method=\"post\">
-			<input type=\"hidden\" name=\"sql\" id=\"sql\" value=$sql>
+				<input type=\"hidden\" name=\"sql\" id=\"sql\" value=\"\">
 				<button type=\"submit\" name=\"btnexportxls\" id=\"btnexportxls\">Exportar XLS</button>
 			</form></div>
 			<div class=\"col-sm-4\">$voltar</div>
@@ -134,7 +133,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 					$autorizado = $linhatemp["Autorizado"];				
                 echo "<tr><td>$visitante</td><td>$empresa</td><td>$matricula</td><td>$rg</td><td>$empresavis</td><td>$acesso</td><td>$dataacesso</td><td>$horaacesso</td><td>$dcoletor</td><td>$autorizado</td><td>$terminal</td><td>$login</td></tr>";
                 } // end while temp
-                $sqltempfinal->close(); //free result set
+                $sqltempfinalexe->close(); //free result set
 				echo "</table></div>";
 				echo "<div id=\"novorelatorio\"></div>";
 			} else {//end if sqltempfinalexe

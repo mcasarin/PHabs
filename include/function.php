@@ -30,7 +30,7 @@ function isLoginSessionExpired() {
 	return false;
 }
 
-//function para mudar a imagem para base64 (blob)
+// function para mudar a imagem para base64 (blob)
 function changeImagetoBase64($image){
 	$path = $image;
 	$type = pathinfo($path, PATHINFO_EXTENSION);
@@ -39,8 +39,8 @@ function changeImagetoBase64($image){
 	return $base64;
 }
 
-//function para esvaziar diretorio de fotos
-//fonte:https://paulund.co.uk/php-delete-directory-and-files-in-directory
+// function para esvaziar diretorio de fotos
+// fonte:https://paulund.co.uk/php-delete-directory-and-files-in-directory
 function delete_directory($dirname) {
 	if (is_dir($dirname))
 		$dir_handle = opendir($dirname);
@@ -58,20 +58,25 @@ function delete_directory($dirname) {
 			rmdir($dirname);
 			return true;
 }
-//Somente numeros na string
+// Somente numeros na string
 function limpaLetras($str) {
 	$strlimpa = explode(" - ", $str);
 	$strlimpa = $strlimpa[0];
 	return $strlimpa;
 }
-
+// Ordena data de retorno do BD (Y-m-d) > (d/m/Y) 
+function ordenaData($dataold){
+	$datanew = explode("-",$dataold);
+	$datareturn = $datanew[2]."/".$datanew[1]."/".$datanew[0];
+	return $datareturn;
+}
 ?>
 <script type="text/javascript">
 /*
  * FUNÇÕES JavaScript
  */
  
-//funcao envia com enter
+// funcao envia com enter
 function envio() {
     var txt = "";
     if (document.getElementById("nome").validity.valueMissing) {

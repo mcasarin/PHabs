@@ -17,8 +17,10 @@ $Empresa = "";
 
 if (isset($_GET["formdirect"])) {
 	$formdirect = $_GET["formdirect"];
+	$Sequencia = $_GET["matricula"];
 } else {
 	$formdirect = $_POST["formdirect"];
+	$Sequencia = $_POST["matricula"];
 }
 ?>
 <!DOCTYPE html>
@@ -29,8 +31,7 @@ if (isset($_GET["formdirect"])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../css/bootstrap.css">
-	<script src="../js/jquery-1.12.4.js"></script>
-	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/jquery-3.6.4.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<title>Cartões</title>
 	<style>
@@ -48,10 +49,26 @@ if (isset($_GET["formdirect"])) {
 					<thead class="thead-dark">
 						<tr>
 								<?php
-								if ($formdirect == 'update') {
+								if ($formdirect == 'atualiza') {
 									echo "<th colspan=\"8\"><h2>Editar Cartão</h2></th>";
-									echo "<input type=\"hidden\" name=\"sequencia\" id=\"sequencia\" value='$sequencia'>";
-									echo "<input type=\"hidden\" name=\"formdirect\" id=\"formdirect\" value=\"update\">";
+									echo "<input type=\"hidden\" name=\"sequencia\" id=\"sequencia\" value='$Sequencia'>";
+									echo "<input type=\"hidden\" name=\"formdirect\" id=\"formdirect\" value=\"atualiza\">";
+									$sql="select sequencia,FC,Codigo,cartao,tipo,uso,empresa from cartoes where sequencia='$Sequencia'";
+									$sqlexe = $conn->query($sql);
+									
+									if($sqlexe){
+										while($row = $sqlexe->fetch_array(MYSQLI_ASSOC)) {
+											$Sequencia = $row['sequencia'];
+											// echo $Sequencia."<br>";
+											$FC = $row['FC'];
+											// echo $FC."<br>";
+											$Codigo = $row['Codigo'];
+											$Tipo = $row['tipo'];
+											$Uso = $row['Uso'];
+											$cartao = $row['cartao'];
+											$Empresa = $row['empresa'];
+										} // end while
+									}
 								} elseif ($formdirect == 'insert') {
 									echo "<th colspan=\"8\"><h2>Insere Cartão</h2></th>";
 									echo "<input type=\"hidden\" name=\"formdirect\" id=\"formdirect\" value=\"insert\">";
@@ -62,19 +79,35 @@ if (isset($_GET["formdirect"])) {
 								?>
 						</tr>
 					</thead>
-					<tr><td colspan="2"><label for="matricula">Matrícula</label> <input type="number" id="matricula" name="matricula" maxlength="7" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" autofocus required><div class="col-sm-10 offset-sm-2" id="check_matricula"></div></td></tr>
-					<tr><td><label for="fc">FC</label> <input type="text" name="fc" id="fc" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onKeyUp="PulaCampo(this)" pattern="^(\d{5})$" title="Mínimo de 5 caracteres" required></td></tr>
-					<tr><td><label for="codigo">Código</label> <input type="text" name="codigo" id="codigo" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onKeyUp="PulaCampo(this)" pattern="^(\d{5})$" title="Mínimo de 5 caracteres" required></td></tr>
-					<tr><td><label for="cartao">Cartão</label> <input type="text" name="cartao" id="cartao" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" pattern="^(\d{10})$" title="Mínimo de 10 caracteres" required></td></tr>
+					<tr><td colspan="2"><label for="matricula">Matrícula</label> <input type="number" id="matricula" name="matricula" maxlength="7" value="<?php echo $Sequencia; ?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" autofocus required><div class="col-sm-10 offset-sm-2" id="check_matricula"></div></td></tr>
+
+					<tr><td><label for="fc">FC</label> <input type="text" name="fc" id="fc" maxlength="5" value="<?php echo $FC; ?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onKeyUp="PulaCampo(this)" pattern="^(\d{5})$" title="Mínimo de 5 caracteres" required></td></tr>
+
+					<tr><td><label for="codigo">Código</label> <input type="text" name="codigo" id="codigo" maxlength="5" value="<?php echo $Codigo; ?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onKeyUp="PulaCampo(this)" pattern="^(\d{5})$" title="Mínimo de 5 caracteres" required></td></tr>
+
+					<tr><td><label for="cartao">Cartão</label> <input type="text" name="cartao" id="cartao" maxlength="10" value="<?php echo $cartao; ?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" pattern="^(\d{10})$" title="Mínimo de 10 caracteres" required></td></tr>
+
 					<tr><td><label for="tipo">Tipo</label> 
-						<select name="tipo">
-							<option value="F" selected>Usuário</option>
+						<select name="tipo" required>
+							<option value="<?php echo $Tipo; ?>">
+								<?php
+									if($Tipo == "F"){
+										echo "Usuário";
+									} elseif($Tipo == "V") {
+										echo "Visitantes";
+									} else {
+										echo "";
+									}
+								?>
+							</option>
+							<option value="F">Usuário</option>
 							<option value="V">Visitantes</option>
 						</select>
 					</td></tr>
+
 					<tr><td colspan="2"><label for="empresa">Empresa</label> <?php
 						echo "<select name=\"empresa\" id=\"empresa\" style=\"font-size:13px\" required>";
-						echo "<option value=\"$empresa\">$empresa</option>";	
+						echo "<option value='".$Empresa."'>".$Empresa."</option>";	
 						// montagem da combobox empresa
 						// populando o combobox
 						$sql2 = "SELECT DISTINCT empresa FROM empresas WHERE empresa BETWEEN '00' AND '9999' ORDER BY empresa + 0 ASC;"; //+0 para ordenar campo

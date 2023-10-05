@@ -38,67 +38,73 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
 	switch ($valid){
 		case 'S':
-			$sql = "update ybd53_facileforms_records set viewed='1',archived='1',exported='1' where record = '$ID';";
+			$sql = "update ybd53_facileforms_records set viewed='1',archived='1',exported='1' where id = '".$ID."';";
+			// echo $sql."<br>";
 			$execSql = $connremote->query($sql);
-			if($execSql->num_rows > 0){
-				echo "<span class='alert alert-success'>Site atualizado!</span>";
+			if($execSql){
+				echo "<span class='alert alert-success'>Site atualizado!</span><br><br>";
 			}
-			$sqlVeiculo = "select a.value as Veiculo from ybd53_facileforms_subrecords a where a.name = 'Veiculo' and a.record = '$ID';";
+			$sqlVeiculo = "select a.value as Veiculo from ybd53_facileforms_subrecords a where a.name = 'Veiculo' and a.record = '".$ID."';";
 			$execSqlVeiculo = $connremote->query($sqlVeiculo);
 			if($execSqlVeiculo->num_rows > 0){
 				while($row = $execSqlVeiculo->fetch_assoc()){
 					$Veiculo = $row['Veiculo'];
 				}
 			}
-			$sqlPlaca = "select a.value as Placa from ybd53_facileforms_subrecords a where a.name = 'Placa' and a.record = '$ID';";
+			$sqlPlaca = "select a.value as Placa from ybd53_facileforms_subrecords a where a.name = 'Placa' and a.record = '".$ID."';";
 			$execSqlPlaca = $connremote->query($sqlPlaca);
 			if($execSqlPlaca->num_rows > 0){
 				while($row = $execSqlPlaca->fetch_assoc()){
 					$Placa = $row['Placa'];
 				}
 			}
-			$sqlVaga = "select a.value as Vaga from ybd53_facileforms_subrecords a where a.name = 'Vaga' and a.record = '$ID';";
+			$sqlVaga = "select a.value as Vaga from ybd53_facileforms_subrecords a where a.name = 'Vaga' and a.record = '".$ID."';";
 			$execSqlVaga = $connremote->query($sqlVaga);
 			if($execSqlVaga->num_rows > 0){
 				while($row = $execSqlVaga->fetch_assoc()){
 					$Vaga = $row['Vaga'];
 				}
 			}
-			$sqlLogin = "select a.value as Login from ybd53_facileforms_subrecords a where a.name = 'Login' and a.record = '$ID';";
+			$sqlLogin = "select a.value as Login from ybd53_facileforms_subrecords a where a.name = 'Login' and a.record = '".$ID."';";
 			$execSqlLogin = $connremote->query($sqlLogin);
 			if($execSqlLogin->num_rows > 0){
 				while($row = $execSqlLogin->fetch_assoc()){
 					$Login = $row['Login'];
 				}
 			}
-			$sqlConjunto = "select a.value as Conjunto from ybd53_facileforms_subrecords a where a.name = 'Conjunto' and a.record = '$ID';";
+			$sqlConjunto = "select a.value as Conjunto from ybd53_facileforms_subrecords a where a.name = 'Conjunto' and a.record = '".$ID."';";
 			$execSqlConjunto = $connremote->query($sqlConjunto);
 			if($execSqlConjunto->num_rows > 0){
 				while($row = $execSqlConjunto->fetch_assoc()){
 					$Conjunto = $row['Conjunto'];
 				}
 			}
-			$sqlinsert = "INSERT INTO solicita (id_sol, tag ,nomesolicita, empresa, carro, placa, datasolicita) VALUES (NULL,'N/D','$Login','$Conjunto','$Veiculo','$Placa',NOW())";
+			$dataatual = date("Y-m-d H:i:s");
+			// echo $dataatual."<br>";
+			$sqlinsert = "INSERT INTO solicita (id_sol, tag ,nomesolicita, empresa, carro, placa, datasolicita) VALUES (NULL,'N/D','".$Login."','".$Conjunto."','".$Veiculo."','".$Placa."','".$dataatual."')";
+			// echo $sqlinsert."<br>";
 			$execsqlinsert = $conn->query($sqlinsert);
-			if($execsqlinsert->num_rows > 0){
-				echo "<span class='alert alert-success'>Solicitação de tag encaminhada!</span>";
+			if($execsqlinsert){
+				echo "<span class='alert alert-success'>Solicitação de tag encaminhada!</span><br><br>";
+				$sqlmotivosite = "insert into ybd53_facileforms_subrecords (record,element,title,name,type,value) values ('".$ID."','385','Validação','validacao','Text','".$motivo."');";
+				// echo $sqlmotivosite."<br>";
+				$execmotivosite = $connremote->query($sqlmotivosite);
+				if($execmotivosite){
+					echo "<span class='alert alert-success'>Update do motivo no site!</span><br><br>";
+				}
 			}
-			$sqlmotivosite = "insert into ybd53_facileforms_subrecords (record,element,title,name,type,value) values ('$ID','385','Validação','validacao','Text','$motivo');";
-			$execmotivosite = $connremote->query($sqlmotivosite);
-			if($execmotivosite->num_rows > 0){
-				echo "<span class='alert alert-success'>Update do motivo no site!</span>";
-			}
+			
 		break;
 		
 		case 'N':
 				$sql = "update ybd53_facileforms_records set viewed='1',archived='1',exported='0' where id = '$ID';";
-				$sql2 = "insert into ybd53_facileforms_subrecords (record,element,title,name,type,value) values ('$ID','385','Validação','validacao','Text','$motivo');";
+				$sql2 = "insert into ybd53_facileforms_subrecords (record,element,title,name,type,value) values ('$ID','385','Validacao','validacao','Text','$motivo');";
 				$execsql = $connremote->query($sql);
-				if($execsql->num_rows > 0){
+				if($execsql){
 					echo "<span class='alert alert-warning'>Solicitação invalidada!</span><br><br><br>";
 					$execsql2 = $connremote->query($sql2);
-					if($execsql2->num_rows > 0){
-						echo "<span class='alert alert-danger'>Lembre-se de notificar o condômino.</span>";
+					if($execsql2){
+						echo "<span class='alert alert-danger'>Lembre-se de notificar o condômino.</span><br>";
 					}
 				}
 		break;

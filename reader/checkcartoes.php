@@ -9,10 +9,8 @@ sessao();
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.12.4.js"></script>
-<script src="../js/jquery-ui-1.12.1.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+	<link href="../css/bootstrap.css" rel="stylesheet">
+
 </head>
 <?php
 /*
@@ -52,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 					$uso = $rowa['uso'];
 					$empresa = $rowa['empresa'];
                 
-				echo "<tr><td><a href='editarcartoes.php?formdirect=update&matricula=".urlencode($matricula)."'>".$matricula."</a></td>
+				echo "<tr><td><a href='editarcartoes.php?formdirect=atualiza&matricula=".urlencode($matricula)."'>".$matricula."</a></td>
 				<td>".$lotefc."</td><td>".$hexcode."</td><td>".$cartao."</td><td>".$tipo."</td><td>".$uso."</td><td>".$empresa."</td></tr>";	
                 
             } // end while
@@ -62,7 +60,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			echo $voltar;
             $conn->close;
         } else {
-            echo "Não foi encontrado nenhum dado!<br>";
+            echo "<span class='alert alert-warning'>Não foi encontrado nenhum dado!</span><br>";
 			echo $voltar;
 			?>
             <?php

@@ -22,8 +22,7 @@ $validaAusenteA = "";
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/churchill.css">
-	<script src="../js/jquery-1.12.4.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery-3.6.4.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../webcamjs-master/webcam.js"></script>
 <title>Cadastro de Visitantes</title>
@@ -42,11 +41,15 @@ $rg = preg_replace('/[^A-Za-z0-9\. -]/', '', $rg);
 $empresavis = "";
 
 ?>
+<div class="container">
 	<div class="row">
-	<div class="col-xs-3 col-md-2">&nbsp;</div>
-	<div class="col-xs-6 col-md-4 col-centered bg-sucess"><h3>Cadastro de Visitantes</h3></div>
-	<div class="col-xs-3 col-md-2">&nbsp;</div>
+	
+		<div class="col"><h3 align="center">Cadastro de Visitantes</h3>
+		</div>
+	
 	</div> <!-- class row -->
+
+	<div class="row">
 <?php
 //valida rg com visita aberta
 	$sqlvisopen = "SELECT Doc FROM visopen WHERE Doc='".$rg."'";
@@ -61,7 +64,7 @@ $empresavis = "";
 		<?php
 		exit();
 	}
-	$conn->close;
+	// $conn->close;
 	
 $sql="SELECT RG,Nome,Foto1,Cadastro,ListaNegra,Motivo,Empresa FROM visitantes WHERE RG = '".$rg."'";
 $result = $conn->query($sql);
@@ -70,13 +73,18 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 	$empresavis = $row['Empresa'];
 	$cadastro = $row['Cadastro'];
 	?>
-	<div class="col-xs-4 col-md-3">
-	<div class="text-info bg-success" style="line-height: 75px" align="center">DOCUMENTO ENCONTRADO!</div>
-	<form action="../cadastrovisitantes.php" method="post" name="return" id="return">
-	<input type="hidden" name="rg" id="rg" value="<?php echo $rg;?>" />
-		<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button" tabindex="8"> Tentar outro documento?<br>Faltou o dígito? </button>
-	</form>
-	<p class="text-danger">Abaixo o cadastro encontrado.</p>
+
+	<div class="col-3">
+	<div class="row text-info bg-success" style="margin:5px;padding:5px;" align="center">DOCUMENTO ENCONTRADO!</div>
+	<div class="row" align="center">
+		<form action="../cadastrovisitantes.php" method="post" name="return" id="return">
+			<input type="hidden" name="rg" id="rg" value="<?php echo $rg;?>" />
+			<button class="btn btn-sm btn-warning btn-block" type="submit" name="reload" role="button" tabindex="8"> Tentar outro documento?<br>Faltou o dígito? </button>
+		</form>
+	</div>
+	<div class="row">
+		<p class="text-danger">Abaixo o cadastro encontrado.</p>
+	</div>
 	<?php
 	if($row['ListaNegra'] == "SIM") {
 		echo "<div style='background-color:red; align:center; text-align:center'><h3>Cadastro com restrição de acesso!</h3>
@@ -85,26 +93,28 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 	}
 	?>
 	</div> <!-- Fecha caixa esquerda -->
-	<form action="inserevisita.php" method="post" name="cadastro" id="cadastro" class="form-horizontal" onsubmit="envio();">
-	<div class="col-xs-8 col-md-4">
+	
+	<div class="col-6">
+		<form action="inserevisita.php" method="post" name="cadastro" id="cadastro" class="form-horizontal" onsubmit="envio();">
 			<div class="table-responsive">
 			<table class="table">
 				<tr class="info" align="center">
-				<td><div class="col-md-1" id="webcam"></div></td>
-				<td><div class="col-md-1" id="resultsfoto"><?php echo '<img name=\"fotoantiga\" src="data:image/jpg;base64,'.base64_encode($row['Foto1']).'" width=\"200px\" height=\"120px\" />';?></div></td>
+				<td><div class="col" id="webcam"></div></td>
+				<td><div class="col" id="resultsfoto"><?php echo '<img name=\"fotoantiga\" src="data:image/jpg;base64,'.base64_encode($row['Foto1']).'" width=\"200px\" height=\"120px\" />';?></div></td>
 				</tr>
 				<tr class="info" align="center">
-				<td><div class="col-md-1"><p align="center"> <input type="button" class="btn btn-default form-control" value=" Foto " onClick="captureimage()"> </p></div></td>
-				<td><div class="col-md-1"><p class="bg-success" align="center"> Visualização </p></div></td>
+				<td><div class="col"><p align="center"> <input type="button" class="btn btn-info form-control" value=" Foto " onClick="captureimage()"> </p></div></td>
+				<td><div class="col"><p class="" align="center"> Visualização </p></div></td>
 				</tr>
 			</table>
 			</div>
 	</div>
+</div>
 		<table class="table table-bordered table-hover table-sm">
 		<tr><td colspan="2"><div class="cartao">Cartão: <input type="text" name="cartao" id="cartao" placeholder="Busca cartão..." tabindex="1" autocomplete="off" required autofocus="autofocus">
 		<div class="botcad" name="botcad" id="botcad"></div>
 				</div></td></tr>
-		<tr><td>Nome: <input type="text" name="nome" value="<?php echo $row['Nome']; ?>" size="40" required></td><td>Documento: <input type="text" name="rg" value="<?php echo $row['RG']; ?>" size="15" readonly></td></tr>
+		<tr><td>Nome: <input type="text" name="nome" id="nome" value="<?php echo $row['Nome']; ?>" size="40" required></td><td>Documento: <input type="text" name="rg" id="rg" value="<?php echo $row['RG']; ?>" size="15" readonly></td></tr>
 		
 		<tr><td colspan="2">Última Empresa visitada: 
 <?php
@@ -161,7 +171,7 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 					echo "<option value=''>-- Selecione --</option>";
 				}
 				
-				$conn->close;
+				// $conn->close;
 				
 		// montagem da combobox empresa
 		
@@ -174,8 +184,6 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 		// agrupando resultados
 		if($result2->num_rows > 0) {
 			// combobox
-
-			
 			while ($row = $result2->fetch_array(MYSQLI_ASSOC))
 				// while para agrupar todos os itens
 				echo "<option value='$row[empresa]'>$row[empresa]</option>";
@@ -183,7 +191,7 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 		echo "</select></td></tr>";
 		// fim da combo
 		
-		$conn->close;
+		// $conn->close;
 		?>
 		<tr><td>Autorização: <input type="text" name="autoriza" style="text-transform: uppercase;" tabindex="2"></td><td>Empresa/OBS: <input type="text" name="obs" style="text-transform: uppercase;" tabindex="3" value="<?php echo $empresavis; ?>"></td></tr>
 		<tr><td align="right" colspan="2">Cadastro: <?php 
@@ -248,35 +256,41 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 		</div>
 		</div>
 		</table>
+
 	<?php
-} else { // SE NÃO encontrar cadastro
+} else { // SE NÃO encontrar cadastro #################################################################################
 	?>
-	<div class="row">
-	<div class="col-xs-4 col-md-3">
-	<div class="text-info bg-danger" style="line-height: 75px" align="center">DOCUMENTO NÃO ENCONTRADO!</div>
-	<form action="../cadastrovisitantes.php" method="post" name="return" id="return">
-		<input type="hidden" name="rg" id="rg" value="<?php echo $rg;?>">
-		<button class="btn btn-sm btn-warning btn-block" type="submit" name="return" role="button" tabindex="8"> Tentar novamente?<br>Faltou o dígito? </button>
-	</form>
-	<p class="text-danger">Para cadastrá-lo no sistema, preencha abaixo.</p>
+<div class="row">
+	<div class="col-3">
+		<div class="row text-info bg-danger" style="margin:5px;padding:5px;" align="center">DOCUMENTO NÃO ENCONTRADO!</div>
+		<div class="row" align="center">
+		<form action="../cadastrovisitantes.php" method="post" name="return" id="return">
+			<input type="hidden" name="rg" id="rg" value="<?php echo $rg;?>">
+			<button class="btn btn-sm btn-warning btn-block" type="submit" name="return" role="button" tabindex="8"> Tentar novamente?<br>Faltou o dígito? </button>
+		</form>
+		</div>
+		<div class="row">
+			<p class="text-danger">Para cadastrá-lo no sistema, preencha abaixo.</p>
+		</div>
 	</div>
-	<form action="inserevisita.php" method="post" name="cadastro" id="cadastro" class="form-horizontal" onsubmit="envio();">
-		<div class="col-xs-8 col-md-4">
+	<div class="col-6">
+		<form action="inserevisita.php" method="post" name="cadastro" id="cadastro" class="form-horizontal" onsubmit="envio();">
 			<div class="table-responsive">
 			<table class="table">
 				<tr class="info" align="center">
-				<td><div class="col-md-1" id="webcam"></div></td>
-				<td><div class="col-md-1" id="resultsfoto"></div></td>
+					<td><div class="col" id="webcam"></div></td>
+					<td><div class="col" id="resultsfoto"></div></td>
 				</tr>
 				<tr class="info" align="center">
-				<td><div class="col-md-1"><p align="center"> <input type="button" class="btn btn-default form-control" id="capturafoto" name="capturafoto" value=" Foto " onClick="captureimage()"> </p></div></td>
-				<td><div class="col-md-1"><p class="bg-success" align="center"> Visualização </p></div></td>
+					<td><div class="col"><p align="center"> <input type="button" class="btn btn-info form-control" id="capturafoto" name="capturafoto" value=" Foto " onClick="captureimage()"> </p></div></td>
+					<td><div class="col"><p class="" align="center"> Visualização </p></div></td>
 				</tr>
 			</table>
 			</div>
 		</div>
 	</div>
-			<div class="row">
+</div>
+		<div class="row">
 			<div class="col-xs-12 col-md-8" id="dados">
 			<div class="table-responsive">
 			<table class="table table-bordered table-hover">
@@ -303,7 +317,7 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 				}
 				echo "</select>";
 		        	// fim da combo
-		        	$conn->close;
+		        	// $conn->close;
         	?>
         	</td></tr>
 			<tr><td>Autorização: <input type="text" name="autoriza" style="text-transform: uppercase;"> </td><td> Empresa/OBS: <input tabindex="3" type="text" name="obs" style="text-transform: uppercase;" size="30"></td></tr>
@@ -317,7 +331,7 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 			</div> <!-- dados -->
 			</div> <!-- row -->
 			</table>
-		
+</div> <!-- div container -->
 	<script type="text/javascript">
 			//Chamada Camera
 					Webcam.set({
@@ -376,4 +390,5 @@ if($result->num_rows > 0){ // Se encontrado cadastro/registro
 	<?php 
 	} //end else
 } //end request
+$conn->close();
 ?>

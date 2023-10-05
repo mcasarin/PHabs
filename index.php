@@ -2,16 +2,18 @@
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
     <title> PHabs </title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/sing.css">
-<script src="js/jquery-1.12.4.js"></script>
-<script src="js/jquery-ui-1.12.1.js"></script>
+<script src="js/jquery-3.6.4.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 </head>
 <body class="text-center">
 <div class="container">
@@ -34,7 +36,7 @@
       <footer class="page-footer font-small blue pt-4">
       <!-- Copyright -->
         <br>
-        <div class="footer-copyright text-center py-3">&copy; 2018-2021
+        <div class="footer-copyright text-center py-3">&copy; 2018-<?php echo date('Y');?>
           <a href="https://etwas.com.br/"> Etwas Informática </a>
         </div>
       <!-- Copyright -->

@@ -11,35 +11,31 @@ if(isset($_POST['rg'])) {
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/churchill.css">
-	<script src="js/jquery-1.12.4.js"></script>
-	<script src="js/jquery-ui-1.12.1.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<!-- Bootstrap 523 -->
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<script src="../js/jquery-3.6.4.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
 	<title>Cadastro de Visitantes </title>
-	</head>
+</head>
 <body OnLoad='document.getElementById("rg").focus();'>
 
-	<div class="row">
-	<div class="col-xs-3 col-md-2">&nbsp;</div>
-	<div class="col-xs-6 col-md-4 col-centered"><h2>Cadastro de Visitantes</h2></div>
-	<div class="col-xs-3 col-md-2">&nbsp;</div>
-	</div> <!-- class row -->
-	<div class="row">
-			<div class="col-xs-1 col-md-1">&nbsp;</div>
-			<form action="include/buscavisitante.php" id="busca" method="POST" class="form-horizontal" autocomplete="off">
-			<div class="col-xs-6 col-md-3 col-centered"><label>Documento (RG): </label> <input type="text" id="rg" name="rg" placeholder=" preferencialmente RG  " value="<?php echo $rg;?>" autofocus required onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"> <!-- Função para colocar o focus no final do texto retornado -->
-			<button id="btnSubmit" type="submit" class="btn btn-default"> Busca </button>
+	<div class="container-fluid">
+	<h2 style="text-align:center;background-color:#FEE39A;">Cadastro de Visitantes</h2>
+		<div class="row">
+			<div class="col-6" style="margin:20px;">
+				<form action="include/buscavisitante.php" id="busca" method="POST" class="form-horizontal" autocomplete="off">
+				<label>Documento (RG): </label> 
+				<input type="text" id="rg" name="rg" placeholder=" preferencialmente RG  " value="<?php echo $rg;?>" autofocus required onfocus="var temp_value=this.value; this.value=''; this.value=temp_value" style="margin-bottom:20px;"> <!-- Função para colocar o focus no final do texto retornado -->
+				<button id="btnSubmit" type="submit" class="btn btn-info"> Busca </button>
+				<br>
+				<span class="alert alert-info" style="display:block;align-self:flex-end;">Insira o documento para busca do cadastro.</span>
+				</form>
 			</div>
-			</form>
-	</div>
-	<div class="row">
-		<div class="col-xs-1 col-md-2">&nbsp;</div><div class="col-xs-8 col-md-4">
-		<span class="help-block">Insira o documento para busca do cadastro.</span></div>
-	</div>
+		</div> <!-- end row -->
+	</div> <!-- end container -->
 </body>
 </html>
 <script>

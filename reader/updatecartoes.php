@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 include '../include/function.php';
 include '../include/connect.php';
 sessao();
@@ -48,9 +50,27 @@ if(isset($_GET["formdirect"])){
 }
 
 switch ($formdirect){
-        case update:
+        case 'atualiza':
+			$sql="UPDATE cartoes set FC='$fc', Codigo='$codigo', Cartao='$cartao', tipo='$tipo', Empresa='$empresa' where sequencia='$matricula';";
+			$result = $conn->query($sql);
+			
+			if($result){
+				$sqlrede = "UPDATE rede1 SET cartao='$cartao' where matricula='$matricula';";
+				$sqlredex = $conn->query($sqlrede);
+				if($sqlredex){
+				echo "<div class='alert alert-success' role='alert' style='width:250px'>
+					<p><strong>Cartão atualizado com sucesso!</strong></p>
+					</div>";
+				echo "<div><a class='btn btn-outline-warning btn-lg' href='cartoes.php'> Voltar </a></div>";
+				}
+			} else {
+				echo "<div class='alert alert-warning' role='alert' style='width:250px'>
+					<p><strong>Algo deu errado na atualização!</strong><br>Tente novamente...<br>CodeError(".$conn->error.")</p>
+					</div>";
+				echo "<div><a class='btn btn-outline-warning btn-lg' href='cartoes.php'> Voltar </a></div>";
+			}
 		break;
-		case insert:
+		case 'insert':
 		$sql = "select count(*) as ctnMatricula from cartoes where sequencia='$matricula'";
 		  $result = $conn->query($sql);
 		  if ($result->num_rows) {
@@ -78,7 +98,7 @@ switch ($formdirect){
 			}
 		  }
 		break;
-		case apaga:
+		case 'apaga':
 		break;
 }
 $conn->close();

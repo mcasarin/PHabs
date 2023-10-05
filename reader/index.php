@@ -94,23 +94,31 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 				?>
 				</table>
 			</div><!-- end table-responsive -->
+		</div><!-- end col-4 -->
+	</div><!-- end row -->
+	<br><br>
 			<div class="row">
-				
+				<div class="col-4">
 				<form action="functioncard.php" method="post">
 					<input type="hidden" value="0" name="opt" id="opt" />
 					<button class="btn btn-danger btn-lg" type="submit" style="margin-right: 5px;">Limpar dados</button>
 				</form>
+				</div>
+				<div class="col-4">
 				<form action="functioncard.php" method="post">
 					<input type="hidden" value="1" name="opt" id="opt" />
 					<button class="btn btn-success btn-lg" type="submit" style="margin-right: 5px;">Exportar dados</button>
 				</form>
-				
+				</div>
 			</div>
-		</div><!-- end col-4 -->
-	</div><!-- end row -->
+		
 </div><!-- end container -->
 </body>
 </html>
+<script>
+	// foco no input de leitura
+	$('#input').focus();
+</script>
 <?php
 //end file
 ?>

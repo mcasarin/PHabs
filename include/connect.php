@@ -12,5 +12,7 @@ if ($conn->connect_error) {
     header('Location: formconfig.php');
     die("Connection failed: " . $conn->connect_error);
 }
-
+if($servername == '192.168.0.3'){
+    $serverType = "<div style='color:#ff0000;background:#ffff80;margin:5px;text-align: center;'>    ---    Conectado em homologação    ---    Conectado em homologação    ---    Conectado em homologação    ---    </div>";
+}
 ?>

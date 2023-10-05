@@ -1,123 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<script src="js/jquery-3.6.4.min.js"></script>
+	<title> PHabs </title>
+	<style>
+        /* Custom CSS to adjust left sidebar position */
+        .custom-left-sidebar {
+            margin-left: 0; /* Remove default margin */
+            padding-left: 0; /* Add padding to create space between sidebar and content */
+        }
+
+        .custom-left-sidebar .d-flex {
+            margin-left: -380px; /* Compensate for container padding */
+            margin-right: -380px; /* Compensate for container padding */
+        }
+
+        
+		/* Adjust iframe size */
+        .iframe-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
 <?php
 include 'include/function.php';
 sessao();
-if (isLoginSessionExpired() == true){
-	header('location: logout.php'); 
+if (isLoginSessionExpired() == true) {
+	header('location: logout.php');
 }
 $nomeoperador = $_SESSION["nome"];
+if(isset($serverType)){
+	echo $serverType;
+}
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/churchill.css">
-	<script src="js/jquery-1.12.4.js"></script>
-	<script src="js/jquery-ui-1.12.1.js"></script>
-	<script src="js/bootstrap.js"></script>
-<title>PHabs</title>
-</head>
 <body>
-<div class="container">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="http://www.edificiochurchill.com.br" target="_blank"> <img src="img/churchill-minor.png" class="img-rounded" alt="Winston Churchill" width="60" height="60" hspace="10"> </a>
-    	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="nav nav-pills">
-				<li class="nav-item active">
-					<a href="phabs.php" id="MenuSup" class="btn btn-outline-primary"> Início </a>
-				</li>
-				<li class="nav-item dropdown"><!-- Dropdown Visitantes -->
-				<a class="btn btn-outline-primary nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="MenuSup" role="button" aria-haspopup="true" aria-expanded="false">
-					Visitantes</a> <!-- Dropdown Visitantes -->
-					<div class="dropdown-menu">
-						<a href="cadastrovisitantes.php" target="local" class="dropdown-item"> Cadastro </a>
-						<a href="baixavisitantes.php" target="local" class="dropdown-item"> Baixa </a>
-						<a href="consultavisitantes.php?formdirect=consulta" target="local" class="dropdown-item"> Consulta </a>
-					</div><!-- END Dropdown Visitantes -->
-				</li>
-				<li class="nav-item">
-					<a href="empresas/consultaempresa.php" id="MenuSup" target="local" class="btn btn-outline-primary"> Localizza </a>
-				</li>
-			<?php
-			if($_SESSION["tipo"] == '0'){ // operadores administrativos
-			?>
-			<li class="nav-item dropdown"> <!-- Dropdown Empresas -->
-			<a class="btn btn-outline-primary nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="MenuSup" role="button" aria-haspopup="true" aria-expanded="false">
-					 Empresas </a>
-					<div class="dropdown-menu">
-						<a href="empresas/consultaempresa.php" target="local" class="dropdown-item"> Consulta </a>
-						<a href="empresas/index.php" target="local" class="dropdown-item"> Cadastro </a>
-					</div>
-			</li> <!-- END Dropdown Empresas-->
-			<li class="nav-item">&nbsp;
-			</li>
-			<li class="nav-item dropdown"> <!-- Dropdown Usuários -->
-			<a class="btn btn-outline-primary nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="MenuSup" role="button" aria-haspopup="true" aria-expanded="false">
-						Usuários </a>
-					<div class="dropdown-menu">
-						<a href="usuarios/editarusuarios.php?formdirect=insert" target="local" class="dropdown-item"> Cadastro usuários </a>
-						<a href="usuarios/consultausuarios.php?formdirect=consulta" target="local" class="dropdown-item"> Consulta usuários </a>
-						<div class="dropdown-divider"></div>
-						<a href="reader/editarcartoes.php?formdirect=insert" target="local" class="dropdown-item"> CADASTRAR Cartões </a>
-						<a href="reader/cartoesreservados.php" target="local" class="dropdown-item"> Cartões reservados </a>
-						<a href="reader/cartoeslivres.php" target="local" class="dropdown-item"> Cartões livres </a>
-						<a href="reader/index.php" target="local" class="dropdown-item"> Leitura de cartões </a>
-					</div>
-			</li><!-- END Dropdown Usuários -->
-			<?php
-			}//end if operadores administrativos
-			?>
-			</ul>
-    	</div>
-        <div style="display: inline-block; text-align: right; width: 20%">
-        	<a href="include/logout.php" class="btn btn-outline-info" style="margin-left: 20px;margin-right: 10px;">
-          	<b>Operador: <mark><?php echo ucfirst($nomeoperador); ?></mark></b>
-		</a>
-        </div>
-    </nav>
-</div>
-<section class="container-fluid" style="margin-top:10px;margin-bottom:80px;">
-<div class="row">
-<div class="col-2" style="width:100%;float:left;margin-left:5px;margin-right:5px;"> <!-- MENU lateral -->
-		<a href="cadastrovisitantes.php" target="local" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 5px;margin-left:5px;margin-right:5px;"> Cadastro </a><br>
-		<a href="consultavisitantes.php?formdirect=consulta" target="local" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 5px;margin-left:5px;margin-right:5px;"> Consulta </a><br>
-		<a href="baixavisitantes.php" target="local" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 5px;margin-left:5px;margin-right:5px;"> Baixa </a><br>
-		<a href="empresas/consultaempresa.php" target="local" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 5px;margin-left:5px;margin-right:5px;"> Localizza </a><br>
-		<a href="garagem/garagem.php" target="local" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 5px;margin-left:5px;margin-right:5px;"> Garagem </a><br>
-		<a href="usuarios/carona.php" target="local" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 5px;margin-left:5px;margin-right:5px;"> Carona </a><br>
-		<?php
-			if($_SESSION["tipo"] == '0'){//administrativo
-		?>
-			<a href="empresas/index.php" target="local" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 5px;margin-left:5px;margin-right:5px;"> Empresas </a><br>
-			<a href="usuarios/index.php" target="local" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 5px;margin-left:5px;margin-right:5px;"> Usuários </a><br>
-			<a href="relatorios/index.php" target="local" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 5px;margin-left:5px;margin-right:5px;"> Relatórios </a><br>
-			<a href="reader/cartoes.php" target="local" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 5px;margin-left:5px;margin-right:5px;"> Cartões </a><br>
-		<?php
-			}//end if administrativo
-		?>
-</div>
-<div class="col-1">
-&nbsp;
-</div>
-		<div class="col-6">
-			<iframe class="iframe" name="local" width="800" height="600" style="border:0;position:absolute;overflow:hidden" src="index2.php">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #f2f2f2;">
+		<div class="container">
+			<div class="col-2">
+			<a class="navbar-brand" href="http://www.edificiochurchill.com.br" target="_blank">
+				<img src="img/churchill-minor.png" class="d-inline-block align-text-top" alt="Winston Churchill" width="60" height="60"></a>
+			</div>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a href="phabs.php" class="nav-link btn-outline-primary" style="border-radius:10px;margin-right:15px;"> Início </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn-outline-primary" href="visitantes/index.php" target="local" style="border-radius:10px;margin-right:15px;">Visitantes</a>
+					</li>
+					<li class="nav-item">
+						<a href="empresas/consultaempresa.php" class="nav-link btn-outline-primary" target="local" style="border-radius:10px;margin-right:15px;"> Localizza </a>
+					</li>
+					<?php
+					if ($_SESSION["tipo"] == '0') { // operadores administrativos
+						?>
+						<li class="nav-item"> 
+							<a href="empresas/index.php" class="nav-link btn-outline-primary" target="local" style="border-radius:10px;margin-right:15px;">
+								Empresas </a>
+						</li>
+					
+						<li class="nav-item"> 
+							<a class="nav-link btn-outline-primary" href="usuarios/index.php" target="local" style="border-radius:10px;margin-right:15px;">
+								Usuários </a>
+						<?php
+					} //end if operadores administrativos
+					?>
+				</ul>
+				
+				<ul class="navbar-nav ms-auto">
+				<a href="include/logout.php" class="btn btn-outline-info" style="margin: 10px;">
+					<b>Operador: <mark>
+							<?php echo ucfirst($nomeoperador); ?>
+						</mark></b>
+				</a>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-			</iframe>
-		</div>
-		</div> <!-- end row -->
-</section>
-<!-- <footer>
-	<div class="container">
+
+	<div class="container mt-4">
 		<div class="row">
-			<div id="linksImportantes" class="col-md-12">
-			<p class="pull-right"><i> Desenvolvido por </i><strong> Márcio Casarin </strong></p>
-			</div> <!-- Aqui e a area dos links importantes 
-		</div>
-	</div>
+			<div class="col-md-2 custom-left-sidebar"> <!-- MENU lateral -->
+				<a href="cadastrovisitantes.php" target="local" class="btn btn-outline-primary" style="width:80%; margin:5px;padding:5px;"> Cadastro </a><br>
+				<a href="consultavisitantes.php?formdirect=consulta" target="local" class="btn btn-outline-primary" style="width:80%; margin:5px;padding:5px;"> Consulta </a><br>
+				<a href="baixavisitantes.php" target="local" class="btn btn-outline-primary" style="width:80%; margin:5px;padding: 5px;"> Baixa </a><br>
+				<a href="empresas/consultaempresa.php" target="local" class="btn btn-outline-primary"
+					style="width: 80%; margin:5px;padding: 5px;"> Localizza </a><br>
+				<a href="visitantes/index.php" target="local" class="btn btn-outline-primary"
+					style="width:80%; margin:5px;padding: 5px;"> Visitantes </a><br>
+				<a href="garagem/garagem.php" target="local" class="btn btn-outline-primary"
+					style="width:80%; margin:5px;padding: 5px;"> Garagem </a><br>
+				<?php
+				if ($_SESSION["tipo"] == '0' || $_SESSION["tipo"] == '2') { // adm e portaria
+					?>
+				<a href="correio/index.php" target="local" class="btn btn-outline-primary"
+					style="width:80%; margin:5px;padding: 5px;"> Entregas </a><br>
+				<?php
+				} // end if adm e portaria
+				if ($_SESSION["tipo"] == '0') { // adm
+					?>
+					<a href="empresas/index.php" target="local" class="btn btn-outline-primary"
+						style="width:80%; margin:5px;padding: 5px;"> Empresas </a><br>
+					<a href="usuarios/index.php" target="local" class="btn btn-outline-primary"
+						style="width:80%; margin:5px;padding: 5px;"> Usuários </a><br>
+					<a href="relatorios/index.php" target="local" class="btn btn-outline-primary"
+						style="width:80%; margin:5px;padding: 5px;"> Relatórios </a><br>
+					<a href="operadores/index.php" target="local" class="btn btn-outline-primary"
+						style="width:80%; margin:5px;padding: 5px;"> Operadores </a><br>
+					<a href="reader/cartoes.php" target="local" class="btn btn-outline-primary"
+						style="width:80%; margin:5px;padding: 5px;"> Cartões </a><br>
+					<?php
+				} // end if adm
+				?>
+			</div>
+
+			<div class="col-md-10">
+				<div class="iframe-container">
+					<iframe name="local" src="index2.php"></iframe>
+				</div>
+			</div>
+		</div> <!-- end row -->
+	</div> <!-- end row -->
+	<!-- <footer>
+			<p class="pull-right"><i> Desenvolvido por </i><strong> Márcio Casarin. Etwas Informática</strong></p>
 </footer>  -->
+<script src="js/bootstrap.js"></script>
 </body>
 </html>
-<?php
-?>

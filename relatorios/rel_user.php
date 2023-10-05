@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.12.4.js"></script>
-<script src="../js/jquery-ui-1.12.1.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.6.4.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </head>
 <html>
 <body>
@@ -55,20 +54,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 	$sqlcreatetemp = "CREATE TEMPORARY TABLE $tabelatemp SELECT * FROM relusuario LIMIT 0;";
 	$sqlcreatetempexe = $conn->query($sqlcreatetemp);
 	if($sqlcreatetempexe){
-    echo "<div class=\"table-responsive\">
-        <table class=\"table w-auto\">
-        <div class=\"row\"><div class=\"col-sm-4\"><form action=\"exportarpdf.php\" method=\"post\" target=\"_blank\">
-		<input type=\"hidden\" name=\"matricula\" id=\"matricula\" value=$matricula>
-			<input type=\"hidden\" name=\"datatrini\" id=\"datatrini\" value=$datatrini>
-			<input type=\"hidden\" name=\"datatrfim\" id=\"datatrfim\" value=$datatrfim>
-			<input type=\"hidden\" name=\"horainicio\" id=\"horainicio\" value=$horainicio>
-			<input type=\"hidden\" name=\"horafim\" id=\"horafim\" value=$horafim>
-        <button type=\"submit\" name=\"btnexportpdf\" id=\"btnexportpdf\">Exportar PDF</button>
+    echo "<div class='table-responsive'>
+        <table class='table w-auto'>
+        <div class='row'><div class='col-sm-4'><form action='exportarpdf.php' method='post' target='_blank'>
+		<input type='hidden' name='matricula' id='matricula' value=$matricula>
+			<input type='hidden' name='datatrini' id='datatrini' value=$datatrini>
+			<input type='hidden' name='datatrfim' id='datatrfim' value=$datatrfim>
+			<input type='hidden' name='horainicio' id='horainicio' value=$horainicio>
+			<input type='hidden' name='horafim' id='horafim' value=$horafim>
+        <button type='submit' class='btn btn-outline-dark' name='btnexportpdf' id='btnexportpdf'>Exportar PDF</button>
         </form></div>
-        <div class=\"col-sm-4\"><form action=\"exportarxls.php\" method=\"post\">
-        <button type=\"submit\" name=\"btnexportxls\" id=\"btnexportxls\">Exportar XLS</button>
+        <div class='col-sm-4'><form action='exportarxls.php' method='post'>
+        <button type='submit' class='btn btn-outline-dark' name='btnexportxls' id='btnexportxls'>Exportar XLS</button>
         </form></div>
-        <div class=\"col-sm-4\">$voltar</div>
+        <div class='col-sm-4'>$voltar</div>
 			</div>
 			<div class=\"table-responsive-sm folha a4_vertical\" id=\"relatorio\">
 			<table class=\"table w-auto\">
@@ -108,11 +107,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     $id = $linhatemp["ID"];
                     $coletor = $linhatemp["Coletor"];
                     $data = $linhatemp["Data"];
+                    $data = date("d/m/Y",strtotime($data));
                     $hora = $linhatemp["Hora"];
                     $acesso = $linhatemp["Acesso"];  
                 echo "<tr><td>$nome</td><td>$empresa</td><td>$matricula</td><td>$cartao</td><td>$id</td><td>$coletor</td><td>$data</td><td>$hora</td><td>$acesso</td></tr>";
                 } // end while temp
-                $sqltempfinal->close(); //free result set
+                $sqltempfinalexe->close(); //free result set
             } else {// end if temp
                 echo "Não foi encontrado nenhum dado no período informado.<br />";
                 echo $tentarnovamente."<br />";

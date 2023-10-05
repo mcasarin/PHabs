@@ -4,7 +4,7 @@ include '../include/connect.php';
 sessao();
 			
 $empresa = $_GET['empresa'];
-
+$optempresa = $_GET['optempresa'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,12 +29,16 @@ $empresa = $_GET['empresa'];
 
 	if(isset($empresa)){
 		//echo $empresa."<br />";
-		$sql = "SELECT nome,id,matricula FROM usuarios WHERE empresa like '".$empresa." -%' order by matricula +0 ASC;";
+		if($optempresa == "relatorio"){
+			$sql = "SELECT nome,id,matricula FROM usuarios WHERE empresa like '".$empresa." -%' order by matricula +0 ASC;";
+		} elseif($optempresa == "relempresaestac") {
+			$sql = "SELECT nome,id,matricula FROM usuarios WHERE empresa like '".$empresa." -%' and placa > '0' order by matricula +0 ASC;";
+		}
 		//echo $sql."<br />";
 		$resultsql = $conn->query($sql);
 		echo "<form action=\"rel_empresa.php\" method=\"POST\">";
 		echo "<thead class=\"thead-dark\"><b>Selecione o(s) usuários(s)</b></thead>";
-		echo "<select name=\"usuarios[]\" id=\"usuarios\" class=\"form-control\" multiple size=\"15\" required>";
+		echo "<select name=\"usuarios[]\" id=\"usuarios\" class=\"form-control\" multiple size=\"12\" required>";
 		if($resultsql->num_rows > 0) {
 			while ($row = $resultsql->fetch_array(MYSQLI_ASSOC)){
 				echo "<option value=\"$row[matricula]\"> $row[matricula] - $row[nome] </option>";

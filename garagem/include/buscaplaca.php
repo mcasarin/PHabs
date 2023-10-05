@@ -27,7 +27,7 @@ $placa = $_POST["placa"];
 			<p><strong>Preencha com a placa!</strong><br>Campo não pode estar vazio.</p>
 			</div>";
 		} else {
-			$sqlbusca = "SELECT Nome,Empresa,Placa,Veiculo FROM usuarios WHERE Placa = '".$placa."'";
+			$sqlbusca = "SELECT Nome,Empresa,Placa,Veiculo FROM usuarios WHERE Placa = '".$placa."' AND Bloq = 0";
 				$result = $conn->query($sqlbusca);
 				if ($result->num_rows > 0) {
 					while ($linha = $result->fetch_array(MYSQLI_ASSOC)){
@@ -42,7 +42,7 @@ $placa = $_POST["placa"];
 						exit();
 					} // end while
 				} else {
-					$sqlbuscaaut = "SELECT periodoini,periodofim,nomeautoriza,empresa,nomeutiliza,placa FROM autoriza WHERE placa = '".$placa."' AND periodoini >= {$today} LIMIT 1"; // busca com condicional usando data com falha ao usar a string, cadastro por string/post funcional
+					$sqlbuscaaut = "SELECT periodoini,periodofim,nomeautoriza,empresa,nomeutiliza,placa FROM autoriza WHERE placa = '".$placa."' AND periodofim >= '".$today."' LIMIT 1";
 					$resultaut = $conn->query($sqlbuscaaut);
 						if ($resultaut->num_rows > 0) {
 							while ($linha = $resultaut->fetch_array(MYSQLI_ASSOC)){
@@ -52,9 +52,9 @@ $placa = $_POST["placa"];
 								$periodofi = $linha['periodofim'];
 								$periodofim = explode("-",$periodofi);
 								$periodofim = $periodofim[2]."/".$periodofim[1]."/".$periodofim[0];
-								$nomeautoriza = $linha['nomeautoriza'];
+								$nomeautoriza = strtoupper($linha['nomeautoriza']);
 								$empresa = $linha['empresa'];
-								$nomeutiliza = $linha['nomeutiliza'];
+								$nomeutiliza = strtoupper($linha['nomeutiliza']);
 								$placa = $linha['placa'];
 								echo "<div class=\"alert alert-success\" role=\"alert\" style=\"text-align:center;width:380px;\">";
 								if($periodoin > $today){
@@ -64,7 +64,8 @@ $placa = $_POST["placa"];
 								}
 								echo "<p style=\"text-align:left;\">Placa registrada no conjunto: <br><b>".$empresa."</b><br>
 								Período: <b>".$periodoini."</b> até <b>".$periodofim."</b><br>
-								Autorizado por: <b>".$nomeautoriza."</b><br>
+								Autorizado por: ".$nomeautoriza."<br>
+								Motorista/utilizador: <b>".$nomeutiliza."</b><br>
 								<i><b>Lembre-se:</b> O registro do veículo deve ser feito como visitante na vaga do conjunto acima.</i>
 								</p>
 								</div>";

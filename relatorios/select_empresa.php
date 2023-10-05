@@ -13,7 +13,8 @@ sessao();
 $empresa = "";
 $empresasonum = "";
 
-
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+	$optempresa = $_POST["optempresa"];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,7 +24,7 @@ $empresasonum = "";
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" href="../js/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker3.css">
-<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/jquery-3.6.4.min.js"></script>
 <script src="../js/bootstrap.js"></script>
 <script src="../js/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js"></script>
 <script src="../js/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.pt-BR.min.js"></script>
@@ -37,6 +38,7 @@ $empresasonum = "";
 <table class="table table-hover table-md">
 	<thead class="thead-dark"><b>Selecione a empresa</b></thead>
 		<form action="sql_user.php" id="rel_empresa" method="get">
+		<input type="hidden" name="optempresa" value="<?php echo $optempresa; ?>">
 	<tr><td>Empresa: 
 		        <select name="empresa" id="empresa" class="form-control" required>";
 		        <option value="off">Selecionar a empresa</option>";	
@@ -67,7 +69,7 @@ $empresasonum = "";
 				<button type=\"submit\" class=\"btn btn-primary btn-lg\" id=\"loading\" autocomplete=\"off\"> Selecionar empresa </button>
 				</div></div>";
 			// fim da combo usuario pos select
-		$conn->close;
+		$conn->close();
 		?>
 		</td></tr>
 </table>
@@ -78,5 +80,6 @@ $empresasonum = "";
 </body>
 </html>
 <?php
+} // POST
 //end file
 ?>

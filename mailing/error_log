@@ -1,0 +1,459 @@
+[12-Jul-2022 13:02:11 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/edchurchill/public_html/mailing/index.php on line 36
+[12-Jul-2022 13:03:11 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/edchurchill/public_html/mailing/index.php on line 36
+[13-Jul-2022 19:52:38 UTC] PHP Notice:  Undefined index: formmailing in /home/edchurchill/public_html/mailing/jobsend.php on line 4
+[13-Jul-2022 19:56:23 UTC] PHP Notice:  Undefined index: formmailing in /home/edchurchill/public_html/mailing/jobsend.php on line 4
+[13-Jul-2022 19:57:24 UTC] PHP Notice:  Undefined index: formmailing in /home/edchurchill/public_html/mailing/jobsend.php on line 4
+[13-Jul-2022 19:57:24 UTC] PHP Notice:  Undefined index: formmailingh in /home/edchurchill/public_html/mailing/jobsend.php on line 5
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined index: formmailing in /home/edchurchill/public_html/mailing/jobsend.php on line 4
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined variable: sqlcoletaexe in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 19:59:56 UTC] PHP Notice:  Undefined property: mysqli::$query in /home/edchurchill/public_html/mailing/jobsend.php on line 29
+[13-Jul-2022 20:00:36 UTC] PHP Notice:  Undefined index: formmailing in /home/edchurchill/public_html/mailing/jobsend.php on line 4
+[13-Jul-2022 20:02:30 UTC] PHP Notice:  Undefined index: formmailing in /home/edchurchill/public_html/mailing/jobsend.php on line 4
+[13-Jul-2022 20:45:35 UTC] PHP Notice:  Undefined index: formmailing in /home/edchurchill/public_html/mailing/jobsend.php on line 4
+[14-Jul-2022 01:01:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_real_escape_string() in /home/edchurchill/public_html/mailing/jobsend.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/jobsend.php on line 34
+[14-Jul-2022 01:06:49 UTC] PHP Warning:  base64_decode() expects parameter 1 to be string, object given in /home/edchurchill/public_html/mailing/cronmailing.php on line 16
+[14-Jul-2022 01:08:21 UTC] PHP Warning:  base64_decode() expects parameter 1 to be string, object given in /home/edchurchill/public_html/mailing/cronmailing.php on line 14
+[14-Jul-2022 01:09:36 UTC] PHP Warning:  base64_decode() expects parameter 1 to be string, object given in /home/edchurchill/public_html/mailing/cronmailing.php on line 14
+[14-Jul-2022 01:11:14 UTC] PHP Warning:  base64_decode() expects parameter 1 to be string, array given in /home/edchurchill/public_html/mailing/cronmailing.php on line 15
+[14-Jul-2022 01:12:00 UTC] PHP Warning:  mysqli_result::fetch_assoc() expects exactly 0 parameters, 1 given in /home/edchurchill/public_html/mailing/cronmailing.php on line 14
+[14-Jul-2022 01:16:58 UTC] PHP Warning:  mysqli_result::fetch_assoc() expects exactly 0 parameters, 1 given in /home/edchurchill/public_html/mailing/cronmailing.php on line 15
+[14-Jul-2022 01:20:40 UTC] PHP Warning:  base64_decode() expects parameter 1 to be string, array given in /home/edchurchill/public_html/mailing/cronmailing.php on line 15
+[14-Jul-2022 01:25:03 UTC] PHP Warning:  base64_decode() expects parameter 1 to be string, array given in /home/edchurchill/public_html/mailing/cronmailing.php on line 15
+[14-Jul-2022 01:52:38 UTC] PHP Warning:  base64_decode() expects parameter 1 to be string, array given in /home/edchurchill/public_html/mailing/cronmailing.php on line 15
+[14-Jul-2022 01:55:31 UTC] PHP Warning:  base64_decode() expects parameter 1 to be string, array given in /home/edchurchill/public_html/mailing/cronmailing.php on line 15
+[14-Jul-2022 01:55:31 UTC] PHP Warning:  strtr() expects at least 2 parameters, 1 given in /home/edchurchill/public_html/mailing/cronmailing.php on line 15
+[14-Jul-2022 01:56:02 UTC] PHP Warning:  strtr() expects at least 2 parameters, 1 given in /home/edchurchill/public_html/mailing/cronmailing.php on line 15
+[14-Jul-2022 01:56:38 UTC] PHP Warning:  base64_decode() expects parameter 1 to be string, array given in /home/edchurchill/public_html/mailing/cronmailing.php on line 15
+[20-Jul-2022 13:39:03 UTC] PHP Warning:  Use of undefined constant MYSQL_ASSOC - assumed 'MYSQL_ASSOC' (this will throw an Error in a future version of PHP) in /home/edchurchill/public_html/mailing/cronmailing.php on line 21
+[20-Jul-2022 13:39:03 UTC] PHP Warning:  mysqli_result::fetch_array() expects parameter 1 to be int, string given in /home/edchurchill/public_html/mailing/cronmailing.php on line 21
+[20-Jul-2022 13:40:36 UTC] PHP Warning:  Use of undefined constant BASE_URL - assumed 'BASE_URL' (this will throw an Error in a future version of PHP) in /home/edchurchill/public_html/mailing/cronmailing.php on line 30
+[20-Jul-2022 13:40:36 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer' not found in /home/edchurchill/public_html/mailing/cronmailing.php:55
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 55
+[20-Jul-2022 13:46:53 UTC] PHP Warning:  require(/PHPMailer/src/Exception.php): failed to open stream: No such file or directory in /home/edchurchill/public_html/mailing/cronmailing.php on line 6
+[20-Jul-2022 13:46:53 UTC] PHP Fatal error:  require(): Failed opening required '/PHPMailer/src/Exception.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/edchurchill/public_html/mailing/cronmailing.php on line 6
+[20-Jul-2022 14:02:59 UTC] PHP Warning:  Use of undefined constant BASE_URL - assumed 'BASE_URL' (this will throw an Error in a future version of PHP) in /home/edchurchill/public_html/mailing/cronmailing.php on line 30
+[20-Jul-2022 14:02:59 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer' not found in /home/edchurchill/public_html/mailing/cronmailing.php:55
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 55
+[20-Jul-2022 14:04:33 UTC] PHP Warning:  Use of undefined constant BASE_URL - assumed 'BASE_URL' (this will throw an Error in a future version of PHP) in /home/edchurchill/public_html/mailing/cronmailing.php on line 32
+[20-Jul-2022 14:04:33 UTC] PHP Fatal error:  Uncaught Error: Class 'SMTP' not found in /home/edchurchill/public_html/mailing/cronmailing.php:71
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 71
+[20-Jul-2022 14:05:08 UTC] PHP Warning:  Use of undefined constant BASE_URL - assumed 'BASE_URL' (this will throw an Error in a future version of PHP) in /home/edchurchill/public_html/mailing/cronmailing.php on line 32
+[20-Jul-2022 14:05:08 UTC] PHP Fatal error:  Uncaught Error: Class 'SMTP' not found in /home/edchurchill/public_html/mailing/cronmailing.php:71
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 71
+[20-Jul-2022 14:11:35 UTC] PHP Warning:  Use of undefined constant BASE_URL - assumed 'BASE_URL' (this will throw an Error in a future version of PHP) in /home/edchurchill/public_html/mailing/cronmailing.php on line 33
+[20-Jul-2022 14:53:07 UTC] PHP Warning:  Use of undefined constant BASE_URL - assumed 'BASE_URL' (this will throw an Error in a future version of PHP) in /home/edchurchill/public_html/mailing/cronmailing.php on line 33
+[20-Jul-2022 16:40:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/edchurchill/public_html/mailing/cronmailing.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 88
+[20-Jul-2022 16:42:01 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in /home/edchurchill/public_html/mailing/cronmailing.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 88
+[20-Jul-2022 16:44:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/edchurchill/public_html/mailing/cronmailing.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 88
+[20-Jul-2022 16:44:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/edchurchill/public_html/mailing/cronmailing.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 88
+[20-Jul-2022 16:44:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/edchurchill/public_html/mailing/cronmailing.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 88
+[20-Jul-2022 16:46:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/edchurchill/public_html/mailing/cronmailing.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 88
+[20-Jul-2022 16:46:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/edchurchill/public_html/mailing/cronmailing.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/edchurchill/public_html/mailing/cronmailing.php on line 88

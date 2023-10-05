@@ -156,7 +156,7 @@ $vagaencontrada = "";
 		echo "<span class='alert alert-warning'>Vaga informada no formulário <b>não</b> foi encontrada nas vagas cadastradas do conjunto.</span><br><br>";
 		$botaoValida = "<a class='btn btn-dark' href=''>Validar Solicitação</a>";
 	} else {
-		$botaoValida = "<a class='btn btn-success' href='validaexec.php?ID=$ID&valid=S&motivo=Tag_encaminhada'>Validar Solicitação</a>";
+		$botaoValida = "<a class='btn btn-success' href='validaexec.php?ID=".$ID."&valid=S&motivo=Tag_encaminhada'>Validar Solicitação</a>";
 	}
 	echo "<div class='row'>
 	<div class='col-md-6 container col-centered'>";

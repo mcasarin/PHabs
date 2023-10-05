@@ -37,7 +37,7 @@ if(isset($_GET["formdirect"])){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" href="../js/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker3.css">
-<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/jquery-3.6.4.min.js"></script>
 <script src="../js/bootstrap.js"></script>
 <script src="../js/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js"></script>
 <script src="../js/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.pt-BR.min.js"></script>

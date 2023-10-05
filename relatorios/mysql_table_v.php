@@ -1,5 +1,5 @@
 <?php
-require('fpdf/fpdf.php');
+require('fpdf186/fpdf.php');
 
 
 class PDF_MySQL_Table extends FPDF

@@ -23,16 +23,19 @@ sessao();
 			<h3>Busca por placa</h3>
 			<h6>(condomínio e visitantes)</h6>
 			<br>
-				<form class="form-inline" target="buscaframe" method="post" action="include/buscaplaca.php" name="buscaplaca" id="buscaplaca">
-					<div class="col-sm">
-						<input class="form-control" type="text" placeholder="Formato AAA9999" maxlength="7" name="placa" id="placa" name="placa" style="text-transform:uppercase" autofocus />
+				<form class="row g-3" target="buscaframe" method="post" action="include/buscaplaca.php" name="buscaplaca" id="buscaplaca">
+					<div class="col-auto">
+						<input class="form-control" type="text" placeholder="Formato AAA9999" maxlength="7" size="30" id="placa" name="placa" style="text-transform:uppercase" autofocus />
 					</div>
-					<div class="col-sm">
+					
+					
+					<div class="col-auto">
 						<input type="submit" class="btn btn-primary" name="botaobusca" value=" Buscar ">
 					</div>
-					<div class="col-sm">
+					<div class="col-auto">
 						<button type="reset" class="btn btn-warning" name="botaolimpa" onclick="self.location.reload();"> Limpar </button>
 					</div>
+				
 				</form>
 			</div>
 		</div>

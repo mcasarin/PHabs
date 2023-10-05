@@ -21,12 +21,13 @@ if (!mysqli_set_charset($conn_local, "latin1")) {
 
 $diatual = "d".(date("dmY"));
 echo $diatual."<br>";
-$dianterior = "d".(date("dmY",strtotime("-1 day")));
-echo $dianterior;
+$diaposterior = "d".(date("dmY",strtotime("+1 day")));
+echo $diaposterior."<br>";
 
-$sql = $conn_local->query("create table $diatual as select * from $dianterior limit 0");
+$sql = $conn_local->query("create table $diaposterior as select * from $diatual limit 0");
 if($sql){
 	echo "<h2><b>Tabela criada!</h2>";
 } else {
-	echo "<h2><b>Falha na criação da tabela do DIA</h2>";
+	echo "<h2><b>Falha na criação da tabela do DIA</h2><br>
+	".mysqli_connect_error();
 }

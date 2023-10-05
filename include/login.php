@@ -24,7 +24,7 @@ $terminalarr = explode(".", $terminalbr);
 $terminal = $terminalarr[3];
 //echo $login."<br>";
 //echo $senha."<br>";
-$sql = "SELECT Login, Senha, Nome, SenhaBloq, Tipo FROM operadores WHERE Login = '".$login."' AND Senha = '".md5($senha)."'";
+$sql = "SELECT Login, Senha, Nome, SenhaBloq, Tipo FROM operadores WHERE Nome = '".$login."' AND Senha = '".md5($senha)."'";
 //echo $sql;
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {

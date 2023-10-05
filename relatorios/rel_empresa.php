@@ -5,9 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.12.4.js"></script>
-<script src="../js/jquery-ui-1.12.1.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-3.6.4.min.js"></script>
+<script src="../js/bootstrap.js"></script>
 </head>
 <html>
 <body>
@@ -65,7 +64,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 			<button>Exportar PDF</button></form>
 			</div>
         <div class=\"col-sm-4\"><form action=\"exportarxls.php\" method=\"post\">
-			<input type=\"hidden\" name=\"sql\" id=\"sql\" value=$sql>
+			<input type=\"hidden\" name=\"sql\" id=\"sql\" value=\"\">
 			<button type=\"submit\" name=\"btnexportxls\" id=\"btnexportxls\">Exportar XLS</button>
 			</form></div>
 			<div class=\"col-sm-4\">$voltar</div>
@@ -135,7 +134,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     $acesso = $linhatemp["Acesso"];  
                 echo "<tr><td>$nome</td><td>$empresa</td><td>$matricula</td><td>$cartao</td><td>$id</td><td>$coletor</td><td>$data</td><td>$hora</td><td>$acesso</td></tr>";
                 } // end while temp
-                $sqltempfinal->close(); //free result set
+                $sqltempfinalexe->close(); //free result set
             } else {// end if temp
                 echo "Não foi encontrado nenhum dado no período informado.<br />";
                 echo $voltar."<br />";

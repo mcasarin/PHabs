@@ -1,0 +1,4 @@
+AuthName "Acesso Restrito à Usuários"
+AuthType Basic
+AuthUserFile C:/xampp/htdocs/nitcabs/.htpasswd
+require valid-user

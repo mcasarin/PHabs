@@ -36,15 +36,15 @@ if(mysqli_num_rows($result) > 0) {
  while($row = mysqli_fetch_array($result))
  {
   $output .= '<tr><td><form action="include/execbaixa.php" method="post">
-  <input type="hidden" name="rg" id="rg" value="'.$row[Doc].'">
-	<input type="hidden" name="cartao" id="cartao" value="'.$row[Matricula].'">
+  <input type="hidden" name="rg" id="rg" value="'.$row["Doc"].'">
+	<input type="hidden" name="cartao" id="cartao" value="'.$row["Matricula"].'">
   <button type="submit" name="submit" class="btn btn-outline-dark btn-sm"> Baixa </button></td>
-	<td>'.$row[Doc].'</td><td>'.$row[Nome].'</td><td>'.$row[Matricula].'</td><td>'.$row[Campo1].'</td></tr></form>';
+	<td>'.$row["Doc"].'</td><td>'.$row["Nome"].'</td><td>'.$row["Matricula"].'</td><td>'.$row["Campo1"].'</td></tr></form>';
  }
  $output .= '</table>';
  echo $output;
 } else {
  echo $output .= '<div class="bg-warning" style="width: 300px;text-align:center"> Nenhum registro encontrado!</div>';
 }
-$conn->close;
+$conn->close();
 ?>

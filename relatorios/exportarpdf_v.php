@@ -43,7 +43,9 @@ function Footer(){
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
 	$rg = $_POST['rg'];
-	$empresa = $_POST['empresa'];
+    if(isset($_POST['empresa'])){
+        $empresa = $_POST['empresa'];
+    }
 	$datatrini = $_POST['datatrini'];
 	$datatrfim = $_POST['datatrfim'];
 	$horainicio = $_POST['horainicio'];
@@ -70,8 +72,10 @@ $prop = array('HeaderColor'=>array(255,150,100),
             'padding'=>1);
 $pdf->Table($conn,'select Visitante,Empresa,Matricula,RG,Acesso,DataAcesso,HoraAcesso,DColetor,Autorizado,Terminal,Login from '.$tabelatemp.' order by RG,DataAcesso,HoraAcesso ASC',$prop);
 $pdf->AliasNbPages();
-$pdf->Output();
-$sqltempfinal->close(); //free result set
+ob_clean();
+// force download D
+$pdf->Output('D','relatorio_visitante.pdf');
+$sqlexe->close(); //free result set
 	} //end create temptable
 $conn->close();
 } //end if post

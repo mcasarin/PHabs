@@ -26,7 +26,7 @@ sessao();
 /* Validar SQL para agregar campos
 select ybd53_facileforms_records.id as idsoltag, ybd53_facileforms_records.username as usuario,ybd53_facileforms_records.user_full_name as nome,ybd53_facileforms_records.form as form, ybd53_facileforms_records.user_id as userid, ybd53_facileforms_records.submitted as datahora, ybd53_empresa.Empresa as Empresa from ybd53_facileforms_records,ybd53_users,ybd53_empresa,ybd53_fields_values where ybd53_facileforms_records.user_id = ybd53_users.id and ybd53_fields_values.value = ybd53_empresa.id_empresa and ybd53_facileforms_records.form='4' order by ybd53_facileforms_records.submitted ASC;
 */
-$sql = "SELECT a.id AS idsoltag, a.submitted AS datahora, a.username AS usuario, a.user_full_name AS nome, a.form AS form, b.Empresa AS Empresa FROM ybd53_facileforms_records a JOIN ybd53_fields_values c ON c.item_id = a.user_id JOIN ybd53_empresa b ON c.value = b.id_empresa WHERE a.form='4' AND a.archived='0' AND a.id NOT IN (SELECT record FROM ybd53_facileforms_subrecords WHERE element = '385') ORDER BY datahora DESC";
+$sql = "SELECT a.id AS idsoltag, a.submitted AS datahora, a.username AS usuario, a.user_full_name AS nome, a.form AS form, b.Empresa AS Empresa FROM ybd53_facileforms_records a JOIN ybd53_fields_values c ON c.item_id = a.user_id JOIN ybd53_empresa b ON c.value = b.id_empresa WHERE a.form='4' AND a.id NOT IN (SELECT record FROM ybd53_facileforms_subrecords WHERE element = '385') ORDER BY datahora DESC";
 
 $listSolTag = $connremote->query($sql);
 ?>

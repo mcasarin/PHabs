@@ -5,9 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery-1.12.4.js"></script>
-<script src="../js/jquery-ui-1.12.1.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-3.6.4.min.js"></script>
+<script src="../js/bootstrap.js"></script>
 <style>
 html {
 	font-style:arial;
@@ -124,7 +123,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 					$autorizado = $linhatemp["Autorizado"];				
                 echo "<tr><td>$visitante</td><td>$empresa</td><td>$matricula</td><td>$rg</td><td>$empresavis</td><td>$acesso</td><td>$dataacesso</td><td>$horaacesso</td><td>$dcoletor</td><td>$autorizado</td><td>$terminal</td><td>$login</td></tr>";
                 } // end while temp
-                $sqltempfinal->close(); //free result set
+                $sqltempfinalexe->close(); //free result set
 				echo "</table></div>";
 				echo "<div id=\"novorelatorio\"></div>";
 			} else {//end if sqltempfinalexe
