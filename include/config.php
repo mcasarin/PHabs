@@ -1,11 +1,11 @@
 <?php 
-$servername='192.168.0.3';
+$servername='host';
 $username='root';
-$password='mysqlbanco';
-$dbname='nitcabs';
+$password='pass';
+$dbname='dbname';
 
 // MySQL remoto - SITE
-$remote = "edificiochurchill.com.br";
-$usersite = "edchurchill_usrst";
-$pass = "N@pol3ao";
-$db = "edchurchill_mainsite";
+$remote = "host";
+$usersite = "user";
+$pass = "pass";
+$db = "dbname";
