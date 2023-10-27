@@ -1,10 +1,10 @@
 <?php
 
 //Server Local - NitCabs
-$servername = "192.168.0.100";
-$username = "root";
-$password = "mysqlbanco";
-$dbname = "nitcabs";
+$servername = "IP ou Nome";
+$username = "user";
+$password = "senha";
+$dbname = "dbname";
 
 // Create connection
 $conn_local = mysqli_connect($servername, $username, $password, $dbname);
